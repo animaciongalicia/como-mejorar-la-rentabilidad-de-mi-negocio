@@ -8,6 +8,8 @@ export interface PostFrontmatter {
   cluster?: string
   pilar?: string
   tags?: string[]
+  tipo?: 'articulo' | 'caso-practico' | 'herramienta' | 'minicurso' // Tipo de contenido — determina en qué sección especial aparece
+  sector?: string      // Sector del negocio — para la sección /sectores (hosteleria, retail, servicios, taller...)
   author?: string
   featured?: boolean
   slug: string

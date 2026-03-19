@@ -1,95 +1,94 @@
+// Topic clusters — cada pilar agrupa clusters temáticos
+// Pilar = página sede | Cluster = subtema | Posts = contenido de cada cluster
+
 export const PILLARS = [
   {
-    id: 'diagnostico',
-    name: 'Diagnóstico empresarial',
+    id: 'diagnostico-empresarial',
+    name: 'Diagnóstico',
     slug: 'diagnostico-empresarial',
-    description: 'Aprende a radiografiar tu negocio para detectar fugas de dinero y oportunidades ocultas.',
-    clusters: ['analisis-financiero', 'kpis', 'punto-muerto', 'rentabilidad-real']
+    description: 'Radiografía de tu negocio. Detecta fugas de dinero y oportunidades ocultas antes de tomar decisiones.',
+    clusters: ['analisis-financiero', 'kpis', 'punto-muerto', 'rentabilidad-real'],
   },
   {
-    id: 'precios-margenes',
-    name: 'Precios y márgenes',
+    id: 'precios-y-margenes',
+    name: 'Precios',
     slug: 'precios-y-margenes',
-    description: 'Domina el arte de fijar precios que vendan y que ganen dinero.',
-    clusters: ['calculo-precios', 'margen-bruto', 'margen-contribucion', 'psicologia-precios']
+    description: 'Cómo poner precio, defender el margen y dejar de malvender tu trabajo.',
+    clusters: ['calculo-precios', 'margen-bruto', 'margen-contribucion', 'psicologia-precios'],
   },
   {
-    id: 'costes',
-    name: 'Costes',
-    slug: 'costes',
-    description: 'Controla tus costes sin destruir tu negocio ni tu equipo.',
-    clusters: ['costes-fijos', 'costes-variables', 'reduccion-costes', 'costes-ocultos']
+    id: 'productos-servicios',
+    name: 'Producto/Servicio',
+    slug: 'productos-servicios',
+    description: 'Lo que vendes importa. Cómo diseñar, empaquetar y diferenciar tu oferta para que el cliente no compare por precio.',
+    clusters: ['diseno-oferta', 'diferenciacion', 'packaging-servicio', 'propuesta-valor'],
   },
   {
     id: 'ventas',
     name: 'Ventas',
     slug: 'ventas',
-    description: 'Vende más y mejor sin depender de descuentos ni de suerte.',
-    clusters: ['ticket-medio', 'conversion', 'fidelizacion', 'upselling']
+    description: 'Vender más a los clientes que ya tienes y atraer los que necesitas. Sin descuentos, sin suerte.',
+    clusters: ['ticket-medio', 'conversion', 'fidelizacion', 'upselling'],
   },
   {
     id: 'procesos',
     name: 'Procesos',
     slug: 'procesos',
-    description: 'Los procesos correctos son la diferencia entre un negocio que te libera y uno que te esclaviza.',
-    clusters: ['automatizacion', 'estandarizacion', 'productividad', 'operaciones']
+    description: 'Operaciones y sistemas para que tu negocio funcione sin depender de ti.',
+    clusters: ['automatizacion', 'estandarizacion', 'productividad', 'control-operaciones'],
   },
   {
     id: 'personas',
     name: 'Personas',
     slug: 'personas',
-    description: 'Tu equipo puede multiplicar o destruir tu rentabilidad. Aquí aprendes a gestionarlo.',
-    clusters: ['liderazgo', 'productividad-equipo', 'motivacion', 'contratacion']
+    description: 'Tu equipo puede multiplicar o destruir tu rentabilidad. Gestión práctica de personas y empleados.',
+    clusters: ['contratacion', 'productividad-equipo', 'motivacion', 'despido-rotacion'],
   },
   {
     id: 'marketing-rentable',
-    name: 'Marketing rentable',
+    name: 'Publicidad/Marketing',
     slug: 'marketing-rentable',
-    description: 'Marketing que genera retorno, no solo visibilidad.',
-    clusters: ['roi-marketing', 'captacion-clientes', 'fidelizacion', 'marketing-local']
-  },
-  {
-    id: 'herramientas',
-    name: 'Herramientas',
-    slug: 'herramientas',
-    description: 'Las herramientas que usan los negocios rentables para gestionar mejor con menos.',
-    clusters: ['excel-negocio', 'software-gestion', 'dashboards', 'kpis-practicos']
-  },
-  {
-    id: 'sectorial',
-    name: 'Sectorial',
-    slug: 'sectorial',
-    description: 'Estrategias específicas para tu tipo de negocio.',
-    clusters: ['hosteleria', 'retail', 'servicios', 'taller']
+    description: 'Marketing que genera retorno, no solo visibilidad. Para negocios físicos y locales.',
+    clusters: ['roi-marketing', 'captacion-clientes', 'fidelizacion-marketing', 'marketing-local'],
   },
   {
     id: 'emprendimiento',
     name: 'Emprendimiento',
     slug: 'emprendimiento',
-    description: 'Montar un negocio rentable desde el principio, no a base de errores caros.',
-    clusters: ['validacion', 'modelo-negocio', 'primeros-pasos', 'errores-comunes']
+    description: 'Montar un negocio rentable desde el principio. Sin errores caros, sin perder el tiempo.',
+    clusters: ['validacion', 'modelo-negocio', 'primeros-pasos', 'errores-comunes'],
   },
   {
-    id: 'capacidad-empresarial',
-    name: 'Capacidad empresarial',
-    slug: 'capacidad-empresarial',
-    description: 'Las habilidades mentales y estratégicas que separan a los negocios que crecen de los que sobreviven.',
-    clusters: ['mentalidad', 'toma-decisiones', 'vision', 'resiliencia']
+    id: 'mentalidad',
+    name: 'Mentalidad',
+    slug: 'mentalidad',
+    description: 'La cabeza del empresario es el primer negocio que hay que rentabilizar.',
+    clusters: ['mentalidad-empresarial', 'toma-decisiones', 'resiliencia', 'gestion-estres'],
   },
   {
-    id: 'dinero-personal',
-    name: 'Dinero personal del empresario',
+    id: 'liderazgo',
+    name: 'Liderazgo',
+    slug: 'liderazgo',
+    description: 'Dirigir con claridad. Tomar decisiones, gestionar el equipo y crecer sin perder el norte.',
+    clusters: ['vision-estrategica', 'comunicacion-equipo', 'delegacion', 'cultura-empresa'],
+  },
+  {
+    id: 'dinero-personal-empresario',
+    name: 'Dinero Personal',
     slug: 'dinero-personal-empresario',
-    description: 'El negocio debe trabajar para ti. Aprende a gestionar tu dinero personal como dueño.',
-    clusters: ['sueldo-empresario', 'finanzas-personales', 'separar-cuentas', 'riqueza']
+    description: 'El negocio debe trabajar para ti. Sueldo, fiscalidad y finanzas personales del dueño.',
+    clusters: ['sueldo-empresario', 'finanzas-personales', 'separar-cuentas', 'riqueza'],
   },
-  {
-    id: 'fases-negocio',
-    name: 'Fases del negocio',
-    slug: 'fases-del-negocio',
-    description: 'Cada fase de un negocio tiene sus propios retos. Aquí los resolvemos uno a uno.',
-    clusters: ['arranque', 'estabilizacion', 'crecimiento', 'consolidacion']
-  }
+]
+
+// Sectores — para la sección especial /sectores
+export const SECTORES = [
+  { id: 'hosteleria', name: 'Hostelería', slug: 'hosteleria', description: 'Bares, restaurantes y cafeterías.' },
+  { id: 'retail', name: 'Comercio / Retail', slug: 'retail', description: 'Tiendas físicas y comercio local.' },
+  { id: 'servicios', name: 'Negocios de Servicios', slug: 'servicios', description: 'Autónomos y empresas de servicios.' },
+  { id: 'taller', name: 'Talleres y Artesanía', slug: 'taller', description: 'Talleres mecánicos, artesanos y oficios.' },
+  { id: 'salud-bienestar', name: 'Salud y Bienestar', slug: 'salud-bienestar', description: 'Clínicas, centros de estética, gimnasios.' },
+  { id: 'inmobiliario', name: 'Inmobiliario', slug: 'inmobiliario', description: 'Agencias y negocios del sector inmobiliario.' },
 ]
 
 export const CLUSTER_LABELS: Record<string, string> = {
@@ -101,10 +100,10 @@ export const CLUSTER_LABELS: Record<string, string> = {
   'margen-bruto': 'Margen bruto',
   'margen-contribucion': 'Margen de contribución',
   'psicologia-precios': 'Psicología de precios',
-  'costes-fijos': 'Costes fijos',
-  'costes-variables': 'Costes variables',
-  'reduccion-costes': 'Reducción de costes',
-  'costes-ocultos': 'Costes ocultos',
+  'diseno-oferta': 'Diseño de oferta',
+  'diferenciacion': 'Diferenciación',
+  'packaging-servicio': 'Packaging del servicio',
+  'propuesta-valor': 'Propuesta de valor',
   'ticket-medio': 'Ticket medio',
   'conversion': 'Conversión',
   'fidelizacion': 'Fidelización',
@@ -112,37 +111,29 @@ export const CLUSTER_LABELS: Record<string, string> = {
   'automatizacion': 'Automatización',
   'estandarizacion': 'Estandarización',
   'productividad': 'Productividad',
-  'operaciones': 'Operaciones',
-  'liderazgo': 'Liderazgo',
+  'control-operaciones': 'Control de operaciones',
+  'contratacion': 'Contratación',
   'productividad-equipo': 'Productividad del equipo',
   'motivacion': 'Motivación',
-  'contratacion': 'Contratación',
+  'despido-rotacion': 'Despido y rotación',
   'roi-marketing': 'ROI del marketing',
   'captacion-clientes': 'Captación de clientes',
+  'fidelizacion-marketing': 'Fidelización',
   'marketing-local': 'Marketing local',
-  'excel-negocio': 'Excel para el negocio',
-  'software-gestion': 'Software de gestión',
-  'dashboards': 'Dashboards',
-  'kpis-practicos': 'KPIs prácticos',
-  'hosteleria': 'Hostelería',
-  'retail': 'Retail y comercio',
-  'servicios': 'Negocios de servicios',
-  'taller': 'Talleres y artesanía',
   'validacion': 'Validación de negocio',
   'modelo-negocio': 'Modelo de negocio',
   'primeros-pasos': 'Primeros pasos',
   'errores-comunes': 'Errores comunes',
-  'mentalidad': 'Mentalidad empresarial',
+  'mentalidad-empresarial': 'Mentalidad empresarial',
   'toma-decisiones': 'Toma de decisiones',
-  'vision': 'Visión estratégica',
   'resiliencia': 'Resiliencia empresarial',
+  'gestion-estres': 'Gestión del estrés',
+  'vision-estrategica': 'Visión estratégica',
+  'comunicacion-equipo': 'Comunicación con el equipo',
+  'delegacion': 'Delegación',
+  'cultura-empresa': 'Cultura de empresa',
   'sueldo-empresario': 'Sueldo del empresario',
   'finanzas-personales': 'Finanzas personales',
   'separar-cuentas': 'Separar cuentas',
   'riqueza': 'Construcción de riqueza',
-  'arranque': 'Arranque del negocio',
-  'estabilizacion': 'Estabilización',
-  'crecimiento': 'Crecimiento',
-  'consolidacion': 'Consolidación',
-  'margenes': 'Márgenes'
 }
