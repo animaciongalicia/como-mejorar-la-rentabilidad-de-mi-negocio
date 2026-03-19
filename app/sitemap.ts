@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { getAllPosts, getAllCategorias } from '@/lib/posts'
+import { PILLARS } from '@/lib/clusters'
 import { BASE_URL } from '@/lib/seo'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -20,6 +21,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
+  const pilarEntries: MetadataRoute.Sitemap = PILLARS.map((pillar) => ({
+    url: `${BASE_URL}/pilares/${pillar.slug}/`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  }))
+
   return [
     {
       url: BASE_URL,
@@ -33,6 +41,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'daily',
       priority: 0.9,
     },
+    {
+      url: `${BASE_URL}/pilares/`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    ...pilarEntries,
     ...categoriaEntries,
     ...postEntries,
   ]
