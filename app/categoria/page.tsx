@@ -5,7 +5,7 @@ import { getCategoryConfig, CATEGORY_NAV_ORDER } from '@/lib/categories'
 import { BASE_URL, SITE_NAME } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: `Categorías | ${SITE_NAME}`,
+  title: 'Categorías',
   description: 'Navega por todos los temas del blog: diagnóstico empresarial, costes, precios, ventas, procesos y más.',
   alternates: { canonical: `${BASE_URL}/categoria/` },
 }

@@ -1,21 +1,9 @@
 import Link from 'next/link'
 import { getAllCategorias, getCategoriaCount } from '@/lib/posts'
+import { getCategoryLabel } from '@/lib/categories'
 
 interface SidebarProps {
   currentCategoria?: string
-}
-
-const categoryLabels: Record<string, string> = {
-  rentabilidad: 'Rentabilidad',
-  costes: 'Costes',
-  ventas: 'Ventas',
-  operaciones: 'Operaciones',
-  finanzas: 'Finanzas',
-  estrategia: 'Estrategia',
-}
-
-function getCategoryLabel(slug: string): string {
-  return categoryLabels[slug] || slug.charAt(0).toUpperCase() + slug.slice(1)
 }
 
 export default function Sidebar({ currentCategoria }: SidebarProps) {
