@@ -41,7 +41,7 @@ export const PILLARS = [
     id: 'personas',
     name: 'Personas',
     slug: 'personas',
-    description: 'Tu equipo puede multiplicar o destruir tu rentabilidad. Gestión práctica de personas y empleados.',
+    description: 'Tu equipo puede multiplicar o destruir tu rentabilidad. Gestión de personas y empleados.',
     clusters: ['contratacion', 'productividad-equipo', 'motivacion', 'despido-rotacion'],
   },
   {

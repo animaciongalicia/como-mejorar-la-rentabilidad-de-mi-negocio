@@ -55,7 +55,7 @@ export const CATEGORIES: Record<string, CategoryConfig> = {
   },
   personas: {
     label: 'Personas',
-    description: 'Tu equipo puede multiplicar o destruir tu rentabilidad. Gestión práctica de personas y empleados.',
+    description: 'Tu equipo puede multiplicar o destruir tu rentabilidad. Gestión de personas y empleados.',
     color: 'bg-rose-100',
     textColor: 'text-rose-700',
     hoverColor: 'hover:bg-rose-200',
