@@ -41,32 +41,6 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* ── BARRA CATEGORÍAS ─── */}
-      <div className="border-b border-gray-200 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 overflow-x-auto">
-          <div className="flex items-center gap-1 min-w-max">
-            <Link
-              href="/blog/"
-              className="text-xs font-bold uppercase tracking-wide text-white bg-gray-900 px-3 py-1 rounded-full"
-            >
-              Todo
-            </Link>
-            {displayCats.map((slug) => {
-              const cfg = getCategoryConfig(slug)
-              return (
-                <Link
-                  key={slug}
-                  href={`/categoria/${slug}/`}
-                  className={`text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full ${cfg.color} ${cfg.textColor} ${cfg.hoverColor} transition-colors whitespace-nowrap`}
-                >
-                  {cfg.label}
-                </Link>
-              )
-            })}
-          </div>
-        </div>
-      </div>
-
       {/* ── CUERPO PERIÓDICO ─── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
