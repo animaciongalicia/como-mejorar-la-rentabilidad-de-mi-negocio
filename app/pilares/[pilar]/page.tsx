@@ -1,12 +1,15 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import { MDXRemote } from 'next-mdx-remote/rsc'
 import { PILLARS, CLUSTER_LABELS } from '@/lib/clusters'
 import { getAllPosts } from '@/lib/posts'
+import { getPilarContent } from '@/lib/pilares'
 import { generateBreadcrumbSchema, BASE_URL } from '@/lib/seo'
 import PostCard from '@/components/PostCard'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import SchemaOrg from '@/components/SchemaOrg'
+import { Callout, Paso, Stat } from '@/components/MdxComponents'
 
 interface Props {
   params: { pilar: string }
@@ -40,6 +43,8 @@ export default function PilarPage({ params }: Props) {
   if (!pillar) {
     notFound()
   }
+
+  const pilarContent = getPilarContent(pillar.slug)
 
   const allPosts = getAllPosts()
   const pilarPosts = allPosts.filter(
@@ -91,6 +96,28 @@ export default function PilarPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* Pillar editorial content */}
+      {pilarContent && (
+        <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="
+            prose prose-gray max-w-none
+            prose-headings:font-black prose-headings:text-gray-900
+            prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-h2:pb-2 prose-h2:border-b prose-h2:border-gray-200
+            prose-h3:text-lg prose-h3:mt-8 prose-h3:mb-3 prose-h3:text-teal-800
+            prose-p:text-gray-700 prose-p:leading-relaxed
+            prose-a:text-teal-600 prose-a:font-medium prose-a:no-underline hover:prose-a:underline
+            prose-strong:text-gray-900 prose-strong:font-bold
+            prose-li:text-gray-700 prose-li:marker:text-teal-500
+            prose-ul:my-4 prose-ol:my-4
+            prose-blockquote:border-teal-400 prose-blockquote:bg-teal-50 prose-blockquote:rounded-r-xl prose-blockquote:py-1 prose-blockquote:not-italic
+            prose-hr:border-gray-200 prose-hr:my-10
+            [&>p:first-of-type]:text-xl [&>p:first-of-type]:text-gray-800 [&>p:first-of-type]:leading-relaxed [&>p:first-of-type]:font-medium
+          ">
+            <MDXRemote source={pilarContent.content} components={{ Callout, Paso, Stat }} />
+          </div>
+        </section>
+      )}
 
       {/* Posts grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
