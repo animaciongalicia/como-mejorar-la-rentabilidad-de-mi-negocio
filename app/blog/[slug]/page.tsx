@@ -10,6 +10,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import Sidebar from '@/components/Sidebar'
 import RelatedPosts from '@/components/RelatedPosts'
 import { Callout, Paso, Stat } from '@/components/MdxComponents'
+import CalculadoraBreakEven from '@/components/herramientas/CalculadoraBreakEven'
 
 interface Props {
   params: { slug: string }
@@ -105,7 +106,7 @@ export default function BlogPostPage({ params }: Props) {
               prose-hr:border-gray-200 prose-hr:my-10
               [&>p:first-of-type]:text-xl [&>p:first-of-type]:text-gray-800 [&>p:first-of-type]:leading-relaxed [&>p:first-of-type]:font-medium
             ">
-              <MDXRemote source={post.content} components={{ Callout, Paso, Stat }} />
+              <MDXRemote source={post.content} components={{ Callout, Paso, Stat, CalculadoraBreakEven }} />
             </div>
 
             {/* Tags */}
