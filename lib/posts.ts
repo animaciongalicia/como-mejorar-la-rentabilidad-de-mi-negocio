@@ -102,7 +102,14 @@ export function getRelatedPosts(currentPost: Post, limit: number = 3): Post[] {
 
 export function getAllCategorias(): string[] {
   const posts = getAllPosts()
-  const categorias = [...new Set(posts.map((post) => post.categoria))]
+  const seen: Record<string, boolean> = {}
+  const categorias: string[] = []
+  for (const post of posts) {
+    if (!seen[post.categoria]) {
+      seen[post.categoria] = true
+      categorias.push(post.categoria)
+    }
+  }
   return categorias.sort()
 }
 
