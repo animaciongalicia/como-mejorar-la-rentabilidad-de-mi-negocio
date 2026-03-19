@@ -106,7 +106,7 @@ export default function PilaresPage() {
             Si tu negocio lleva tiempo sin crecer o sientes que trabajas demasiado para lo que ganas, un diagnóstico profesional puede cambiar el rumbo en semanas.
           </p>
           <a
-            href="https://consultoriametodo.com"
+            href="https://consultoriametodo.es"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200 inline-block"

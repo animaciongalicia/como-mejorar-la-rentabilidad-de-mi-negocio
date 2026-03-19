@@ -7,6 +7,7 @@ on:
 
 jobs:
   sitemap-publish:
+    name: Build & Ping Sitemaps
     runs-on: ubuntu-latest
 
     steps:
@@ -25,44 +26,39 @@ jobs:
       - name: Build (generates sitemap via Next.js)
         run: npm run build
 
-      - name: Notify search engines about updated sitemap
+      - name: Ping Google sitemap
         run: |
-          SITEMAP_URL="https://focorentabilismo.com/sitemap.xml"
+          echo "Pinging Google Search Console with sitemap..."
+          echo "curl 'https://www.google.com/ping?sitemap=https://focorentabilismo.com/sitemap.xml'"
+          # TODO: Uncomment the line below when site is live:
+          # curl -s "https://www.google.com/ping?sitemap=https://focorentabilismo.com/sitemap.xml"
+          echo "Google sitemap ping: SIMULATED (enable when live)"
 
+      - name: Ping Bing sitemap
+        run: |
+          echo "Pinging Bing Webmaster Tools with sitemap..."
+          echo "curl 'https://www.bing.com/ping?sitemap=https://focorentabilismo.com/sitemap.xml'"
+          # TODO: Uncomment the line below when site is live:
+          # curl -s "https://www.bing.com/ping?sitemap=https://focorentabilismo.com/sitemap.xml"
+          echo "Bing sitemap ping: SIMULATED (enable when live)"
+
+      - name: Ping IndexNow (Bing/Yandex)
+        run: |
+          echo "IndexNow ping for focorentabilismo.com..."
+          # TODO: Set up IndexNow key at https://www.indexnow.org/
+          # curl -s "https://api.indexnow.org/indexnow?url=https://focorentabilismo.com/sitemap.xml&key=YOUR_KEY"
+          echo "IndexNow ping: SIMULATED (configure key when live)"
+
+      - name: Summary
+        run: |
           echo "=== Sitemap Publish Summary ==="
-          echo "Sitemap URL: $SITEMAP_URL"
+          echo "Build: SUCCESS"
+          echo "Sitemap URL: https://focorentabilismo.com/sitemap.xml"
+          echo "Google ping: SIMULATED"
+          echo "Bing ping: SIMULATED"
+          echo "IndexNow ping: SIMULATED"
           echo ""
-
-          # Google Sitemap ping
-          # TODO: Uncomment in production when domain is live
-          # GOOGLE_RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" \
-          #   "https://www.google.com/ping?sitemap=${SITEMAP_URL}")
-          # echo "Google ping response: $GOOGLE_RESPONSE"
-          echo "Google ping: Would ping https://www.google.com/ping?sitemap=${SITEMAP_URL}"
-
-          # Bing Sitemap ping
-          # TODO: Uncomment in production when domain is live
-          # BING_RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" \
-          #   "https://www.bing.com/ping?sitemap=${SITEMAP_URL}")
-          # echo "Bing ping response: $BING_RESPONSE"
-          echo "Bing ping: Would ping https://www.bing.com/ping?sitemap=${SITEMAP_URL}"
-
-          echo ""
-          echo "=== Summary ==="
-          echo "Branch: $GITHUB_REF_NAME"
-          echo "Commit: $GITHUB_SHA"
-          echo "Timestamp: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
-          echo "Status: Build completed. Sitemap ready for indexing."
-
-      - name: Generate sitemap summary
-        run: |
-          echo "## Sitemap Publication Report" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "| Campo | Valor |" >> $GITHUB_STEP_SUMMARY
-          echo "|-------|-------|" >> $GITHUB_STEP_SUMMARY
-          echo "| Sitemap URL | https://focorentabilismo.com/sitemap.xml |" >> $GITHUB_STEP_SUMMARY
-          echo "| RSS Feed | https://focorentabilismo.com/feed.xml |" >> $GITHUB_STEP_SUMMARY
-          echo "| Commit | \`$GITHUB_SHA\` |" >> $GITHUB_STEP_SUMMARY
-          echo "| Timestamp | $(date -u +"%Y-%m-%dT%H:%M:%SZ") |" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Search engines will be notified once the domain is live." >> $GITHUB_STEP_SUMMARY
+          echo "Next steps:"
+          echo "  1. Verify site is live at focorentabilismo.com"
+          echo "  2. Uncomment curl commands in this workflow"
+          echo "  3. Set up IndexNow key for faster indexing"

@@ -98,7 +98,7 @@ export default function Sidebar({ currentCategoria }: SidebarProps) {
           Sin tecnicismos. Con resultados medibles en 30 días.
         </p>
         <a
-          href="https://consultoriametodo.com"
+          href="https://consultoriametodo.es"
           target="_blank"
           rel="noopener noreferrer"
           className="block text-center bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors duration-200"

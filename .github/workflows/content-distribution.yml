@@ -4,21 +4,21 @@ on:
   workflow_dispatch:
     inputs:
       post_slug:
-        description: 'Slug del post a distribuir (ej: como-calcular-margen-bruto)'
+        description: 'Slug del post a distribuir (ej: como-aumentar-margen-bruto)'
         required: true
         type: string
       platforms:
         description: 'Plataformas de distribución'
         required: true
         type: choice
-        default: 'all'
         options:
           - all
           - linkedin
           - newsletter
 
 jobs:
-  distribute:
+  distribute-content:
+    name: Distribute Post Content
     runs-on: ubuntu-latest
 
     steps:
@@ -29,115 +29,126 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
 
-      - name: Extract post frontmatter and generate distribution copy
+      - name: Read post frontmatter and generate distribution copy
+        id: generate-copy
         run: |
           POST_SLUG="${{ github.event.inputs.post_slug }}"
           PLATFORMS="${{ github.event.inputs.platforms }}"
-          POST_FILE="content/posts/${POST_SLUG}.mdx"
 
-          echo "=== Content Distribution: $POST_SLUG ==="
-          echo "Platforms: $PLATFORMS"
-          echo ""
+          node -e "
+          const fs = require('fs');
+          const path = require('path');
 
-          if [ ! -f "$POST_FILE" ]; then
-            echo "ERROR: Post file not found: $POST_FILE"
-            exit 1
-          fi
+          const slug = '$POST_SLUG';
+          const platforms = '$PLATFORMS';
+          const postsDir = path.join(process.cwd(), 'content', 'posts');
 
-          # Extract frontmatter fields using node
-          node --input-type=module << NODEEOF
-          import fs from 'fs'
-
-          const content = fs.readFileSync('${POST_FILE}', 'utf8')
-          const fmMatch = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/)
-
-          if (!fmMatch) {
-            console.error('No frontmatter found')
-            process.exit(1)
+          // Find the post file
+          const extensions = ['.mdx', '.md'];
+          let postFile = null;
+          for (const ext of extensions) {
+            const p = path.join(postsDir, slug + ext);
+            if (fs.existsSync(p)) { postFile = p; break; }
           }
 
-          const fm = fmMatch[1]
-          const body = fmMatch[2]
-
-          const extract = (key) => {
-            const match = fm.match(new RegExp(\`^\${key}:\\s*["']?([^"'\\n]+)["']?\\s*\$\`, 'm'))
-            return match ? match[1].trim() : ''
+          if (!postFile) {
+            console.error('Post not found: ' + slug);
+            console.log('Available posts:');
+            if (fs.existsSync(postsDir)) {
+              fs.readdirSync(postsDir).forEach(f => console.log('  - ' + f.replace(/\.(mdx|md)$/, '')));
+            }
+            process.exit(1);
           }
 
-          const title = extract('title')
-          const description = extract('description')
-          const pilar = extract('pilar')
-          const cluster = extract('cluster')
-          const date = extract('date')
+          const content = fs.readFileSync(postFile, 'utf-8');
+          const fmMatch = content.match(/^---\n([\s\S]*?)\n---/);
+          if (!fmMatch) { console.error('No frontmatter found'); process.exit(1); }
 
-          // Extract first paragraph as excerpt
-          const paragraphs = body.split('\n\n').filter(p => p.trim() && !p.startsWith('#'))
-          const excerpt = paragraphs[0] ? paragraphs[0].replace(/[#*\[\]]/g, '').trim().slice(0, 280) : description
+          // Parse frontmatter fields
+          const fm = fmMatch[1];
+          const get = (field) => {
+            const m = fm.match(new RegExp('^' + field + ':\\s*[\"\\']?(.+?)[\"\\']?\\s*$', 'm'));
+            return m ? m[1] : '';
+          };
 
-          const postUrl = \`https://focorentabilismo.com/blog/${POST_SLUG}/\`
+          const title = get('title');
+          const description = get('description');
+          const pilar = get('pilar');
+          const date = get('date');
+          const url = 'https://focorentabilismo.com/blog/' + slug + '/';
 
-          console.log('=== POST DATA ===')
-          console.log('Title:', title)
-          console.log('Description:', description)
-          console.log('Pilar:', pilar)
-          console.log('Cluster:', cluster)
-          console.log('Date:', date)
-          console.log('URL:', postUrl)
-          console.log('')
-
-          const platforms = '${PLATFORMS}'
+          console.log('');
+          console.log('=== DISTRIBUTION COPY GENERATED ===');
+          console.log('');
+          console.log('Post: ' + title);
+          console.log('Slug: ' + slug);
+          console.log('Pilar: ' + pilar);
+          console.log('URL: ' + url);
+          console.log('Platforms: ' + platforms);
+          console.log('');
 
           if (platforms === 'all' || platforms === 'linkedin') {
-            console.log('=== LINKEDIN COPY ===')
-            console.log(\`\${title}\n\n\${excerpt}...\n\n➡ Lee el artículo completo: \${postUrl}\n\n#rentabilidad #pymes #negociosfisicos #focorentabilismo\`)
-            console.log('')
+            console.log('--- LINKEDIN COPY ---');
+            console.log('');
+            console.log(title);
+            console.log('');
+            console.log(description);
+            console.log('');
+            console.log('Lo que vas a encontrar en este artículo:');
+            console.log('→ Estrategias probadas para dueños de negocios físicos');
+            console.log('→ Sin tecnicismos, sin humo');
+            console.log('→ Aplicable desde hoy mismo');
+            console.log('');
+            console.log('Lee el artículo completo: ' + url);
+            console.log('');
+            console.log('#rentabilidad #negocio #pymes #' + pilar.replace(/-/g, ''));
+            console.log('');
           }
 
           if (platforms === 'all' || platforms === 'newsletter') {
-            console.log('=== NEWSLETTER COPY ===')
-            console.log(\`Asunto: \${title}\n\nHola [NOMBRE],\n\n\${description}\n\n\${excerpt}...\n\nLee el artículo completo aquí: \${postUrl}\n\nHasta la próxima,\nFoco Rentabilismo\`)
-            console.log('')
+            console.log('--- NEWSLETTER SUBJECT LINE ---');
+            console.log('');
+            console.log('Esta semana: ' + title);
+            console.log('');
+            console.log('--- NEWSLETTER PREVIEW TEXT ---');
+            console.log('');
+            console.log(description);
+            console.log('');
+            console.log('--- NEWSLETTER BODY INTRO ---');
+            console.log('');
+            console.log('Hola [NOMBRE],');
+            console.log('');
+            console.log('Esta semana hemos publicado algo que te va a interesar:');
+            console.log('');
+            console.log(description);
+            console.log('');
+            console.log('Lee el artículo completo aquí: ' + url);
+            console.log('');
           }
 
+          console.log('=== END OF DISTRIBUTION COPY ===');
+          console.log('');
+
           // TODO: Make.com webhook integration point
-          // When ready, send to Make.com webhook:
-          //
-          // const webhookUrl = process.env.MAKE_WEBHOOK_URL
-          // if (webhookUrl) {
-          //   const payload = {
-          //     event: 'new_post',
-          //     slug: '${POST_SLUG}',
-          //     title,
-          //     description,
-          //     excerpt,
-          //     url: postUrl,
-          //     pilar,
-          //     cluster,
-          //     platforms: '${PLATFORMS}',
-          //     timestamp: new Date().toISOString()
-          //   }
-          //   const response = await fetch(webhookUrl, {
-          //     method: 'POST',
-          //     headers: { 'Content-Type': 'application/json' },
-          //     body: JSON.stringify(payload)
-          //   })
-          //   console.log('Make.com webhook response:', response.status)
-          // }
+          // When ready, send a POST request to your Make.com webhook:
+          // const webhookUrl = process.env.MAKE_WEBHOOK_URL;
+          // const payload = { slug, title, description, pilar, url, platforms, date };
+          // await fetch(webhookUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+          console.log('NOTE: Make.com webhook integration pending.');
+          console.log('Set MAKE_WEBHOOK_URL secret and uncomment webhook code above.');
+          "
 
-          console.log('=== Distribution copy generated successfully ===')
-          console.log('TODO: Connect Make.com webhook (MAKE_WEBHOOK_URL secret) for automated posting')
-          NODEEOF
-
-      - name: Generate distribution summary
+      - name: Summary
         run: |
-          echo "## Content Distribution Report" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "| Campo | Valor |" >> $GITHUB_STEP_SUMMARY
-          echo "|-------|-------|" >> $GITHUB_STEP_SUMMARY
-          echo "| Post slug | \`${{ github.event.inputs.post_slug }}\` |" >> $GITHUB_STEP_SUMMARY
-          echo "| Platforms | ${{ github.event.inputs.platforms }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Triggered by | ${{ github.actor }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Timestamp | $(date -u +"%Y-%m-%dT%H:%M:%SZ") |" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "> **Next step**: Connect Make.com webhook via \`MAKE_WEBHOOK_URL\` secret for automated distribution." >> $GITHUB_STEP_SUMMARY
+          echo ""
+          echo "=== Content Distribution Summary ==="
+          echo "Post slug: ${{ github.event.inputs.post_slug }}"
+          echo "Platforms: ${{ github.event.inputs.platforms }}"
+          echo "Status: Distribution copy generated (Make.com webhook pending)"
+          echo ""
+          echo "Next steps:"
+          echo "  1. Copy the generated content above to the respective platforms"
+          echo "  2. Configure MAKE_WEBHOOK_URL secret for automated distribution"
+          echo "  3. Set up Make.com scenario: GitHub Webhook → LinkedIn + Email"

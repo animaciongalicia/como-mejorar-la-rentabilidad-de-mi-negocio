@@ -73,17 +73,17 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://consultoriametodo.com"
+                  href="https://consultoriametodo.es"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-teal-400 transition-colors"
                 >
-                  consultoriametodo.com
+                  consultoriametodo.es
                 </a>
               </li>
               <li>
                 <a
-                  href="https://consultoriametodo.com"
+                  href="https://consultoriametodo.es"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 inline-block mt-2"

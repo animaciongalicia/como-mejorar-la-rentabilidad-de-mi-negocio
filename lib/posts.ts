@@ -6,6 +6,15 @@ import type { Post, PostFrontmatter } from '@/types'
 
 const postsDirectory = path.join(process.cwd(), 'content/posts')
 
+// Module-level cache — avoids re-reading all MDX files on every call.
+// At 2000+ posts this is critical: each getAllPosts() reads N files from disk.
+// Safe for both build-time (single process) and production (posts don't change between requests).
+let _postsCache: Post[] | null = null
+
+function invalidateCache() {
+  _postsCache = null
+}
+
 function getPostFiles(): string[] {
   if (!fs.existsSync(postsDirectory)) {
     return []
@@ -14,6 +23,8 @@ function getPostFiles(): string[] {
 }
 
 export function getAllPosts(): Post[] {
+  if (_postsCache) return _postsCache
+
   const files = getPostFiles()
 
   const posts = files.map((filename) => {
@@ -33,7 +44,8 @@ export function getAllPosts(): Post[] {
     } as Post
   })
 
-  return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  _postsCache = posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  return _postsCache
 }
 
 export function getPostBySlug(slug: string): Post | null {
@@ -64,6 +76,7 @@ export function getPostsByCategoria(categoria: string): Post[] {
 }
 
 export function getRelatedPosts(currentPost: Post, limit: number = 3): Post[] {
+  // Use cached getAllPosts() — no extra disk reads
   const allPosts = getAllPosts()
 
   const related = allPosts
@@ -72,6 +85,7 @@ export function getRelatedPosts(currentPost: Post, limit: number = 3): Post[] {
       let score = 0
       if (post.categoria === currentPost.categoria) score += 2
       if (currentPost.cluster && post.cluster === currentPost.cluster) score += 3
+      if (currentPost.pilar && post.pilar === currentPost.pilar) score += 2
       if (currentPost.tags && post.tags) {
         const sharedTags = currentPost.tags.filter((tag) => post.tags?.includes(tag))
         score += sharedTags.length

@@ -3,6 +3,7 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import SchemaOrg from '@/components/SchemaOrg'
+import Analytics from '@/components/Analytics'
 import { generateOrganizationSchema, generateWebSiteSchema, BASE_URL, SITE_NAME, SITE_DESCRIPTION } from '@/lib/seo'
 
 export const metadata: Metadata = {
@@ -57,10 +58,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <head>
-        {/* TODO: Google Analytics - añadir script cuando esté configurado GA4 */}
-      </head>
       <body className="min-h-screen flex flex-col font-sans">
+        <Analytics />
         <SchemaOrg schema={generateOrganizationSchema()} />
         <SchemaOrg schema={generateWebSiteSchema()} />
         <Header />

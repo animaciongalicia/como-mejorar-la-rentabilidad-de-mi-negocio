@@ -9,11 +9,9 @@ on:
       - main
 
 jobs:
-  seo-check:
+  seo-validate:
+    name: Validate SEO & Build
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-      contents: read
 
     steps:
       - name: Checkout
@@ -28,102 +26,49 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
+      - name: Build (catch build errors)
         run: npm run build
 
-      - name: Run SEO frontmatter check
+      - name: Validate frontmatter in MDX posts
         id: seo-check
         run: |
-          node --input-type=module << 'EOF'
-          import fs from 'fs'
-          import path from 'path'
-
-          const postsDir = path.join(process.cwd(), 'content/posts')
-          const requiredFields = ['title', 'description', 'date', 'pilar', 'cluster', 'tags']
-
-          if (!fs.existsSync(postsDir)) {
-            console.log('No posts directory found. Skipping SEO check.')
-            process.exit(0)
-          }
-
-          const files = fs.readdirSync(postsDir).filter(f => f.endsWith('.mdx'))
-          let errors = []
-          let warnings = []
-          let passed = 0
-
+          node -e "
+          const fs = require('fs');
+          const path = require('path');
+          const POSTS_DIR = path.join(process.cwd(), 'content', 'posts');
+          const REQUIRED_FIELDS = ['title', 'description', 'date', 'pilar', 'cluster', 'tags'];
+          if (!fs.existsSync(POSTS_DIR)) { console.log('No posts dir found'); process.exit(0); }
+          const files = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.mdx') || f.endsWith('.md'));
+          const errors = [];
+          const oks = [];
           for (const file of files) {
-            const content = fs.readFileSync(path.join(postsDir, file), 'utf8')
-            const fmMatch = content.match(/^---\n([\s\S]*?)\n---/)
-            if (!fmMatch) {
-              errors.push(`${file}: No frontmatter found`)
-              continue
-            }
-
-            const fm = fmMatch[1]
-            const missing = []
-            for (const field of requiredFields) {
-              const regex = new RegExp(`^${field}:`, 'm')
-              if (!regex.test(fm)) {
-                missing.push(field)
-              }
-            }
-
-            if (missing.length > 0) {
-              errors.push(`${file}: Missing required fields: ${missing.join(', ')}`)
-            } else {
-              passed++
-            }
-
-            // Check description length
-            const descMatch = fm.match(/^description:\s*["']?(.+?)["']?\s*$/m)
-            if (descMatch) {
-              const desc = descMatch[1]
-              if (desc.length < 100) warnings.push(`${file}: description too short (${desc.length} chars, recommended 100-160)`)
-              if (desc.length > 160) warnings.push(`${file}: description too long (${desc.length} chars, recommended 100-160)`)
-            }
+            const content = fs.readFileSync(path.join(POSTS_DIR, file), 'utf-8');
+            const fmMatch = content.match(/^---\n([\s\S]*?)\n---/);
+            if (!fmMatch) { errors.push(file + ': No frontmatter'); continue; }
+            const missing = REQUIRED_FIELDS.filter(f => !(new RegExp('^' + f + '\s*:', 'm')).test(fmMatch[1]));
+            if (missing.length) errors.push(file + ': Missing: ' + missing.join(', '));
+            else oks.push(file + ': OK');
           }
-
-          const total = files.length
-          const summary = `SEO Check: ${passed}/${total} posts passed. ${errors.length} errors, ${warnings.length} warnings.`
-          console.log(summary)
-          console.log('')
-
-          if (warnings.length > 0) {
-            console.log('WARNINGS:')
-            warnings.forEach(w => console.log('  ⚠️  ' + w))
-            console.log('')
-          }
-
+          console.log('=== SEO Frontmatter Validation ===');
+          oks.forEach(o => console.log('  OK ' + o));
           if (errors.length > 0) {
-            console.log('ERRORS:')
-            errors.forEach(e => console.log('  ❌ ' + e))
-            fs.writeFileSync('/tmp/seo-errors.txt', errors.join('\n'))
-            process.exit(1)
-          } else {
-            console.log('✅ All posts have required SEO frontmatter fields.')
+            errors.forEach(e => console.log('  FAIL ' + e));
+            console.log(errors.length + ' post(s) failed.');
+            process.exit(1);
           }
-          EOF
+          console.log('All ' + files.length + ' post(s) passed.');
+          "
 
-      - name: Comment on PR with SEO results
-        if: github.event_name == 'pull_request'
+      - name: Comment PR with SEO results
+        if: github.event_name == 'pull_request' && always()
         uses: actions/github-script@v7
         with:
           script: |
-            const fs = require('fs')
-            let body = '## SEO Frontmatter Validation\n\n'
-
-            try {
-              const errors = fs.readFileSync('/tmp/seo-errors.txt', 'utf8')
-              body += '❌ **Errores encontrados:**\n\n```\n' + errors + '\n```\n\n'
-              body += 'Por favor corrige los campos de frontmatter faltantes antes de hacer merge.'
-            } catch {
-              body += '✅ **Todos los posts tienen los campos SEO requeridos.**\n\n'
-              body += 'Campos verificados: `title`, `description`, `date`, `pilar`, `cluster`, `tags`'
-            }
-
-            github.rest.issues.createComment({
+            const status = '${{ steps.seo-check.outcome }}' === 'success' ? '✅ SEO Validation Passed' : '❌ SEO Validation Failed';
+            const body = `## ${status}\n\nAll required frontmatter fields checked: \`title\`, \`description\`, \`date\`, \`pilar\`, \`cluster\`, \`tags\`\n\nSee workflow logs for details.`;
+            await github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: body
-            })
+              body,
+            });

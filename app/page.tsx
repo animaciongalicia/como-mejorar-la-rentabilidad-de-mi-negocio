@@ -57,7 +57,7 @@ export default function HomePage() {
                 Ver todos los artículos
               </Link>
               <a
-                href="https://consultoriametodo.com"
+                href="https://consultoriametodo.es"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-lg transition-colors duration-200 text-center border border-white/20"
@@ -165,7 +165,7 @@ export default function HomePage() {
             capturar oportunidades de mejora en 30 días.
           </p>
           <a
-            href="https://consultoriametodo.com"
+            href="https://consultoriametodo.es"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white text-orange-600 hover:bg-orange-50 font-bold px-8 py-4 rounded-lg transition-colors duration-200 inline-block"

@@ -142,7 +142,7 @@ export default function PilarPage({ params }: Props) {
             Trabajamos con dueños de negocios físicos para mejorar su rentabilidad con un método claro, sin tecnicismos y con resultados en 30 días.
           </p>
           <a
-            href="https://consultoriametodo.com"
+            href="https://consultoriametodo.es"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200 inline-block"

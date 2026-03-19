@@ -13,7 +13,7 @@ Foco Rentabilismo es el referente de habla hispana en rentabilidad para negocios
 
 **Tono:** Un consultor de empresa que te habla sin rodeos, como si hubieras pagado 2.000€ por su tiempo. Directo, con ejemplos reales, con números, sin academicismos.
 
-**Formato base:** Artículos de 1.000-1.500 palabras, estructurados con H2/H3, ejemplos numéricos reales, pasos accionables y CTA hacia consultoriametodo.com.
+**Formato base:** Artículos de 1.000-1.500 palabras, estructurados con H2/H3, ejemplos numéricos reales, pasos accionables y CTA hacia consultoriametodo.es.
 
 ---
 
@@ -194,7 +194,7 @@ Foco Rentabilismo es el referente de habla hispana en rentabilidad para negocios
 2. **Los artículos de diagnóstico son los hubs:** Reciben más enlaces entrantes internos porque son la puerta de entrada al funnel.
 3. **Los artículos de precios/márgenes se enlazan con diagnóstico:** La lógica es: primero diagnostica, luego actúa en precios.
 4. **Los artículos de costes se enlazan entre sí** y hacia diagnóstico.
-5. **El CTA final siempre hacia consultoriametodo.com:** Es el objetivo de conversión de todo el site.
+5. **El CTA final siempre hacia consultoriametodo.es:** Es el objetivo de conversión de todo el site.
 
 ### Mapa de enlaces por pilar
 
@@ -293,7 +293,7 @@ Son tres artículos complementarios, no competidores.
 - [ ] Al menos un ejemplo con números reales
 - [ ] Al menos un caso concreto de tipo de negocio (restaurante, taller, tienda, peluquería...)
 - [ ] 2-4 enlaces internos naturales a otros artículos relevantes
-- [ ] CTA final hacia consultoriametodo.com
+- [ ] CTA final hacia consultoriametodo.es
 - [ ] Entre 1.000 y 1.500 palabras
 - [ ] Sin párrafos de más de 4-5 líneas
 - [ ] Sin adverbios innecesarios ni relleno
