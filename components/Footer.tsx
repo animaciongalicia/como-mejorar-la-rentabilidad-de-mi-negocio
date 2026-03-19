@@ -27,7 +27,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               {cats.map((cat) => (
                 <li key={cat}>
-                  <Link href={`/categoria/${cat}/`} className="hover:text-teal-400 transition-colors">
+                  <Link href={`/pilares/${cat}/`} className="hover:text-teal-400 transition-colors">
                     {getCategoryLabel(cat)}
                   </Link>
                 </li>
@@ -45,7 +45,6 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/" className="hover:text-teal-400 transition-colors">Inicio</Link></li>
               <li><Link href="/pilares/" className="hover:text-teal-400 transition-colors">Pilares temáticos</Link></li>
-              <li><Link href="/categoria/" className="hover:text-teal-400 transition-colors">Categorías</Link></li>
               <li><a href="/feed.xml" className="hover:text-teal-400 transition-colors">RSS Feed</a></li>
             </ul>
           </div>

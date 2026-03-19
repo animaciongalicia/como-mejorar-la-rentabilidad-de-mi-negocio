@@ -16,7 +16,7 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
       <article className="flex items-start gap-3 py-3 border-b border-gray-100 last:border-0">
         <div className="flex-1 min-w-0">
           <Link
-            href={`/categoria/${post.categoria}/`}
+            href={`/pilares/${post.categoria}/`}
             className={`text-xs font-semibold uppercase tracking-wide ${cat.textColor}`}
           >
             {cat.label}
@@ -36,7 +36,7 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
     return (
       <article className="group">
         <Link
-          href={`/categoria/${post.categoria}/`}
+          href={`/pilares/${post.categoria}/`}
           className={`inline-block text-xs font-bold uppercase tracking-widest px-2 py-0.5 rounded ${cat.color} ${cat.textColor} mb-3`}
         >
           {cat.label}
@@ -66,7 +66,7 @@ export default function PostCard({ post, variant = 'default' }: PostCardProps) {
         {/* Category + time */}
         <div className="flex items-center gap-2 mb-3">
           <Link
-            href={`/categoria/${post.categoria}/`}
+            href={`/pilares/${post.categoria}/`}
             className={`text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded ${cat.color} ${cat.textColor} ${cat.hoverColor} transition-colors`}
           >
             {cat.label}

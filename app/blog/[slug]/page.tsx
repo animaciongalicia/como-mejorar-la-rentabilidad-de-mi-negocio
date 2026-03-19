@@ -38,7 +38,7 @@ export default function BlogPostPage({ params }: Props) {
 
   const breadcrumbItems = [
     { name: 'Inicio', url: BASE_URL },
-    { name: getCategoryLabel(post.categoria), url: `${BASE_URL}/categoria/${post.categoria}/` },
+    { name: getCategoryLabel(post.categoria), url: `${BASE_URL}/pilares/${post.categoria}/` },
     { name: post.title, url: `${BASE_URL}/blog/${post.slug}/` },
   ]
 
@@ -61,7 +61,7 @@ export default function BlogPostPage({ params }: Props) {
             <header className="mb-8">
               <div className="flex items-center gap-3 mb-4">
                 <Link
-                  href={`/categoria/${post.categoria}/`}
+                  href={`/pilares/${post.categoria}/`}
                   className="bg-teal-100 text-teal-700 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide hover:bg-teal-200 transition-colors"
                 >
                   {getCategoryLabel(post.categoria)}

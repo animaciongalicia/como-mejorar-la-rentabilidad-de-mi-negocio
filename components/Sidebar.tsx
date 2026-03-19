@@ -12,16 +12,16 @@ export default function Sidebar({ currentCategoria }: SidebarProps) {
 
   return (
     <div className="space-y-8 sticky top-24">
-      {/* Categorías */}
+      {/* Pilares */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6">
         <h3 className="text-base font-bold text-gray-900 mb-4 uppercase tracking-wide">
-          Categorías
+          Pilares
         </h3>
         <ul className="space-y-2">
           {categorias.map((cat) => (
             <li key={cat}>
               <Link
-                href={`/categoria/${cat}/`}
+                href={`/pilares/${cat}/`}
                 className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors ${
                   currentCategoria === cat
                     ? 'bg-teal-50 text-teal-700 font-semibold'
