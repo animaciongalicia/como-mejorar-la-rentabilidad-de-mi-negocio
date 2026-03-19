@@ -1,0 +1,129 @@
+name: SEO Validation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  seo-check:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Run SEO frontmatter check
+        id: seo-check
+        run: |
+          node --input-type=module << 'EOF'
+          import fs from 'fs'
+          import path from 'path'
+
+          const postsDir = path.join(process.cwd(), 'content/posts')
+          const requiredFields = ['title', 'description', 'date', 'pilar', 'cluster', 'tags']
+
+          if (!fs.existsSync(postsDir)) {
+            console.log('No posts directory found. Skipping SEO check.')
+            process.exit(0)
+          }
+
+          const files = fs.readdirSync(postsDir).filter(f => f.endsWith('.mdx'))
+          let errors = []
+          let warnings = []
+          let passed = 0
+
+          for (const file of files) {
+            const content = fs.readFileSync(path.join(postsDir, file), 'utf8')
+            const fmMatch = content.match(/^---\n([\s\S]*?)\n---/)
+            if (!fmMatch) {
+              errors.push(`${file}: No frontmatter found`)
+              continue
+            }
+
+            const fm = fmMatch[1]
+            const missing = []
+            for (const field of requiredFields) {
+              const regex = new RegExp(`^${field}:`, 'm')
+              if (!regex.test(fm)) {
+                missing.push(field)
+              }
+            }
+
+            if (missing.length > 0) {
+              errors.push(`${file}: Missing required fields: ${missing.join(', ')}`)
+            } else {
+              passed++
+            }
+
+            // Check description length
+            const descMatch = fm.match(/^description:\s*["']?(.+?)["']?\s*$/m)
+            if (descMatch) {
+              const desc = descMatch[1]
+              if (desc.length < 100) warnings.push(`${file}: description too short (${desc.length} chars, recommended 100-160)`)
+              if (desc.length > 160) warnings.push(`${file}: description too long (${desc.length} chars, recommended 100-160)`)
+            }
+          }
+
+          const total = files.length
+          const summary = `SEO Check: ${passed}/${total} posts passed. ${errors.length} errors, ${warnings.length} warnings.`
+          console.log(summary)
+          console.log('')
+
+          if (warnings.length > 0) {
+            console.log('WARNINGS:')
+            warnings.forEach(w => console.log('  ⚠️  ' + w))
+            console.log('')
+          }
+
+          if (errors.length > 0) {
+            console.log('ERRORS:')
+            errors.forEach(e => console.log('  ❌ ' + e))
+            fs.writeFileSync('/tmp/seo-errors.txt', errors.join('\n'))
+            process.exit(1)
+          } else {
+            console.log('✅ All posts have required SEO frontmatter fields.')
+          }
+          EOF
+
+      - name: Comment on PR with SEO results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs')
+            let body = '## SEO Frontmatter Validation\n\n'
+
+            try {
+              const errors = fs.readFileSync('/tmp/seo-errors.txt', 'utf8')
+              body += '❌ **Errores encontrados:**\n\n```\n' + errors + '\n```\n\n'
+              body += 'Por favor corrige los campos de frontmatter faltantes antes de hacer merge.'
+            } catch {
+              body += '✅ **Todos los posts tienen los campos SEO requeridos.**\n\n'
+              body += 'Campos verificados: `title`, `description`, `date`, `pilar`, `cluster`, `tags`'
+            }
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            })
