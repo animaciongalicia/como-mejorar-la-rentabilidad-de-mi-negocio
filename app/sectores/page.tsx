@@ -21,7 +21,7 @@ export default function SectoresPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <p className="text-xs font-black uppercase tracking-widest text-teal-600 mb-2">Sección especial</p>
           <h1 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">Por Sector</h1>
-          <p className="text-lg text-gray-600 max-w-2xl">
+          <p className="text-lg text-gray-600 max-w-3xl">
             No todos los negocios son iguales. Aquí encontrarás estrategias
             y casos prácticos específicos para tu tipo de negocio.
           </p>

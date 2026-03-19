@@ -65,7 +65,7 @@ export default function MinicursosPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <p className="text-xs font-black uppercase tracking-widest text-orange-600 mb-2">Sección especial</p>
           <h1 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">Minicursos</h1>
-          <p className="text-lg text-gray-600 max-w-2xl">
+          <p className="text-lg text-gray-600 max-w-3xl">
             Formación directa, sin relleno. Cada minicurso resuelve un problema concreto
             de tu negocio en menos de una hora. Sin jerga, sin teoría innecesaria.
           </p>

@@ -53,9 +53,9 @@ export default function BlogPostPage({ params }: Props) {
         {/* Breadcrumbs */}
         <Breadcrumbs items={breadcrumbItems} />
 
-        <div className="mt-8 lg:grid lg:grid-cols-3 lg:gap-12">
+        <div className="mt-8 lg:grid lg:gap-12" style={{ gridTemplateColumns: '1fr 260px' }}>
           {/* Main content */}
-          <article className="lg:col-span-2">
+          <article>
             {/* Header */}
             <header className="mb-8">
               <div className="flex items-center gap-3 mb-4">

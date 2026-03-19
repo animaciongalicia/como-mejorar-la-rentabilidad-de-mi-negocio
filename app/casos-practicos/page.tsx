@@ -60,7 +60,7 @@ export default function CasosPracticosPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <p className="text-xs font-black uppercase tracking-widest text-amber-600 mb-2">Sección especial</p>
           <h1 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">Casos Prácticos</h1>
-          <p className="text-lg text-gray-600 max-w-2xl">
+          <p className="text-lg text-gray-600 max-w-3xl">
             Negocios reales, problemas reales, soluciones reales. Sin teoría.
             Lo que hicieron, por qué lo hicieron y qué resultado tuvieron.
           </p>
