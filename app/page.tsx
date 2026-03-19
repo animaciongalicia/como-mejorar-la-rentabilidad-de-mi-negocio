@@ -1,179 +1,182 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import PostCard from '@/components/PostCard'
+import NewsletterInline from '@/components/NewsletterInline'
 import { getAllPosts, getAllCategorias } from '@/lib/posts'
-import { BASE_URL, SITE_NAME, SITE_DESCRIPTION } from '@/lib/seo'
+import { getCategoryConfig, CATEGORY_NAV_ORDER } from '@/lib/categories'
+import { BASE_URL, SITE_NAME, formatDate } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: `${SITE_NAME} | Más beneficio. Menos excusas.`,
-  description: SITE_DESCRIPTION,
-  alternates: {
-    canonical: BASE_URL,
-  },
-}
-
-const categoryLabels: Record<string, string> = {
-  rentabilidad: 'Rentabilidad',
-  costes: 'Costes',
-  ventas: 'Ventas',
-  operaciones: 'Operaciones',
-  finanzas: 'Finanzas',
-  estrategia: 'Estrategia',
-}
-
-function getCategoryLabel(slug: string): string {
-  return categoryLabels[slug] || slug.charAt(0).toUpperCase() + slug.slice(1)
+  title: `${SITE_NAME} | Rentabilidad real para negocios físicos`,
+  description: 'Estrategias probadas para mejorar la rentabilidad de tu negocio físico. Sin teoría vacía. Solo lo que funciona.',
+  alternates: { canonical: BASE_URL },
 }
 
 export default function HomePage() {
   const allPosts = getAllPosts()
-  const recentPosts = allPosts.slice(0, 6)
-  const categorias = getAllCategorias()
-  const featuredPost = allPosts.find((p) => p.featured)
+  const featuredPost = allPosts.find((p) => p.featured) || allPosts[0]
+  const secondaryPosts = allPosts.filter((p) => p.slug !== featuredPost?.slug).slice(0, 4)
+  const sidebarPosts = allPosts.filter((p) => p.slug !== featuredPost?.slug).slice(4, 9)
+
+  const availableCats = getAllCategorias()
+  const orderedCats = CATEGORY_NAV_ORDER.filter((c) => availableCats.includes(c))
+  const restCats = availableCats.filter((c) => !CATEGORY_NAV_ORDER.includes(c))
+  const displayCats = [...orderedCats, ...restCats]
 
   return (
-    <>
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-teal-600 to-teal-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-          <div className="max-w-3xl">
-            <p className="text-teal-200 font-medium text-sm uppercase tracking-widest mb-4">
-              Para propietarios de negocios físicos y pymes
-            </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Más beneficio.
-              <br />
-              <span className="text-orange-400">Menos excusas.</span>
-            </h1>
-            <p className="text-xl text-teal-100 mb-8 leading-relaxed">
-              Estrategias probadas para mejorar la rentabilidad de tu negocio
-              físico. Sin humo, sin teoría vacía. Solo lo que funciona.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/blog/"
-                className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4 rounded-lg transition-colors duration-200 text-center"
-              >
-                Ver todos los artículos
-              </Link>
-              <a
-                href="https://consultoriametodo.es"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-lg transition-colors duration-200 text-center border border-white/20"
-              >
-                Trabajar con nosotros →
-              </a>
-            </div>
+    <div className="bg-white">
+
+      {/* ── MASTHEAD ─── */}
+      <div className="border-b-4 border-gray-900 py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-1">
+            Para propietarios de negocios físicos y pymes · Galicia y toda España
+          </p>
+          <h1 className="text-4xl md:text-6xl font-black text-gray-900 tracking-tight leading-none">
+            Foco Rentabilismo
+          </h1>
+          <p className="text-gray-500 mt-2 text-sm">
+            Más beneficio. Menos excusas. — Actualizado {formatDate(new Date().toISOString().split('T')[0])}
+          </p>
+        </div>
+      </div>
+
+      {/* ── BARRA CATEGORÍAS ─── */}
+      <div className="border-b border-gray-200 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 overflow-x-auto">
+          <div className="flex items-center gap-1 min-w-max">
+            <Link
+              href="/blog/"
+              className="text-xs font-bold uppercase tracking-wide text-white bg-gray-900 px-3 py-1 rounded-full"
+            >
+              Todo
+            </Link>
+            {displayCats.map((slug) => {
+              const cfg = getCategoryConfig(slug)
+              return (
+                <Link
+                  key={slug}
+                  href={`/categoria/${slug}/`}
+                  className={`text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full ${cfg.color} ${cfg.textColor} ${cfg.hoverColor} transition-colors whitespace-nowrap`}
+                >
+                  {cfg.label}
+                </Link>
+              )
+            })}
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Featured post */}
-      {featuredPost && (
-        <section className="bg-gray-50 border-b border-gray-200">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-                Destacado
-              </span>
-              <span className="text-gray-500 text-sm">Lectura recomendada</span>
-            </div>
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-10">
-              <div className="max-w-2xl">
-                <span className="bg-teal-100 text-teal-700 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">
-                  {getCategoryLabel(featuredPost.categoria)}
-                </span>
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mt-4 mb-3">
-                  {featuredPost.title}
+      {/* ── CUERPO PERIÓDICO ─── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+          {/* ── COLUMNA IZQUIERDA: Featured + secundarios ─── */}
+          <div className="lg:col-span-8">
+
+            {/* Post destacado */}
+            {featuredPost && (
+              <div className="pb-8 mb-8 border-b-2 border-gray-900">
+                <PostCard post={featuredPost} variant="featured" />
+              </div>
+            )}
+
+            {/* Grid de secundarios — estilo doble columna */}
+            {secondaryPosts.length > 0 && (
+              <>
+                <h2 className="text-xs font-black uppercase tracking-widest text-gray-400 border-b border-gray-200 pb-2 mb-6">
+                  Últimos artículos
                 </h2>
-                <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-                  {featuredPost.description}
-                </p>
-                <Link
-                  href={`/blog/${featuredPost.slug}/`}
-                  className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200"
-                >
-                  Leer artículo
-                  <span aria-hidden="true">→</span>
-                </Link>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {secondaryPosts.map((post) => (
+                    <PostCard key={post.slug} post={post} variant="default" />
+                  ))}
+                </div>
+                <div className="mt-8 text-center">
+                  <Link
+                    href="/blog/"
+                    className="inline-flex items-center gap-2 border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white font-bold px-6 py-2.5 rounded-full transition-colors text-sm"
+                  >
+                    Ver todos los artículos →
+                  </Link>
+                </div>
+              </>
+            )}
+          </div>
+
+          {/* ── COLUMNA DERECHA: Sidebar ─── */}
+          <aside className="lg:col-span-4 space-y-8">
+
+            {/* Más leídos / recientes sidebar */}
+            {sidebarPosts.length > 0 && (
+              <div>
+                <h2 className="text-xs font-black uppercase tracking-widest text-gray-400 border-b border-gray-200 pb-2 mb-4">
+                  No te pierdas
+                </h2>
+                <div>
+                  {sidebarPosts.map((post) => (
+                    <PostCard key={post.slug} post={post} variant="compact" />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Separador */}
+            <div className="border-t-2 border-gray-900 pt-6">
+              <h2 className="text-xs font-black uppercase tracking-widest text-gray-400 border-b border-gray-200 pb-2 mb-4">
+                Explora por tema
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {displayCats.map((slug) => {
+                  const cfg = getCategoryConfig(slug)
+                  return (
+                    <Link
+                      key={slug}
+                      href={`/categoria/${slug}/`}
+                      className={`text-xs font-semibold px-3 py-1.5 rounded-full ${cfg.color} ${cfg.textColor} ${cfg.hoverColor} transition-colors`}
+                    >
+                      {cfg.label}
+                    </Link>
+                  )
+                })}
               </div>
             </div>
-          </div>
-        </section>
-      )}
 
-      {/* Recent posts */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="flex items-center justify-between mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-            Artículos recientes
-          </h2>
-          <Link
-            href="/blog/"
-            className="text-teal-600 hover:text-teal-700 font-medium transition-colors"
-          >
-            Ver todos →
-          </Link>
+            {/* Newsletter inline */}
+            <NewsletterInline />
+
+          </aside>
         </div>
+      </div>
 
-        {recentPosts.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {recentPosts.map((post) => (
-              <PostCard key={post.slug} post={post} />
-            ))}
-          </div>
-        ) : (
-          <p className="text-gray-500 text-center py-12">
-            Próximamente nuevos artículos.
-          </p>
-        )}
-      </section>
-
-      {/* Categories */}
-      {categorias.length > 0 && (
-        <section className="bg-gray-50 border-t border-gray-200">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-10 text-center">
-              Explora por categoría
-            </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-              {categorias.map((cat) => (
+      {/* ── SECCIÓN PILARES — navega el contenido, no cierra el blog ─── */}
+      <div className="border-t-2 border-gray-900 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <h2 className="text-xs font-black uppercase tracking-widest text-gray-400 border-b border-gray-200 pb-2 mb-6">
+            Pilares temáticos
+          </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+            {displayCats.slice(0, 8).map((slug) => {
+              const cfg = getCategoryConfig(slug)
+              return (
                 <Link
-                  key={cat}
-                  href={`/categoria/${cat}/`}
-                  className="bg-white hover:bg-teal-50 border border-gray-200 hover:border-teal-300 rounded-xl p-5 text-center transition-all duration-200 group"
+                  key={slug}
+                  href={`/categoria/${slug}/`}
+                  className="group bg-white border border-gray-200 hover:border-gray-400 rounded-lg p-4 transition-all"
                 >
-                  <span className="block font-semibold text-gray-800 group-hover:text-teal-700">
-                    {getCategoryLabel(cat)}
+                  <span className={`block text-xs font-black uppercase tracking-wide ${cfg.textColor} mb-1`}>
+                    {cfg.label}
+                  </span>
+                  <span className="text-xs text-gray-400 line-clamp-2 group-hover:text-gray-600 transition-colors">
+                    {cfg.description}
                   </span>
                 </Link>
-              ))}
-            </div>
+              )
+            })}
           </div>
-        </section>
-      )}
-
-      {/* CTA Banner */}
-      <section className="bg-orange-500">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-            ¿Listo para mejorar la rentabilidad de tu negocio?
-          </h2>
-          <p className="text-orange-100 text-lg mb-8 max-w-2xl mx-auto">
-            Trabajamos con propietarios de negocios físicos para identificar y
-            capturar oportunidades de mejora en 30 días.
-          </p>
-          <a
-            href="https://consultoriametodo.es"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white text-orange-600 hover:bg-orange-50 font-bold px-8 py-4 rounded-lg transition-colors duration-200 inline-block"
-          >
-            Conoce Consultoría Método →
-          </a>
         </div>
-      </section>
-    </>
+      </div>
+
+    </div>
   )
 }

@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getAllCategorias, getPostsByCategoria } from '@/lib/posts'
-import { generateMetadataForCategoria, generateBreadcrumbSchema, BASE_URL } from '@/lib/seo'
+import { generateBreadcrumbSchema, BASE_URL } from '@/lib/seo'
+import { getCategoryConfig } from '@/lib/categories'
 import PostCard from '@/components/PostCard'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import SchemaOrg from '@/components/SchemaOrg'
+import { SITE_NAME } from '@/lib/seo'
 
 interface Props {
   params: { categoria: string }
@@ -16,97 +18,64 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  return generateMetadataForCategoria(params.categoria)
-}
-
-const categoryDescriptions: Record<string, string> = {
-  rentabilidad: 'Estrategias y tácticas para mejorar la rentabilidad de tu negocio físico. Desde el análisis de márgenes hasta la gestión de precios.',
-  costes: 'Cómo reducir costes en tu negocio sin sacrificar calidad ni experiencia del cliente. Métodos prácticos para pymes.',
-  ventas: 'Técnicas de ventas adaptadas a negocios físicos. Cómo vender más a los clientes que ya tienes.',
-  operaciones: 'Optimización de procesos y operaciones para negocios físicos. Más eficiencia, menos desperdicio de recursos.',
-  finanzas: 'Gestión financiera práctica para propietarios de pymes. Sin tecnicismos, con aplicación directa.',
-  estrategia: 'Decisiones estratégicas para el negocio: posicionamiento, crecimiento y diferenciación en mercados competitivos.',
-}
-
-const categoryLabels: Record<string, string> = {
-  rentabilidad: 'Rentabilidad',
-  costes: 'Costes',
-  ventas: 'Ventas',
-  operaciones: 'Operaciones',
-  finanzas: 'Finanzas',
-  estrategia: 'Estrategia',
-}
-
-function getCategoryLabel(slug: string): string {
-  return categoryLabels[slug] || slug.charAt(0).toUpperCase() + slug.slice(1)
-}
-
-function getCategoryDescription(slug: string): string {
-  return categoryDescriptions[slug] || `Todos los artículos sobre ${slug} en Foco Rentabilismo.`
+  const cfg = getCategoryConfig(params.categoria)
+  const url = `${BASE_URL}/categoria/${params.categoria}/`
+  return {
+    title: `${cfg.label} | ${SITE_NAME}`,
+    description: cfg.description,
+    openGraph: { title: cfg.label, description: cfg.description, url, siteName: SITE_NAME, type: 'website' },
+    alternates: { canonical: url },
+  }
 }
 
 export default function CategoriaPage({ params }: Props) {
   const { categoria } = params
-  const posts = getPostsByCategoria(categoria)
+  const allCategorias = getAllCategorias()
 
-  if (posts.length === 0) {
-    const allCategorias = getAllCategorias()
-    if (!allCategorias.includes(categoria)) {
-      notFound()
-    }
+  if (!allCategorias.includes(categoria)) {
+    notFound()
   }
+
+  const posts = getPostsByCategoria(categoria)
+  const cfg = getCategoryConfig(categoria)
 
   const breadcrumbItems = [
     { name: 'Inicio', url: BASE_URL },
     { name: 'Categorías', url: `${BASE_URL}/categoria/` },
-    { name: getCategoryLabel(categoria), url: `${BASE_URL}/categoria/${categoria}/` },
+    { name: cfg.label, url: `${BASE_URL}/categoria/${categoria}/` },
   ]
-
-  const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbItems)
 
   return (
     <>
-      <SchemaOrg schema={breadcrumbSchema} />
+      <SchemaOrg schema={generateBreadcrumbSchema(breadcrumbItems)} />
 
-      {/* Header */}
-      <section className="bg-gradient-to-br from-teal-600 to-teal-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <Breadcrumbs items={breadcrumbItems} light />
-          <div className="mt-6">
-            <span className="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">
-              Categoría
+      {/* Cabecera categoría */}
+      <div className="border-b-2 border-gray-900 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={breadcrumbItems} />
+          <div className="mt-4 flex items-center gap-3">
+            <span className={`text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full ${cfg.color} ${cfg.textColor}`}>
+              {cfg.label}
             </span>
-            <h1 className="text-3xl md:text-4xl font-bold mt-4 mb-3">
-              {getCategoryLabel(categoria)}
-            </h1>
-            <p className="text-teal-100 text-lg max-w-2xl">
-              {getCategoryDescription(categoria)}
-            </p>
+            <span className="text-gray-400 text-sm">{posts.length} {posts.length === 1 ? 'artículo' : 'artículos'}</span>
           </div>
+          <h1 className="text-3xl md:text-4xl font-black text-gray-900 mt-2">{cfg.label}</h1>
+          <p className="text-gray-500 mt-1 max-w-2xl">{cfg.description}</p>
         </div>
-      </section>
+      </div>
 
-      {/* Posts grid */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      {/* Grid posts */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {posts.length > 0 ? (
-          <>
-            <p className="text-gray-500 mb-8">
-              {posts.length} {posts.length === 1 ? 'artículo' : 'artículos'} en esta categoría
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {posts.map((post) => (
-                <PostCard key={post.slug} post={post} />
-              ))}
-            </div>
-          </>
-        ) : (
-          <div className="text-center py-16">
-            <p className="text-gray-400 text-lg">
-              Próximamente nuevos artículos en esta categoría.
-            </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {posts.map((post) => (
+              <PostCard key={post.slug} post={post} />
+            ))}
           </div>
+        ) : (
+          <p className="text-gray-400 text-center py-16">Próximamente nuevos artículos en esta categoría.</p>
         )}
-      </section>
+      </div>
     </>
   )
 }
