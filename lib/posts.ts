@@ -123,3 +123,22 @@ export function getCategoriaCount(): Record<string, number> {
     {} as Record<string, number>
   )
 }
+
+export function getPostsByPilar(pilar: string): Post[] {
+  return getAllPosts().filter(
+    (post) => post.pilar && post.pilar.toLowerCase() === pilar.toLowerCase()
+  )
+}
+
+export function getAllPilares(): string[] {
+  const posts = getAllPosts()
+  const seen: Record<string, boolean> = {}
+  const pilares: string[] = []
+  for (const post of posts) {
+    if (post.pilar && !seen[post.pilar]) {
+      seen[post.pilar] = true
+      pilares.push(post.pilar)
+    }
+  }
+  return pilares.sort()
+}

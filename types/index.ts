@@ -4,6 +4,7 @@ export interface PostFrontmatter {
   date: string
   categoria: string
   cluster?: string
+  pilar?: string
   tags?: string[]
   author?: string
   featured?: boolean
