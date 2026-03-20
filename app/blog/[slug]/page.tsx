@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import remarkGfm from 'remark-gfm'
 import { getAllPosts, getPostBySlug, getRelatedPosts } from '@/lib/posts'
 import { getCategoryLabel } from '@/lib/categories'
 import { generateMetadataForPost, generateBlogPostingSchema, generateBreadcrumbSchema, BASE_URL, formatDate } from '@/lib/seo'
@@ -106,7 +107,7 @@ export default function BlogPostPage({ params }: Props) {
               prose-hr:border-gray-200 prose-hr:my-10
               [&>p:first-of-type]:text-xl [&>p:first-of-type]:text-gray-800 [&>p:first-of-type]:leading-relaxed [&>p:first-of-type]:font-medium
             ">
-              <MDXRemote source={post.content} components={{ Callout, Paso, Stat, CalculadoraBreakEven }} />
+              <MDXRemote source={post.content} components={{ Callout, Paso, Stat, CalculadoraBreakEven }} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
             </div>
 
             {/* Tags */}

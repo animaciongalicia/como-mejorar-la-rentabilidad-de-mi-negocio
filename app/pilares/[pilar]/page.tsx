@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import remarkGfm from 'remark-gfm'
 import { PILLARS, CLUSTER_LABELS } from '@/lib/clusters'
 import { getAllPosts } from '@/lib/posts'
 import { getPilarContent } from '@/lib/pilares'
@@ -118,7 +119,7 @@ export default function PilarPage({ params }: Props) {
                 prose-hr:border-gray-200 prose-hr:my-10
                 [&>p:first-of-type]:text-xl [&>p:first-of-type]:text-gray-800 [&>p:first-of-type]:leading-relaxed [&>p:first-of-type]:font-medium
               ">
-                <MDXRemote source={pilarContent.content} components={{ Callout, Paso, Stat }} />
+                <MDXRemote source={pilarContent.content} components={{ Callout, Paso, Stat }} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
               </div>
             </div>
           )}
