@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { BASE_URL } from '@/lib/seo'
+import { BASE_URL, CHATGPT_AGENTES_URL } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Agente Diagnóstico — Radiografía rápida de tu negocio | Foco Rentabilismo',
@@ -286,32 +286,50 @@ Sé directo. Sin rodeos. Sin palabrería. Este dueño no tiene tiempo para infor
           </p>
         </section>
 
-        {/* CTA / Contacto */}
-        <section className="bg-violet-50 border border-violet-200 rounded-2xl p-8">
-          <h2 className="text-xl font-black text-gray-900 mb-3">
-            ¿Quieres que lo hagamos contigo?
+        {/* CTA final — dos opciones */}
+        <section>
+          <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-8">
+            ¿Por dónde empezar?
           </h2>
-          <p className="text-gray-600 mb-2 leading-relaxed">
-            Si prefieres no hacerlo solo, podemos hacer el diagnóstico de tu negocio en una
-            sesión de trabajo. En 60 minutos tendrás claro dónde está el problema y qué hacer
-            la próxima semana.
-          </p>
-          <p className="text-gray-600 mb-6 leading-relaxed">
-            Sin compromiso, sin PowerPoints, sin venderte nada que no necesites.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <a
-              href="mailto:hola@focorentabilismo.com"
-              className="bg-violet-600 hover:bg-violet-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors text-center"
-            >
-              Escríbenos →
-            </a>
-            <Link
-              href="/herramientas/"
-              className="bg-white border border-violet-200 hover:border-violet-400 text-violet-700 font-semibold px-6 py-3 rounded-lg transition-colors text-center"
-            >
-              Ver herramientas gratuitas
-            </Link>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            {/* Opción A: cópialo tú */}
+            <div className="border-2 border-gray-200 rounded-2xl p-7">
+              <p className="text-xs font-black uppercase tracking-widest text-gray-400 mb-3">Opción A</p>
+              <h3 className="text-lg font-black text-gray-900 mb-3">
+                Configúralo tú mismo
+              </h3>
+              <p className="text-sm text-gray-600 leading-relaxed mb-5">
+                Copia el prompt de arriba y pégalo en ChatGPT, Claude o la IA que uses
+                habitualmente. Funciona desde el primer mensaje. Sin cuenta, sin registro,
+                sin nada.
+              </p>
+              <p className="text-sm font-bold text-gray-500">
+                ↑ El prompt está justo arriba. Es tuyo.
+              </p>
+            </div>
+
+            {/* Opción B: hub ChatGPT */}
+            <div className="border-2 border-violet-400 bg-violet-50 rounded-2xl p-7">
+              <p className="text-xs font-black uppercase tracking-widest text-violet-500 mb-3">Opción B</p>
+              <h3 className="text-lg font-black text-gray-900 mb-3">
+                Usa nuestra versión ya configurada
+              </h3>
+              <p className="text-sm text-gray-600 leading-relaxed mb-5">
+                Tenemos más de 10 agentes rentabilistas listos en ChatGPT. Cada uno está
+                afinado para un problema concreto. Sin copiar prompts, sin configurar nada.
+                Entras y usas.
+              </p>
+              <a
+                href={CHATGPT_AGENTES_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-violet-600 hover:bg-violet-700 text-white font-semibold px-5 py-2.5 rounded-lg transition-colors text-sm"
+              >
+                Ver agentes en ChatGPT →
+              </a>
+            </div>
+
           </div>
         </section>
 

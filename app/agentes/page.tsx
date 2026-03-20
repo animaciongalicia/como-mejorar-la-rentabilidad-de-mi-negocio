@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { BASE_URL } from '@/lib/seo'
+import { BASE_URL, CHATGPT_AGENTES_URL } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Agentes Consultores IA | Foco Rentabilismo',
@@ -130,7 +130,7 @@ export default function AgentesPage() {
         {proximos.length > 0 && (
           <>
             <h2 className="text-xs font-black uppercase tracking-widest text-gray-400 border-b border-gray-200 pb-2 mb-8">
-              Próximamente
+              Próximamente en el blog
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {proximos.map((agente) => (
@@ -150,6 +150,31 @@ export default function AgentesPage() {
             </div>
           </>
         )}
+
+        {/* CTA hub ChatGPT */}
+        <div className="mt-16 border-t border-gray-100 pt-12">
+          <div className="bg-violet-50 border border-violet-200 rounded-2xl p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+              <p className="text-xs font-black uppercase tracking-widest text-violet-500 mb-2">Ya disponibles</p>
+              <h2 className="text-xl font-black text-gray-900 mb-2">
+                Más de 10 agentes rentabilistas en ChatGPT
+              </h2>
+              <p className="text-gray-600 text-sm max-w-lg leading-relaxed">
+                Si prefieres no copiar prompts, tenemos todos los agentes ya configurados
+                en ChatGPT. Entras, buscas y usas. Sin configurar nada.
+              </p>
+            </div>
+            <a
+              href={CHATGPT_AGENTES_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 bg-violet-600 hover:bg-violet-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors text-center whitespace-nowrap"
+            >
+              Ver todos en ChatGPT →
+            </a>
+          </div>
+        </div>
+
       </div>
     </div>
   )

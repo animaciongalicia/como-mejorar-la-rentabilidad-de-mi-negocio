@@ -4,6 +4,9 @@ import type { Post } from '@/types'
 export const BASE_URL = 'https://focorentabilismo.com'
 
 export const SITE_NAME = 'Foco Rentabilismo'
+
+// Hub de agentes en ChatGPT — cambia solo este valor si el término de búsqueda cambia
+export const CHATGPT_AGENTES_URL = 'https://chatgpt.com/gpts/discovery?q=focorentabilismo'
 export const SITE_DESCRIPTION =
   'Blog de referencia sobre rentabilidad empresarial para negocios físicos y pymes. Estrategias probadas para mejorar tu negocio.'
 
