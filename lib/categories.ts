@@ -15,7 +15,7 @@ export interface CategoryConfig {
 export const CATEGORIES: Record<string, CategoryConfig> = {
   'diagnostico-empresarial': {
     label: 'Diagnóstico',
-    description: 'Radiografía de tu negocio. Detecta fugas de dinero y oportunidades ocultas antes de tomar decisiones.',
+    description: 'Radiografía de tu negocio. Detecta fugas y oportunidades antes de tomar decisiones.',
     color: 'bg-violet-100',
     textColor: 'text-violet-700',
     hoverColor: 'hover:bg-violet-200',
@@ -31,7 +31,7 @@ export const CATEGORIES: Record<string, CategoryConfig> = {
   },
   'productos-servicios': {
     label: 'Producto/Servicio',
-    description: 'Lo que vendes importa. Cómo diseñar, empaquetar y diferenciar tu oferta para que el cliente no compare por precio.',
+    description: 'Lo que vendes importa. Cómo diseñar y diferenciar tu oferta para que no te comparen por precio.',
     color: 'bg-sky-100',
     textColor: 'text-sky-700',
     hoverColor: 'hover:bg-sky-200',

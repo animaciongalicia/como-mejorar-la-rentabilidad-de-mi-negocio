@@ -6,7 +6,7 @@ export const PILLARS = [
     id: 'diagnostico-empresarial',
     name: 'Diagnóstico',
     slug: 'diagnostico-empresarial',
-    description: 'Radiografía de tu negocio. Detecta fugas de dinero y oportunidades ocultas antes de tomar decisiones.',
+    description: 'Radiografía de tu negocio. Detecta fugas y oportunidades antes de tomar decisiones.',
     clusters: ['analisis-financiero', 'kpis', 'punto-muerto', 'rentabilidad-real'],
   },
   {
@@ -20,7 +20,7 @@ export const PILLARS = [
     id: 'productos-servicios',
     name: 'Producto/Servicio',
     slug: 'productos-servicios',
-    description: 'Lo que vendes importa. Cómo diseñar, empaquetar y diferenciar tu oferta para que el cliente no compare por precio.',
+    description: 'Lo que vendes importa. Cómo diseñar y diferenciar tu oferta para que no te comparen por precio.',
     clusters: ['diseno-oferta', 'diferenciacion', 'packaging-servicio', 'propuesta-valor'],
   },
   {
@@ -89,6 +89,12 @@ export const SECTORES = [
   { id: 'taller', name: 'Talleres y Artesanía', slug: 'taller', description: 'Talleres mecánicos, artesanos y oficios.' },
   { id: 'salud-bienestar', name: 'Salud y Bienestar', slug: 'salud-bienestar', description: 'Clínicas, centros de estética, gimnasios.' },
   { id: 'inmobiliario', name: 'Inmobiliario', slug: 'inmobiliario', description: 'Agencias y negocios del sector inmobiliario.' },
+  { id: 'peluqueria', name: 'Peluquería y Estética', slug: 'peluqueria', description: 'Peluquerías, barberías y centros de belleza.' },
+  { id: 'formacion', name: 'Academias y Formación', slug: 'formacion', description: 'Academias, autoescuelas y centros de formación.' },
+  { id: 'limpieza', name: 'Limpieza y Mantenimiento', slug: 'limpieza', description: 'Empresas de limpieza, reformas y mantenimiento.' },
+  { id: 'alimentacion', name: 'Alimentación', slug: 'alimentacion', description: 'Supermercados, fruterías, carnicerías y alimentación.' },
+  { id: 'transporte', name: 'Transporte y Logística', slug: 'transporte', description: 'Transporte de mercancías, mensajería y logística.' },
+  { id: 'ocio', name: 'Ocio y Entretenimiento', slug: 'ocio', description: 'Centros de ocio, escape rooms, centros deportivos.' },
 ]
 
 export const CLUSTER_LABELS: Record<string, string> = {
