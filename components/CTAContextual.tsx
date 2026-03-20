@@ -19,14 +19,12 @@ export default function CTAContextual({ type, pilar }: CTAContextualProps) {
               Trabajamos contigo directamente para identificar los puntos de fuga y crear un plan claro para mejorar los resultados de tu negocio en 30 días.
             </p>
             <a
-              href="https://consultoriametodo.es"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/herramientas"
               data-cta-type="consulting"
               data-pilar={pilar}
               className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200"
             >
-              Consultoría Método → consultoriametodo.es
+              Ver herramientas gratuitas →
             </a>
           </div>
         </div>
@@ -47,14 +45,12 @@ export default function CTAContextual({ type, pilar }: CTAContextualProps) {
               El sistema paso a paso para mejorar la rentabilidad de tu negocio físico. Sin teoría vacía. Con plantillas, casos reales y acompañamiento.
             </p>
             <a
-              href="https://rentabilismo.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/minicursos"
               data-cta-type="course"
               data-pilar={pilar}
               className="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200"
             >
-              Ver el método completo → rentabilismo.com
+              Ver minicursos gratuitos →
             </a>
           </div>
         </div>

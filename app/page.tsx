@@ -84,7 +84,7 @@ export default function HomePage() {
       <div className="border-b-4 border-gray-900 py-6 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-1">
-            Para propietarios de negocios físicos y pymes · Galicia y toda España
+            Para propietarios de negocios físicos y pymes en toda España
           </p>
           <h1 className="text-4xl md:text-6xl font-black text-gray-900 tracking-tight leading-none">
             Foco Rentabilismo

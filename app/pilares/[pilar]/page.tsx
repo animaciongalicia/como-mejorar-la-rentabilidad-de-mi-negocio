@@ -175,15 +175,13 @@ export default function PilarPage({ params }: Props) {
             ¿Quieres aplicar esto en tu negocio?
           </h2>
           <p className="text-gray-600 mb-6 max-w-xl mx-auto">
-            Trabajamos con dueños de negocios físicos para mejorar su rentabilidad con un método claro, sin tecnicismos y con resultados en 30 días.
+            Minicursos gratuitos y directos para dueños de negocios físicos.
           </p>
           <a
-            href="https://consultoriametodo.es"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/minicursos"
             className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200 inline-block"
           >
-            Conoce Consultoría Método →
+            Empezar con los minicursos →
           </a>
         </div>
       </section>

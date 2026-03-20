@@ -53,10 +53,9 @@ export default function Footer() {
         <div className="pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-gray-600">
           <p>© {currentYear} Foco Rentabilismo. Todos los derechos reservados.</p>
           <p>
-            Parte del ecosistema{' '}
-            <a href="https://consultoriametodo.es" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 underline underline-offset-2">
-              consultoriametodo.es
-            </a>
+            <Link href="/herramientas" className="hover:text-gray-400 underline underline-offset-2">
+              Herramientas gratuitas
+            </Link>
           </p>
         </div>
       </div>

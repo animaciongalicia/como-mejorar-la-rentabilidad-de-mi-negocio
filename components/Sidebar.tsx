@@ -85,14 +85,12 @@ export default function Sidebar({ currentCategoria }: SidebarProps) {
         <p className="text-sm text-gray-600 leading-relaxed mb-4">
           Sin tecnicismos. Con resultados medibles en 30 días.
         </p>
-        <a
-          href="https://consultoriametodo.es"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/herramientas"
           className="block text-center bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors duration-200"
         >
-          Saber más →
-        </a>
+          Ver herramientas gratuitas →
+        </Link>
       </div>
     </div>
   )

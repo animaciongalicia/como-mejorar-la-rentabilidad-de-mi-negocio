@@ -150,15 +150,13 @@ export default function BlogPostPage({ params }: Props) {
                 ¿Quieres aplicar esto en tu negocio?
               </h3>
               <p className="text-gray-600 mb-6">
-                Trabaja con nosotros y mejora la rentabilidad de tu negocio en 30 días con un método claro y sin tecnicismos.
+                Recursos, calculadoras y guías gratuitas para que pongas orden en los números de tu negocio.
               </p>
               <a
-                href="https://consultoriametodo.es"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/herramientas"
                 className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200 inline-block"
               >
-                Conoce Consultoría Método →
+                Ver herramientas gratuitas →
               </a>
             </div>
           </article>
