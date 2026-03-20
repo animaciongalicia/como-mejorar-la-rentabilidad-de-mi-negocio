@@ -93,7 +93,6 @@ export default function MinicursosPage() {
                     <span className={`text-xs font-bold px-2 py-0.5 rounded ${NIVEL_COLORS[curso.nivel] || 'text-gray-600 bg-gray-50'}`}>
                       {curso.nivel}
                     </span>
-                    <span className="text-xs text-gray-400">{curso.lecciones} lecciones</span>
                   </div>
                   <h2 className="text-lg font-black text-gray-900 group-hover:text-orange-700 transition-colors mb-2 leading-snug">
                     {curso.titulo}
@@ -123,7 +122,6 @@ export default function MinicursosPage() {
                     <span className="text-xs font-bold text-gray-400 bg-gray-100 px-2 py-0.5 rounded">
                       {curso.pilar}
                     </span>
-                    <span className="text-xs text-gray-400">{curso.lecciones} lecciones</span>
                   </div>
                   <h2 className="text-lg font-black text-gray-600 mb-2 leading-snug">{curso.titulo}</h2>
                   <p className="text-sm text-gray-400 line-clamp-2">{curso.descripcion}</p>
