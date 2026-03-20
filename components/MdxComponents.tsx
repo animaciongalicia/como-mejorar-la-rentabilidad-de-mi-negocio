@@ -8,7 +8,7 @@ export function Callout({ children, tipo = 'info' }: { children: ReactNode; tipo
   const styles = {
     info:   'bg-teal-50 border-teal-400 text-teal-900',
     alerta: 'bg-amber-50 border-amber-400 text-amber-900',
-    clave:  'bg-gray-900 border-gray-900 text-white',
+    clave:  'bg-teal-900 border-teal-500 text-white',
   }
   return (
     <div className={`my-6 border-l-4 rounded-r-xl px-5 py-4 text-sm leading-relaxed ${styles[tipo]}`}>

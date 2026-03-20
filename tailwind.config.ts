@@ -56,6 +56,35 @@ const config: Config = {
             h3: {
               color: '#111827',
             },
+            // Tablas
+            table: {
+              width: '100%',
+              display: 'block',
+              overflowX: 'auto',
+              WebkitOverflowScrolling: 'touch',
+              borderCollapse: 'collapse',
+              marginTop: '2rem',
+              marginBottom: '2rem',
+              fontSize: '0.875rem',
+            },
+            'thead th': {
+              backgroundColor: '#f0fdfa',
+              color: '#115e59',
+              fontWeight: '600',
+              padding: '0.75rem 1rem',
+              borderBottom: '2px solid #5eead4',
+              textAlign: 'left',
+              whiteSpace: 'nowrap',
+            },
+            'tbody td': {
+              padding: '0.625rem 1rem',
+              borderBottom: '1px solid #f3f4f6',
+              verticalAlign: 'top',
+              color: '#374151',
+            },
+            'tbody tr:nth-child(even) td': {
+              backgroundColor: '#f9fafb',
+            },
           },
         },
       },
