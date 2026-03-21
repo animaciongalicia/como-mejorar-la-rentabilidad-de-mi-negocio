@@ -1,19 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { writeFileSync, readFileSync, existsSync } from 'fs'
-import { join } from 'path'
 
 // POST /api/subscribe
 // Accepts: { email, source?, leadMagnet?, pilar? }
 //
-// Current implementation: logs to console + saves to /tmp/subscribers.json (dev mode)
+// Integration: Brevo (ex-Sendinblue) — https://app.brevo.com
+// Required env vars:
+//   BREVO_API_KEY       — API key from Brevo dashboard → SMTP & API → API Keys
+//   BREVO_LIST_ID       — ID of the list where subscribers go (number, find in Contacts → Lists)
 //
-// TODO: Integration points:
-//   - ActiveCampaign: POST to process.env.ACTIVECAMPAIGN_BASE_URL/api/3/contacts
-//     with api-key header, tag by pilar/source for segmentation
-//   - Google Sheets: Use Google Sheets API or Make.com to append row
-//   - Supabase: Insert into subscribers table with pilar/source/leadMagnet columns
-//     await supabase.from('subscribers').insert({ email, source, pilar, lead_magnet, created_at })
-//   - Make.com webhook: POST to MAKE_WEBHOOK_SUBSCRIBE_URL with full payload
+// Weekly digest:
+//   Option A — Brevo native: Automations → New automation → RSS Campaign
+//              Feed URL: https://focorentabilismo.com/feed.xml  Frequency: weekly
+//   Option B — Make.com: Watch RSS → Brevo "Create Campaign" module → Schedule send
+//
+// Segmentation: subscribers tagged by pilar for targeted campaigns
+
+const BREVO_API_URL = 'https://api.brevo.com/v3'
 
 interface SubscribeBody {
   email: string
@@ -26,18 +28,17 @@ function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 }
 
-export async function POST(request: NextRequest) {
-  const corsHeaders = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
-  }
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+}
 
+export async function POST(request: NextRequest) {
   try {
     const body: SubscribeBody = await request.json()
     const { email, source, leadMagnet, pilar } = body
 
-    // Validate email
     if (!email || !isValidEmail(email)) {
       return NextResponse.json(
         { success: false, message: 'Por favor introduce un email válido.' },
@@ -45,63 +46,60 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const subscriber = {
-      email: email.toLowerCase().trim(),
-      source: source || 'unknown',
-      leadMagnet: leadMagnet || null,
-      pilar: pilar || null,
-      subscribedAt: new Date().toISOString(),
-    }
+    const cleanEmail = email.toLowerCase().trim()
 
-    // Log subscription
-    console.log('[Subscribe] New subscriber:', subscriber)
+    // ── Brevo integration ────────────────────────────────────────────────────
+    const apiKey = process.env.BREVO_API_KEY
+    const listId = process.env.BREVO_LIST_ID ? parseInt(process.env.BREVO_LIST_ID) : null
 
-    // Dev mode: save to /tmp/subscribers.json
-    try {
-      const filePath = join('/tmp', 'focorentabilismo-subscribers.json')
-      let subscribers: typeof subscriber[] = []
+    if (apiKey && listId) {
+      const attributes: Record<string, string> = { FUENTE: source || 'web' }
+      if (pilar) attributes['PILAR_INTERES'] = pilar
+      if (leadMagnet) attributes['LEAD_MAGNET'] = leadMagnet
 
-      if (existsSync(filePath)) {
-        const raw = readFileSync(filePath, 'utf-8')
-        subscribers = JSON.parse(raw)
-      }
+      const brevoRes = await fetch(`${BREVO_API_URL}/contacts`, {
+        method: 'POST',
+        headers: {
+          'api-key': apiKey,
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          email: cleanEmail,
+          attributes,
+          listIds: [listId],
+          updateEnabled: true,
+        }),
+      })
 
-      // Avoid duplicates in dev storage
-      const alreadyExists = subscribers.some((s) => s.email === subscriber.email)
-      if (!alreadyExists) {
-        subscribers.push(subscriber)
-        writeFileSync(filePath, JSON.stringify(subscribers, null, 2))
-        console.log('[Subscribe] Saved to /tmp. Total subscribers:', subscribers.length)
+      if (!brevoRes.ok) {
+        const err = await brevoRes.json().catch(() => ({}))
+        const isDuplicate =
+          brevoRes.status === 400 &&
+          (err as { code?: string }).code === 'duplicate_parameter'
+        if (!isDuplicate) {
+          console.error('[Subscribe] Brevo error:', brevoRes.status, err)
+        }
       } else {
-        console.log('[Subscribe] Email already in list (dev):', subscriber.email)
+        console.log('[Subscribe] Added to Brevo list', listId, ':', cleanEmail)
       }
-    } catch (fileError) {
-      // File save failure is non-critical in dev
-      console.warn('[Subscribe] Could not save to /tmp:', fileError)
+    } else {
+      console.log('[Subscribe] DEV — no Brevo config. Email:', cleanEmail)
+      console.log('[Subscribe] Add BREVO_API_KEY and BREVO_LIST_ID to .env.local')
     }
 
-    // TODO: ActiveCampaign integration
-    // const acRes = await fetch(`${process.env.ACTIVECAMPAIGN_BASE_URL}/api/3/contacts`, {
-    //   method: 'POST',
-    //   headers: { 'Api-Token': process.env.ACTIVECAMPAIGN_API_KEY!, 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({ contact: { email, fieldValues: [{ field: 'PILAR', value: pilar }] } }),
-    // })
-
-    // TODO: Supabase integration
-    // const { error } = await supabase.from('subscribers').insert(subscriber)
-
-    // TODO: Make.com webhook
-    // await fetch(process.env.MAKE_WEBHOOK_SUBSCRIBE_URL!, {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(subscriber),
-    // })
+    // ── Make.com webhook (optional parallel notification) ────────────────────
+    const makeUrl = process.env.MAKE_WEBHOOK_SUBSCRIBE_URL
+    if (makeUrl) {
+      fetch(makeUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: cleanEmail, source, pilar, leadMagnet }),
+      }).catch((err) => console.warn('[Subscribe] Make.com failed:', err))
+    }
 
     return NextResponse.json(
-      {
-        success: true,
-        message: '¡Genial! Ya estás suscrito. Revisa tu bandeja de entrada.',
-      },
+      { success: true, message: '¡Genial! Ya estás suscrito. Revisa tu bandeja de entrada.' },
       { status: 200, headers: corsHeaders }
     )
   } catch (error) {
@@ -113,16 +111,6 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// Handle CORS preflight
 export async function OPTIONS() {
-  return NextResponse.json(
-    {},
-    {
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'POST, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type',
-      },
-    }
-  )
+  return NextResponse.json({}, { headers: corsHeaders })
 }
