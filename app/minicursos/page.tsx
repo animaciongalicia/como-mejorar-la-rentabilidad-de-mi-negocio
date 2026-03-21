@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { BASE_URL } from '@/lib/seo'
+import Sidebar from '@/components/Sidebar'
 
 export const metadata: Metadata = {
   title: 'Minicursos de Rentabilidad para Negocios | Foco Rentabilismo',
@@ -35,7 +36,6 @@ const MINICURSOS = [
     pilar: 'Precios',
     nivel: 'Básico',
     estado: 'disponible',
-    blogSlug: 'escandallo-hosteleria-restaurantes',
   },
   {
     slug: 'subir-precios-sin-perder-clientes',
@@ -45,7 +45,6 @@ const MINICURSOS = [
     pilar: 'Precios',
     nivel: 'Intermedio',
     estado: 'próximamente',
-    blogSlug: null,
   },
   {
     slug: 'primer-empleado',
@@ -84,64 +83,80 @@ export default function MinicursosPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="lg:grid lg:gap-12" style={{ gridTemplateColumns: '1fr 260px' }}>
 
-        {disponibles.length > 0 && (
-          <>
-            <h2 className="text-xs font-black uppercase tracking-widest text-gray-400 border-b border-gray-200 pb-2 mb-8">
-              Disponibles ahora
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-              {disponibles.map((curso) => (
-                <Link
-                  key={curso.slug}
-                  href={'blogSlug' in curso && curso.blogSlug ? `/blog/${curso.blogSlug}/` : `/minicursos/${curso.slug}/`}
-                  className="group block border border-gray-200 hover:border-orange-400 rounded-xl p-6 transition-all hover:shadow-md"
-                >
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xs font-bold text-orange-600 bg-orange-50 px-2 py-0.5 rounded">
-                      {curso.pilar}
-                    </span>
-                    <span className={`text-xs font-bold px-2 py-0.5 rounded ${NIVEL_COLORS[curso.nivel] || 'text-gray-600 bg-gray-50'}`}>
-                      {curso.nivel}
-                    </span>
-                  </div>
-                  <h2 className="text-lg font-black text-gray-900 group-hover:text-orange-700 transition-colors mb-2 leading-snug">
-                    {curso.titulo}
-                  </h2>
-                  <p className="text-sm text-gray-600 line-clamp-2">{curso.descripcion}</p>
-                  <p className="text-xs font-bold text-orange-600 mt-5 group-hover:underline">
-                    Empezar minicurso →
-                  </p>
-                </Link>
-              ))}
-            </div>
-          </>
-        )}
-
-        {proximos.length > 0 && (
-          <>
-            <h2 className="text-xs font-black uppercase tracking-widest text-gray-400 border-b border-gray-200 pb-2 mb-8">
-              Próximamente
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {proximos.map((curso) => (
-                <div
-                  key={curso.slug}
-                  className="border border-gray-100 rounded-xl p-6 bg-gray-50 opacity-70"
-                >
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xs font-bold text-gray-400 bg-gray-100 px-2 py-0.5 rounded">
-                      {curso.pilar}
-                    </span>
-                  </div>
-                  <h2 className="text-lg font-black text-gray-600 mb-2 leading-snug">{curso.titulo}</h2>
-                  <p className="text-sm text-gray-400 line-clamp-2">{curso.descripcion}</p>
-                  <p className="text-xs text-gray-400 mt-5 font-medium">Próximamente</p>
+          {/* Columna principal */}
+          <div>
+            {disponibles.length > 0 && (
+              <>
+                <h2 className="text-xs font-black uppercase tracking-widest text-gray-400 border-b border-gray-200 pb-2 mb-8">
+                  Disponibles ahora
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+                  {disponibles.map((curso) => (
+                    <Link
+                      key={curso.slug}
+                      href={`/minicursos/${curso.slug}/`}
+                      className="group block border border-gray-200 hover:border-orange-400 rounded-xl p-6 transition-all hover:shadow-md"
+                    >
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-xs font-bold text-orange-600 bg-orange-50 px-2 py-0.5 rounded">
+                          {curso.pilar}
+                        </span>
+                        <span className={`text-xs font-bold px-2 py-0.5 rounded ${NIVEL_COLORS[curso.nivel] || 'text-gray-600 bg-gray-50'}`}>
+                          {curso.nivel}
+                        </span>
+                      </div>
+                      <h2 className="text-lg font-black text-gray-900 group-hover:text-orange-700 transition-colors mb-2 leading-snug">
+                        {curso.titulo}
+                      </h2>
+                      <p className="text-sm text-gray-600 line-clamp-2">{curso.descripcion}</p>
+                      <p className="text-xs font-bold text-orange-600 mt-5 group-hover:underline">
+                        Empezar minicurso →
+                      </p>
+                    </Link>
+                  ))}
                 </div>
-              ))}
+              </>
+            )}
+
+            {proximos.length > 0 && (
+              <>
+                <h2 className="text-xs font-black uppercase tracking-widest text-gray-400 border-b border-gray-200 pb-2 mb-8">
+                  Próximamente
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {proximos.map((curso) => (
+                    <div
+                      key={curso.slug}
+                      className="border border-gray-100 rounded-xl p-6 bg-gray-50 opacity-70"
+                    >
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-xs font-bold text-gray-400 bg-gray-100 px-2 py-0.5 rounded">
+                          {curso.pilar}
+                        </span>
+                      </div>
+                      <h2 className="text-lg font-black text-gray-600 mb-2 leading-snug">{curso.titulo}</h2>
+                      <p className="text-sm text-gray-400 line-clamp-2">{curso.descripcion}</p>
+                      <p className="text-xs text-gray-400 mt-5 font-medium">Próximamente</p>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+
+          {/* Sidebar */}
+          <aside className="hidden lg:block">
+            <div className="sticky top-24 space-y-8">
+              <div className="bg-gray-50 border border-dashed border-gray-300 rounded-2xl flex items-center justify-center h-64">
+                <p className="text-xs text-gray-400 text-center px-4">Espacio publicitario</p>
+              </div>
+              <Sidebar />
             </div>
-          </>
-        )}
+          </aside>
+
+        </div>
       </div>
     </div>
   )

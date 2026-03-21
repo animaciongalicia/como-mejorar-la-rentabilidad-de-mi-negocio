@@ -13,6 +13,8 @@ export interface PostFrontmatter {
   author?: string
   featured?: boolean
   slug: string
+  minicurso?: string          // ID del minicurso al que pertenece esta lección
+  minicurso_leccion?: number  // Número de lección dentro del minicurso
 }
 
 export interface Post extends PostFrontmatter {

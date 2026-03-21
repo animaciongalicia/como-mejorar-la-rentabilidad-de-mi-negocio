@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { getAllPosts } from '@/lib/posts'
 import { SECTORES } from '@/lib/clusters'
 import { BASE_URL } from '@/lib/seo'
+import Sidebar from '@/components/Sidebar'
 
 export const metadata: Metadata = {
   title: 'Por Sector — Estrategias Específicas para tu Negocio | Foco Rentabilismo',
@@ -29,27 +30,44 @@ export default function SectoresPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {SECTORES.map((sector) => {
-            const sectorPosts = posts.filter((p) => p.sector === sector.id)
-            return (
-              <Link
-                key={sector.id}
-                href={`/sectores/${sector.slug}/`}
-                className="group block border border-gray-200 hover:border-teal-400 rounded-xl p-6 transition-all hover:shadow-md"
-              >
-                <h2 className="text-xl font-black text-gray-900 group-hover:text-teal-700 transition-colors mb-2">
-                  {sector.name}
-                </h2>
-                <p className="text-sm text-gray-500 mb-4">{sector.description}</p>
-                <p className="text-xs text-gray-400 font-semibold">
-                  {sectorPosts.length > 0
-                    ? `${sectorPosts.length} artículo${sectorPosts.length !== 1 ? 's' : ''}`
-                    : 'Próximamente'}
-                </p>
-              </Link>
-            )
-          })}
+        <div className="lg:grid lg:gap-12" style={{ gridTemplateColumns: '1fr 260px' }}>
+
+          {/* Columna principal */}
+          <div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {SECTORES.map((sector) => {
+                const sectorPosts = posts.filter((p) => p.sector === sector.id)
+                return (
+                  <Link
+                    key={sector.id}
+                    href={`/sectores/${sector.slug}/`}
+                    className="group block border border-gray-200 hover:border-teal-400 rounded-xl p-6 transition-all hover:shadow-md"
+                  >
+                    <h2 className="text-xl font-black text-gray-900 group-hover:text-teal-700 transition-colors mb-2">
+                      {sector.name}
+                    </h2>
+                    <p className="text-sm text-gray-500 mb-4">{sector.description}</p>
+                    <p className="text-xs text-gray-400 font-semibold">
+                      {sectorPosts.length > 0
+                        ? `${sectorPosts.length} artículo${sectorPosts.length !== 1 ? 's' : ''}`
+                        : 'Próximamente'}
+                    </p>
+                  </Link>
+                )
+              })}
+            </div>
+          </div>
+
+          {/* Sidebar */}
+          <aside className="hidden lg:block">
+            <div className="sticky top-24 space-y-8">
+              <div className="bg-gray-50 border border-dashed border-gray-300 rounded-2xl flex items-center justify-center h-64">
+                <p className="text-xs text-gray-400 text-center px-4">Espacio publicitario</p>
+              </div>
+              <Sidebar />
+            </div>
+          </aside>
+
         </div>
       </div>
     </div>

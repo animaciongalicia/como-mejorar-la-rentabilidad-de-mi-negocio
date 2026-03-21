@@ -72,6 +72,54 @@ export default function Sidebar({ currentCategoria }: SidebarProps) {
         </p>
       </div>
 
+      {/* Herramientas gratuitas */}
+      <div className="bg-white rounded-2xl border border-gray-200 p-6">
+        <h3 className="text-base font-bold text-gray-900 mb-4 uppercase tracking-wide">
+          Herramientas gratuitas
+        </h3>
+        <ul className="space-y-3">
+          <li>
+            <a
+              href="https://rentabilismo.online"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col gap-0.5 px-3 py-2 rounded-lg hover:bg-orange-50 transition-colors group"
+            >
+              <span className="text-sm font-semibold text-gray-800 group-hover:text-orange-700">
+                Diagnóstico de negocio
+              </span>
+              <span className="text-xs text-gray-500">rentabilismo.online</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://avatar-rentabilismo.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col gap-0.5 px-3 py-2 rounded-lg hover:bg-orange-50 transition-colors group"
+            >
+              <span className="text-sm font-semibold text-gray-800 group-hover:text-orange-700">
+                Define a quién le vendes
+              </span>
+              <span className="text-xs text-gray-500">avatar-rentabilismo.com</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://idea-rentabilismo.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col gap-0.5 px-3 py-2 rounded-lg hover:bg-orange-50 transition-colors group"
+            >
+              <span className="text-sm font-semibold text-gray-800 group-hover:text-orange-700">
+                Analiza tu idea de negocio
+              </span>
+              <span className="text-xs text-gray-500">idea-rentabilismo.com</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
       {/* Sobre el método */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6">
         <h3 className="text-base font-bold text-gray-900 mb-3">

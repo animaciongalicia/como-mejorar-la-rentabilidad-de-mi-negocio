@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getAllPosts } from '@/lib/posts'
 import { BASE_URL } from '@/lib/seo'
+import Sidebar from '@/components/Sidebar'
 
 export const metadata: Metadata = {
   title: 'Casos Prácticos de Negocios Reales | Foco Rentabilismo',
@@ -68,51 +69,65 @@ export default function CasosPracticosPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="lg:grid lg:gap-12" style={{ gridTemplateColumns: '1fr 260px' }}>
 
-        {/* Si hay posts publicados */}
-        {posts.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {posts.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/blog/${post.slug}/`}
-                className="group block border border-gray-200 hover:border-amber-400 rounded-xl p-6 transition-all hover:shadow-md"
-              >
-                <span className="inline-block text-xs font-black uppercase tracking-wide text-amber-600 bg-amber-50 px-2 py-0.5 rounded mb-3">
-                  {post.sector || 'Caso práctico'}
-                </span>
-                <h2 className="text-lg font-bold text-gray-900 group-hover:text-amber-700 transition-colors mb-2 leading-snug">
-                  {post.title}
-                </h2>
-                <p className="text-sm text-gray-500 line-clamp-2">{post.description}</p>
-              </Link>
-            ))}
-          </div>
-        ) : (
-          /* Placeholders hasta que se publiquen posts reales */
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {CASOS_PLACEHOLDER.map((caso, i) => (
-              <div
-                key={i}
-                className="border border-gray-200 rounded-xl p-6 bg-gray-50"
-              >
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-black uppercase tracking-wide text-amber-600 bg-amber-50 px-2 py-0.5 rounded">
-                    {caso.sector}
-                  </span>
-                  <span className="text-xs font-bold text-green-700 bg-green-50 px-2 py-0.5 rounded">
-                    {caso.resultado}
-                  </span>
-                </div>
-                <h2 className="text-base font-bold text-gray-800 mb-2 leading-snug">
-                  {caso.titulo}
-                </h2>
-                <p className="text-sm text-gray-500">{caso.descripcion}</p>
-                <p className="text-xs text-gray-400 mt-4 font-medium">Próximamente →</p>
+          {/* Columna principal */}
+          <div>
+            {posts.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {posts.map((post) => (
+                  <Link
+                    key={post.slug}
+                    href={`/blog/${post.slug}/`}
+                    className="group block border border-gray-200 hover:border-amber-400 rounded-xl p-6 transition-all hover:shadow-md"
+                  >
+                    <span className="inline-block text-xs font-black uppercase tracking-wide text-amber-600 bg-amber-50 px-2 py-0.5 rounded mb-3">
+                      {post.sector || 'Caso práctico'}
+                    </span>
+                    <h2 className="text-lg font-bold text-gray-900 group-hover:text-amber-700 transition-colors mb-2 leading-snug">
+                      {post.title}
+                    </h2>
+                    <p className="text-sm text-gray-500 line-clamp-2">{post.description}</p>
+                  </Link>
+                ))}
               </div>
-            ))}
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {CASOS_PLACEHOLDER.map((caso, i) => (
+                  <div
+                    key={i}
+                    className="border border-gray-200 rounded-xl p-6 bg-gray-50"
+                  >
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-xs font-black uppercase tracking-wide text-amber-600 bg-amber-50 px-2 py-0.5 rounded">
+                        {caso.sector}
+                      </span>
+                      <span className="text-xs font-bold text-green-700 bg-green-50 px-2 py-0.5 rounded">
+                        {caso.resultado}
+                      </span>
+                    </div>
+                    <h2 className="text-base font-bold text-gray-800 mb-2 leading-snug">
+                      {caso.titulo}
+                    </h2>
+                    <p className="text-sm text-gray-500">{caso.descripcion}</p>
+                    <p className="text-xs text-gray-400 mt-4 font-medium">Próximamente →</p>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
-        )}
+
+          {/* Sidebar */}
+          <aside className="hidden lg:block">
+            <div className="sticky top-24 space-y-8">
+              <div className="bg-gray-50 border border-dashed border-gray-300 rounded-2xl flex items-center justify-center h-64">
+                <p className="text-xs text-gray-400 text-center px-4">Espacio publicitario</p>
+              </div>
+              <Sidebar />
+            </div>
+          </aside>
+
+        </div>
       </div>
     </div>
   )

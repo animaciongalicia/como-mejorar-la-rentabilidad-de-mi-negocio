@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { BASE_URL } from '@/lib/seo'
 import NewsletterForm from '@/components/NewsletterForm'
+import Sidebar from '@/components/Sidebar'
 
 export const metadata: Metadata = {
   title: 'Herramientas gratuitas | Foco Rentabilismo',
@@ -64,76 +65,90 @@ export default function HerramientasPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="lg:grid lg:gap-12" style={{ gridTemplateColumns: '1fr 260px' }}>
 
-        {/* Disponibles */}
-        {disponibles.length > 0 && (
-          <>
-            <h2 className="text-xs font-black uppercase tracking-widest text-gray-400 border-b border-gray-200 pb-2 mb-8">
-              Disponibles ahora
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-              {disponibles.map((h) => (
-                <Link
-                  key={h.slug}
-                  href={h.href!}
-                  className="group block border border-gray-200 hover:border-orange-400 rounded-xl p-6 transition-all hover:shadow-md"
-                >
-                  <div className="flex items-start justify-between mb-3">
-                    <span className="text-xs font-bold text-orange-600 bg-orange-50 px-2 py-0.5 rounded">
-                      Herramienta
-                    </span>
-                    <span className="text-xs font-bold text-green-700 bg-green-50 px-2 py-0.5 rounded">
-                      Disponible
-                    </span>
-                  </div>
-                  <h2 className="text-lg font-black text-gray-900 group-hover:text-orange-700 transition-colors mb-1">
-                    {h.titulo}
-                  </h2>
-                  <p className="text-sm font-semibold text-gray-500 mb-3">{h.subtitulo}</p>
-                  <p className="text-sm text-gray-600 line-clamp-3">{h.descripcion}</p>
-                  <p className="text-xs font-bold text-orange-600 mt-5 group-hover:underline">
-                    Usar herramienta →
-                  </p>
-                </Link>
-              ))}
-            </div>
-          </>
-        )}
-
-        {/* Próximamente */}
-        {proximas.length > 0 && (
-          <>
-            <h2 className="text-xs font-black uppercase tracking-widest text-gray-400 border-b border-gray-200 pb-2 mb-8">
-              Próximamente
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-              {proximas.map((h) => (
-                <div
-                  key={h.slug}
-                  className="border border-gray-100 rounded-xl p-6 bg-gray-50 opacity-70"
-                >
-                  <span className="text-xs font-bold text-gray-400 bg-gray-100 px-2 py-0.5 rounded mb-3 inline-block">
-                    Herramienta
-                  </span>
-                  <h2 className="text-lg font-black text-gray-600 mb-1">{h.titulo}</h2>
-                  <p className="text-sm font-semibold text-gray-400 mb-3">{h.subtitulo}</p>
-                  <p className="text-sm text-gray-400 line-clamp-3">{h.descripcion}</p>
-                  <p className="text-xs text-gray-400 mt-5 font-medium">Próximamente</p>
+          {/* Columna principal */}
+          <div>
+            {disponibles.length > 0 && (
+              <>
+                <h2 className="text-xs font-black uppercase tracking-widest text-gray-400 border-b border-gray-200 pb-2 mb-8">
+                  Disponibles ahora
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+                  {disponibles.map((h) => (
+                    <Link
+                      key={h.slug}
+                      href={h.href!}
+                      className="group block border border-gray-200 hover:border-orange-400 rounded-xl p-6 transition-all hover:shadow-md"
+                    >
+                      <div className="flex items-start justify-between mb-3">
+                        <span className="text-xs font-bold text-orange-600 bg-orange-50 px-2 py-0.5 rounded">
+                          Herramienta
+                        </span>
+                        <span className="text-xs font-bold text-green-700 bg-green-50 px-2 py-0.5 rounded">
+                          Disponible
+                        </span>
+                      </div>
+                      <h2 className="text-lg font-black text-gray-900 group-hover:text-orange-700 transition-colors mb-1">
+                        {h.titulo}
+                      </h2>
+                      <p className="text-sm font-semibold text-gray-500 mb-3">{h.subtitulo}</p>
+                      <p className="text-sm text-gray-600 line-clamp-3">{h.descripcion}</p>
+                      <p className="text-xs font-bold text-orange-600 mt-5 group-hover:underline">
+                        Usar herramienta →
+                      </p>
+                    </Link>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </>
-        )}
+              </>
+            )}
 
-        {/* Newsletter CTA */}
-        <div className="bg-orange-50 rounded-2xl border border-orange-100 p-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-2 text-center">
-            Avísame cuando estén listas
-          </h2>
-          <p className="text-gray-600 text-center mb-6">
-            Suscríbete al newsletter y serás el primero en acceder a cada herramienta cuando salga.
-          </p>
-          <NewsletterForm variant="inline" pilar="herramientas" />
+            {proximas.length > 0 && (
+              <>
+                <h2 className="text-xs font-black uppercase tracking-widest text-gray-400 border-b border-gray-200 pb-2 mb-8">
+                  Próximamente
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+                  {proximas.map((h) => (
+                    <div
+                      key={h.slug}
+                      className="border border-gray-100 rounded-xl p-6 bg-gray-50 opacity-70"
+                    >
+                      <span className="text-xs font-bold text-gray-400 bg-gray-100 px-2 py-0.5 rounded mb-3 inline-block">
+                        Herramienta
+                      </span>
+                      <h2 className="text-lg font-black text-gray-600 mb-1">{h.titulo}</h2>
+                      <p className="text-sm font-semibold text-gray-400 mb-3">{h.subtitulo}</p>
+                      <p className="text-sm text-gray-400 line-clamp-3">{h.descripcion}</p>
+                      <p className="text-xs text-gray-400 mt-5 font-medium">Próximamente</p>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+
+            {/* Newsletter CTA */}
+            <div className="bg-orange-50 rounded-2xl border border-orange-100 p-8">
+              <h2 className="text-xl font-bold text-gray-900 mb-2 text-center">
+                Avísame cuando estén listas
+              </h2>
+              <p className="text-gray-600 text-center mb-6">
+                Suscríbete al newsletter y serás el primero en acceder a cada herramienta cuando salga.
+              </p>
+              <NewsletterForm variant="inline" pilar="herramientas" />
+            </div>
+          </div>
+
+          {/* Sidebar */}
+          <aside className="hidden lg:block">
+            <div className="sticky top-24 space-y-8">
+              <div className="bg-gray-50 border border-dashed border-gray-300 rounded-2xl flex items-center justify-center h-64">
+                <p className="text-xs text-gray-400 text-center px-4">Espacio publicitario</p>
+              </div>
+              <Sidebar />
+            </div>
+          </aside>
+
         </div>
       </div>
     </div>
