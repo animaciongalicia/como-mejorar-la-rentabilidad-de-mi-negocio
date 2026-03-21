@@ -138,8 +138,7 @@ export default function BlogPostPage({ params }: Props) {
                     {post.author || 'Foco Rentabilismo'}
                   </p>
                   <p className="text-sm text-gray-600 mt-1">
-                    Blog de referencia sobre rentabilidad empresarial para
-                    negocios físicos y pymes. Estrategias probadas, sin humo.
+                    Escribimos para dueños de negocios físicos que quieren ganar dinero de verdad, no solo facturar más. Sin rodeos, sin teoría vacía. No hay milagros. Hay método.
                   </p>
                 </div>
               </div>

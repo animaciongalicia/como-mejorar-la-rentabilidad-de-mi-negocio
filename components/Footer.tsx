@@ -19,7 +19,7 @@ export default function Footer() {
               FOCO<span className="text-teal-400">RENTABILISMO</span>
             </Link>
             <p className="mt-3 text-sm leading-relaxed max-w-xs">
-              Blog de referencia sobre rentabilidad empresarial para negocios físicos y pymes. Sin humo.
+              Para dueños de negocios físicos que están hartos de trabajar mucho y ganar poco. No hay milagros. Hay método.
             </p>
           </div>
 
