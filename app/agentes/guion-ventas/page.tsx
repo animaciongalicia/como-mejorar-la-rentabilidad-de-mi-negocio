@@ -15,7 +15,7 @@ export default function AgenteVentasPage() {
 
       {/* Hero */}
       <div className="border-b-2 border-violet-500 bg-violet-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <Link
             href="/agentes/"
             className="text-xs font-bold text-violet-500 uppercase tracking-widest hover:text-violet-700 transition-colors"
@@ -40,7 +40,7 @@ export default function AgenteVentasPage() {
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
 
         {/* 1. El dolor */}
         <section>
