@@ -41,6 +41,9 @@ export const metadata: Metadata = {
     title: `${SITE_NAME} | Rentabilidad Empresarial para Pymes`,
     description: SITE_DESCRIPTION,
   },
+  verification: {
+    google: 'SKIkHC0ay4lEdMvEDbKtdrxtGTEL8kL3EFQ7k5OvW70',
+  },
   alternates: {
     canonical: BASE_URL,
     languages: {
