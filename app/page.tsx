@@ -71,9 +71,14 @@ export default function HomePage() {
 
   // Secciones especiales
   const casosPosts = allPosts.filter((p) => p.tipo === 'caso-practico').slice(0, 5)
-  const herramientasPosts = allPosts.filter((p) => p.tipo === 'herramienta').slice(0, 5)
-  const minicursosPosts = allPosts.filter((p) => p.tipo === 'minicurso').slice(0, 3)
   const ultimosArticulos = allPosts.filter((p) => !p.tipo || p.tipo === 'articulo').slice(0, 6)
+
+  // Conteo de posts por pilar para el stats bar
+  const postsPorPilar = CATEGORY_NAV_ORDER.map((slug) => ({
+    slug,
+    label: getCategoryConfig(slug).label,
+    count: allPosts.filter((p) => p.categoria === slug).length,
+  }))
 
   return (
     <div className="bg-white">
@@ -150,7 +155,7 @@ export default function HomePage() {
       ══════════════════════════════════════════════════ */}
       <Section bg="bg-gray-50">
         <SectionHeader title="Los 11 Pilares" href="/pilares/" accentClass="border-gray-900" />
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 mb-6">
           {CATEGORY_NAV_ORDER.map((slug) => {
             const cfg = getCategoryConfig(slug)
             return (
@@ -168,7 +173,6 @@ export default function HomePage() {
               </Link>
             )
           })}
-          {/* Card extra: Ver todos los pilares */}
           <Link
             href="/pilares/"
             className="group block rounded-lg p-4 border border-dashed border-gray-300 hover:border-gray-500 bg-white hover:shadow-sm transition-all flex flex-col justify-center items-center text-center"
@@ -177,6 +181,19 @@ export default function HomePage() {
               Ver todos →
             </span>
           </Link>
+        </div>
+        {/* Stats bar por pilar */}
+        <div className="flex flex-wrap gap-2 mt-2">
+          {postsPorPilar.filter((p) => p.count > 0).sort((a, b) => b.count - a.count).map(({ slug, label, count }) => (
+            <Link
+              key={slug}
+              href={`/pilares/${slug}/`}
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-gray-200 hover:border-gray-400 text-xs text-gray-500 hover:text-gray-800 transition-all"
+            >
+              <span className="font-semibold">{label}</span>
+              <span className="bg-gray-100 text-gray-500 rounded-full px-1.5 py-0.5 text-xs font-bold">{count}</span>
+            </Link>
+          ))}
         </div>
       </Section>
 
@@ -199,72 +216,119 @@ export default function HomePage() {
             </div>
           </div>
         ) : (
-          <PlaceholderCasos />
+          <p className="text-sm text-gray-400">Los casos prácticos aparecerán aquí en cuanto se publiquen.</p>
         )}
       </Section>
 
       {/* ══════════════════════════════════════════════════
-          HERRAMIENTAS
+          HERRAMIENTAS GRATUITAS
       ══════════════════════════════════════════════════ */}
       <Section bg="bg-gray-50">
-        <SectionHeader title="Herramientas" href="/herramientas/" accentClass="border-blue-500" />
-        {herramientasPosts.length > 0 ? (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <div className="lg:col-span-7">
-              <PostCard post={herramientasPosts[0]} variant="featured" />
-            </div>
-            <div className="lg:col-span-5 divide-y divide-gray-100">
-              {herramientasPosts.slice(1).map((post) => (
-                <PostCard key={post.slug} post={post} variant="compact" />
-              ))}
-            </div>
+        <SectionHeader title="Herramientas Gratuitas" href="/herramientas/" accentClass="border-blue-500" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
+          {[
+            { href: '/herramientas/diagnostico-negocio/', label: 'Diagnóstico', icon: '🔍', titulo: 'Diagnóstico de rentabilidad', descripcion: 'Detecta en qué áreas estás perdiendo dinero sin saberlo. Análisis completo guiado en 10 minutos.', color: 'border-teal-200 hover:border-teal-400', badge: 'bg-teal-50 text-teal-700' },
+            { href: '/herramientas/avatar-cliente/', label: 'Cliente ideal', icon: '🎯', titulo: 'Define tu cliente ideal', descripcion: 'Construye el perfil exacto de quien te compra para vender más y mejor, sin bajar precios.', color: 'border-orange-200 hover:border-orange-400', badge: 'bg-orange-50 text-orange-700' },
+            { href: '/herramientas/analiza-tu-idea/', label: 'Valida tu idea', icon: '💡', titulo: 'Analiza tu idea de negocio', descripcion: 'Valida si tu idea tiene mercado y viabilidad antes de invertir tiempo ni dinero en ella.', color: 'border-violet-200 hover:border-violet-400', badge: 'bg-violet-50 text-violet-700' },
+          ].map((t) => (
+            <Link key={t.href} href={t.href} className={`group block bg-white border rounded-2xl p-6 transition-all hover:shadow-md ${t.color}`}>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-xl">{t.icon}</span>
+                <span className={`text-xs font-black uppercase tracking-wide px-2 py-0.5 rounded ${t.badge}`}>{t.label}</span>
+              </div>
+              <h3 className="text-base font-black text-gray-900 mb-2 leading-snug group-hover:text-teal-700 transition-colors">{t.titulo}</h3>
+              <p className="text-sm text-gray-500 leading-relaxed">{t.descripcion}</p>
+              <p className="text-xs font-bold text-gray-400 mt-4 group-hover:text-teal-600">Acceder gratis →</p>
+            </Link>
+          ))}
+        </div>
+        <div className="border-t border-gray-200 pt-5">
+          <p className="text-xs font-black uppercase tracking-widest text-gray-400 mb-4">Artículos y recursos</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {allPosts.filter((p) => p.categoria === 'diagnostico-empresarial' || p.categoria === 'precios-y-margenes').slice(0, 4).map((post) => (
+              <PostCard key={post.slug} post={post} variant="default" />
+            ))}
           </div>
-        ) : (
-          <PlaceholderHerramientas />
-        )}
+        </div>
       </Section>
 
       {/* ══════════════════════════════════════════════════
           AGENTES CONSULTORES
       ══════════════════════════════════════════════════ */}
       <Section bg="bg-white">
-        <SectionHeader title="Agentes Consultores" href="/agentes/" accentClass="border-violet-500" />
-        <PlaceholderAgentes />
+        <SectionHeader title="Agentes Consultores IA" href="/agentes/" accentClass="border-violet-500" />
+        <p className="text-sm text-gray-500 mb-6 max-w-2xl">
+          Herramientas de consultoría guiada con IA. Pega el prompt en ChatGPT o Claude y obtén un análisis personalizado para tu negocio en minutos.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {[
+            { nombre: 'Diagnóstico de rentabilidad', subtitulo: 'Radiografía rápida de tu negocio', descripcion: 'Detecta en qué áreas estás perdiendo dinero sin saberlo.', slug: 'diagnostico-rentabilidad', disponible: true },
+            { nombre: 'Calculadora de precios', subtitulo: 'Calcula tu precio mínimo rentable', descripcion: 'El precio real que necesitas cobrar para cubrir costes y ganar dinero.', slug: 'calculadora-precios', disponible: true },
+            { nombre: 'Guión de ventas', subtitulo: 'Argumentarios personalizados', descripcion: 'Guiones adaptados a tu negocio para cerrar más ventas sin bajar precios.', slug: 'guion-ventas', disponible: true },
+            { nombre: 'Control de costes', subtitulo: 'Detecta y reduce gastos ocultos', descripcion: 'Analiza tu estructura de costes e identifica dónde puedes mejorar el margen.', slug: 'control-costes', disponible: true },
+          ].map((agente) => (
+            <Link
+              key={agente.slug}
+              href={`/agentes/${agente.slug}/`}
+              className="group block rounded-xl p-5 border border-gray-200 hover:border-violet-400 bg-white hover:shadow-md transition-all"
+            >
+              <span className="text-xs font-bold px-2 py-0.5 rounded text-green-700 bg-green-50 mb-3 inline-block">
+                Disponible
+              </span>
+              <h3 className="text-base font-black text-gray-900 group-hover:text-violet-700 mb-1 transition-colors leading-snug">
+                {agente.nombre}
+              </h3>
+              <p className="text-xs font-semibold text-gray-400 mb-2">{agente.subtitulo}</p>
+              <p className="text-xs text-gray-500 leading-relaxed line-clamp-2">{agente.descripcion}</p>
+              <p className="text-xs font-bold text-violet-600 mt-4 group-hover:underline">Usar agente →</p>
+            </Link>
+          ))}
+        </div>
       </Section>
 
       {/* ══════════════════════════════════════════════════
-          ÚLTIMOS ARTÍCULOS + MINICURSOS
+          MINICURSOS
+      ══════════════════════════════════════════════════ */}
+      <Section bg="bg-orange-50">
+        <SectionHeader title="Minicursos" href="/minicursos/" accentClass="border-orange-500" />
+        <p className="text-sm text-gray-500 mb-6">Formación directa, sin relleno. Cada minicurso resuelve un problema concreto en menos de una hora.</p>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+          {[
+            { slug: 'escandallo-basico', titulo: 'Escandallo básico para tu negocio', descripcion: 'Calcula el coste real de cada producto o servicio. Descubre si estás ganando o perdiendo en cada venta.', pilar: 'Precios', nivel: 'Básico' },
+            { slug: 'punto-equilibrio', titulo: 'Calcula tu punto de equilibrio', descripcion: 'El número mínimo que debes facturar para no perder dinero. Más fácil de lo que parece.', pilar: 'Diagnóstico', nivel: 'Básico' },
+            { slug: 'escandallo-hosteleria', titulo: 'Escandallo para hostelería', descripcion: 'Guía completa para bares y restaurantes: food cost, coste por plato y precios de carta rentables.', pilar: 'Precios', nivel: 'Básico' },
+          ].map((curso) => (
+            <Link
+              key={curso.slug}
+              href={`/minicursos/${curso.slug}/`}
+              className="group block bg-white border border-orange-200 hover:border-orange-400 rounded-xl p-6 transition-all hover:shadow-md"
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-xs font-bold text-orange-600 bg-orange-50 px-2 py-0.5 rounded">{curso.pilar}</span>
+                <span className="text-xs font-bold text-green-700 bg-green-50 px-2 py-0.5 rounded">{curso.nivel}</span>
+              </div>
+              <h3 className="text-base font-black text-gray-900 group-hover:text-orange-700 mb-2 leading-snug transition-colors">{curso.titulo}</h3>
+              <p className="text-sm text-gray-500 leading-relaxed line-clamp-3">{curso.descripcion}</p>
+              <p className="text-xs font-bold text-orange-600 mt-4 group-hover:underline">Empezar minicurso →</p>
+            </Link>
+          ))}
+        </div>
+        <div className="mt-5 text-center">
+          <Link href="/minicursos/" className="text-sm font-bold text-orange-600 hover:text-orange-800 transition-colors">
+            Ver todos los minicursos →
+          </Link>
+        </div>
+      </Section>
+
+      {/* ══════════════════════════════════════════════════
+          ÚLTIMOS ARTÍCULOS
       ══════════════════════════════════════════════════ */}
       <Section bg="bg-gray-50">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-
-          {/* Últimos artículos — 2/3 del ancho */}
-          <div className="lg:col-span-2">
-            <SectionHeader title="Últimos artículos" href="/blog/" accentClass="border-emerald-500" />
-            {ultimosArticulos.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {ultimosArticulos.map((post) => (
-                  <PostCard key={post.slug} post={post} variant="default" />
-                ))}
-              </div>
-            ) : (
-              <p className="text-sm text-gray-400">Los artículos aparecerán aquí en cuanto se publiquen.</p>
-            )}
-          </div>
-
-          {/* Minicursos — 1/3 del ancho */}
-          <div className="lg:col-span-1">
-            <SectionHeader title="Minicursos" href="/minicursos/" accentClass="border-orange-500" />
-            {minicursosPosts.length > 0 ? (
-              <div className="space-y-4">
-                {minicursosPosts.map((post) => (
-                  <PostCard key={post.slug} post={post} variant="compact" />
-                ))}
-              </div>
-            ) : (
-              <PlaceholderMinicursos />
-            )}
-          </div>
+        <SectionHeader title="Últimos artículos" href="/blog/" accentClass="border-emerald-500" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {ultimosArticulos.map((post) => (
+            <PostCard key={post.slug} post={post} variant="default" />
+          ))}
         </div>
       </Section>
 
@@ -311,134 +375,3 @@ export default function HomePage() {
   )
 }
 
-// ── Placeholders para secciones sin contenido aún ────────────────────────
-
-function PlaceholderCasos() {
-  const items = [
-    { sector: 'Hostelería', titulo: 'Bar de barrio que perdía dinero: de -2.000€ a +6.000€ al mes', resultado: '+4.000€/mes' },
-    { sector: 'Salud', titulo: 'Clínica dental que no sabía cuánto ganaba realmente', resultado: 'Margen +18%' },
-    { sector: 'Servicios', titulo: 'Peluquería con lista de espera que no ganaba dinero', resultado: 'Tarifa +35%' },
-    { sector: 'Taller', titulo: 'Taller mecánico familiar: de 70h/semana a 45h con más beneficio', resultado: '-25h semana' },
-  ]
-  return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-      <div className="lg:col-span-7 bg-gray-50 rounded-xl p-8 border border-gray-100">
-        <span className="text-xs font-black uppercase tracking-wide text-amber-600 bg-amber-50 px-2 py-0.5 rounded">Hostelería</span>
-        <h3 className="text-2xl font-black text-gray-700 mt-3 mb-2 leading-tight">
-          Bar de barrio que perdía dinero: de -2.000€ a +6.000€ al mes
-        </h3>
-        <p className="text-gray-400 text-sm">Subieron precios un 12%, eliminaron 3 platos del menú y redujeron merma. Resultado en 60 días.</p>
-        <p className="text-xs text-gray-300 mt-6 font-medium">Próximamente →</p>
-      </div>
-      <div className="lg:col-span-5 divide-y divide-gray-100">
-        {items.slice(1).map((item, i) => (
-          <div key={i} className="py-4">
-            <div className="flex items-center gap-2 mb-1">
-              <span className="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded">{item.sector}</span>
-              <span className="text-xs font-bold text-green-700">{item.resultado}</span>
-            </div>
-            <p className="text-sm font-semibold text-gray-500 leading-snug">{item.titulo}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-function PlaceholderHerramientas() {
-  const items = [
-    { titulo: 'Calculadora de punto de equilibrio', descripcion: 'Sabe en 2 minutos cuánto debes vender para no perder dinero.' },
-    { titulo: 'Escandallo de costes por producto', descripcion: 'Calcula el coste real de cada cosa que vendes.' },
-    { titulo: 'Plantilla de presupuesto anual', descripcion: 'Un presupuesto sencillo que cualquier dueño puede hacer.' },
-    { titulo: 'Calculadora de margen bruto', descripcion: 'El margen real que deja cada producto o servicio.' },
-  ]
-  return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-      <div className="lg:col-span-7 bg-gray-50 rounded-xl p-8 border border-gray-100">
-        <span className="text-xs font-black uppercase tracking-wide text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Herramienta gratuita</span>
-        <h3 className="text-2xl font-black text-gray-700 mt-3 mb-2 leading-tight">
-          Calculadora de punto de equilibrio
-        </h3>
-        <p className="text-gray-400 text-sm">Introduce tus costes fijos y tu margen y descubre exactamente cuánto debes facturar cada mes para no perder dinero.</p>
-        <p className="text-xs text-gray-300 mt-6 font-medium">Próximamente →</p>
-      </div>
-      <div className="lg:col-span-5 divide-y divide-gray-100">
-        {items.slice(1).map((item, i) => (
-          <div key={i} className="py-4">
-            <p className="text-sm font-semibold text-gray-600 leading-snug mb-1">{item.titulo}</p>
-            <p className="text-xs text-gray-400">{item.descripcion}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-function PlaceholderAgentes() {
-  const agentes = [
-    { nombre: 'Agente Diagnóstico', subtitulo: 'Radiografía rápida de tu negocio', descripcion: 'Detecta en qué áreas estás perdiendo dinero sin saberlo.', slug: 'diagnostico-rentabilidad', disponible: true },
-    { nombre: 'Agente Precios', subtitulo: 'Calcula tu precio mínimo rentable', descripcion: 'El precio real que necesitas cobrar para ganar dinero.', slug: 'calculadora-precios', disponible: true },
-    { nombre: 'Agente Ventas', subtitulo: 'Guiones y argumentarios de venta', descripcion: 'Argumentos personalizados para tu negocio. Cierra más.', slug: 'guion-ventas', disponible: true },
-    { nombre: 'Agente Procesos', subtitulo: 'Elimina lo que te hace perder tiempo', descripcion: 'Detecta cuellos de botella y trabaja menos horas con más resultado.', slug: 'optimizador-procesos', disponible: false },
-  ]
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-      {agentes.map((agente) => (
-        <Link
-          key={agente.slug}
-          href={agente.disponible ? `/agentes/${agente.slug}/` : '/agentes/'}
-          className={`group block rounded-xl p-5 border transition-all ${
-            agente.disponible
-              ? 'border-gray-200 hover:border-violet-400 bg-white hover:shadow-md'
-              : 'border-gray-100 bg-gray-50 opacity-60'
-          }`}
-        >
-          <div className="flex items-center justify-between mb-3">
-            <span className={`text-xs font-bold px-2 py-0.5 rounded ${
-              agente.disponible ? 'text-green-700 bg-green-50' : 'text-gray-400 bg-gray-100'
-            }`}>
-              {agente.disponible ? 'Disponible' : 'Próximamente'}
-            </span>
-          </div>
-          <h3 className={`text-base font-black mb-1 transition-colors ${
-            agente.disponible ? 'text-gray-900 group-hover:text-violet-700' : 'text-gray-500'
-          }`}>
-            {agente.nombre}
-          </h3>
-          <p className="text-xs font-semibold text-gray-400 mb-2">{agente.subtitulo}</p>
-          <p className="text-xs text-gray-500 line-clamp-2">{agente.descripcion}</p>
-          {agente.disponible && (
-            <p className="text-xs font-bold text-violet-600 mt-4 group-hover:underline">Usar agente →</p>
-          )}
-        </Link>
-      ))}
-    </div>
-  )
-}
-
-function PlaceholderMinicursos() {
-  const cursos = [
-    { titulo: 'Escandallo básico para tu negocio', lecciones: 5, pilar: 'Precios' },
-    { titulo: 'Calcula tu punto de equilibrio', lecciones: 4, pilar: 'Diagnóstico' },
-    { titulo: 'Subir precios sin perder clientes', lecciones: 6, pilar: 'Precios' },
-  ]
-  return (
-    <div className="space-y-3">
-      {cursos.map((curso, i) => (
-        <Link
-          key={i}
-          href="/minicursos/"
-          className="group block border border-gray-200 hover:border-orange-400 rounded-lg p-4 transition-all hover:shadow-sm"
-        >
-          <span className="text-xs font-bold text-orange-600 bg-orange-50 px-2 py-0.5 rounded mb-2 inline-block">
-            {curso.pilar} · {curso.lecciones} lecciones
-          </span>
-          <p className="text-sm font-semibold text-gray-700 group-hover:text-orange-700 transition-colors leading-snug">
-            {curso.titulo}
-          </p>
-          <p className="text-xs text-gray-400 mt-1">Próximamente →</p>
-        </Link>
-      ))}
-    </div>
-  )
-}
