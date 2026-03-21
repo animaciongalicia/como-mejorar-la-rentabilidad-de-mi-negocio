@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 }
 
 // ─── AGENTES ───────────────────────────────────────────────────────────────
-// Añade el chatgptUrl cuando tengas el link directo del GPT en ChatGPT
 const AGENTES = [
   {
     slug: 'diagnostico-rentabilidad',
@@ -19,7 +18,7 @@ const AGENTES = [
     usos: ['Detectar fugas de margen', 'Identificar productos o servicios no rentables', 'Priorizar dónde actuar primero'],
     pilar: 'Diagnóstico',
     estado: 'disponible' as const,
-    chatgptUrl: '', // ← pega aquí el link directo del GPT cuando lo tengas
+    chatgptUrl: '',
   },
   {
     slug: 'calculadora-precios',
@@ -29,7 +28,7 @@ const AGENTES = [
     usos: ['Calcular precio mínimo con margen', 'Comparar tu precio con el mercado', 'Argumentar subidas de precio al cliente'],
     pilar: 'Precios',
     estado: 'disponible' as const,
-    chatgptUrl: '', // ← pega aquí el link directo del GPT cuando lo tengas
+    chatgptUrl: '',
   },
   {
     slug: 'guion-ventas',
@@ -39,7 +38,17 @@ const AGENTES = [
     usos: ['Crear argumentario de ventas', 'Responder objeciones de precio', 'Mejorar el discurso de presentación'],
     pilar: 'Ventas',
     estado: 'disponible' as const,
-    chatgptUrl: '', // ← pega aquí el link directo del GPT cuando lo tengas
+    chatgptUrl: '',
+  },
+  {
+    slug: 'control-costes',
+    nombre: 'Agente Costes',
+    subtitulo: 'Encuentra dónde se escapa el dinero',
+    descripcion: 'Revisa tu estructura de costes fijos y variables para identificar qué gastos puedes reducir o eliminar sin dañar el negocio.',
+    usos: ['Auditar gastos mensuales', 'Detectar costes ocultos o prescindibles', 'Calcular punto de equilibrio real'],
+    pilar: 'Costes',
+    estado: 'disponible' as const,
+    chatgptUrl: '',
   },
   {
     slug: 'optimizador-procesos',
@@ -57,7 +66,17 @@ const AGENTES = [
     subtitulo: 'Plan de marketing rentable para tu negocio',
     descripcion: 'Diseña acciones de marketing con retorno medible. Sin gastar en publicidad que no funciona.',
     usos: ['Plan de captación de clientes', 'Estrategia de fidelización', 'Ideas de marketing local de bajo coste'],
-    pilar: 'Publicidad/Marketing',
+    pilar: 'Marketing',
+    estado: 'proximo' as const,
+    chatgptUrl: '',
+  },
+  {
+    slug: 'fidelizacion-clientes',
+    nombre: 'Agente Fidelización',
+    subtitulo: 'Haz que tus clientes vuelvan y gasten más',
+    descripcion: 'Diseña estrategias concretas para retener clientes, aumentar la frecuencia de compra y subir el ticket medio.',
+    usos: ['Plan de fidelización paso a paso', 'Ideas para aumentar ticket medio', 'Sistemas de repetición de compra'],
+    pilar: 'Ventas',
     estado: 'proximo' as const,
     chatgptUrl: '',
   },
@@ -110,14 +129,14 @@ export default function AgentesPage() {
         </div>
 
         {/* ─── CÓMO FUNCIONA ──────────────────────────────────────────────── */}
-        <div className="mb-16">
+        <div className="mb-10">
           <h2 className="text-xl font-black text-gray-900 mb-6">¿Cómo funciona?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
                 num: '1',
                 titulo: 'Elige el agente',
-                texto: 'Cada agente está especializado en un área concreta: precios, ventas, diagnóstico, procesos... Elige el que mejor se adapte a lo que necesitas ahora mismo.',
+                texto: 'Cada agente está especializado en un área concreta: precios, ventas, diagnóstico, costes... Elige el que mejor se adapte a lo que necesitas ahora mismo.',
               },
               {
                 num: '2',
@@ -143,18 +162,56 @@ export default function AgentesPage() {
           </div>
         </div>
 
+        {/* ─── CÓMO DARLE LAS INSTRUCCIONES ──────────────────────────────── */}
+        <div className="mb-16 bg-gray-50 border border-gray-200 rounded-xl p-6">
+          <h2 className="text-lg font-black text-gray-900 mb-1">Cómo hablarle para sacarle el máximo</h2>
+          <p className="text-sm text-gray-500 mb-5">Cuanto más contexto le des, mejor respuesta obtendrás. Usa esta estructura:</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="bg-white border border-gray-200 rounded-lg p-4">
+              <p className="text-xs font-black uppercase tracking-widest text-violet-600 mb-2">Tu rol</p>
+              <p className="text-sm font-semibold text-gray-900 mb-1">Dile quién eres</p>
+              <p className="text-xs text-gray-500 leading-relaxed mb-3">
+                Qué tipo de negocio tienes, cuántos años llevas, si trabajas solo o con empleados, y cuál es tu situación actual.
+              </p>
+              <p className="text-xs text-gray-400 italic">
+                "Tengo una peluquería con 2 empleadas, llevo 6 años y facturamos unos 8.000€ al mes..."
+              </p>
+            </div>
+            <div className="bg-white border border-gray-200 rounded-lg p-4">
+              <p className="text-xs font-black uppercase tracking-widest text-violet-600 mb-2">Tu problema</p>
+              <p className="text-sm font-semibold text-gray-900 mb-1">Explica qué necesitas resolver</p>
+              <p className="text-xs text-gray-500 leading-relaxed mb-3">
+                Sé específico. No "quiero ganar más dinero" sino qué problema concreto tienes ahora mismo y qué ya has intentado.
+              </p>
+              <p className="text-xs text-gray-400 italic">
+                "No entiendo por qué a fin de mes casi no queda dinero aunque las ventas van bien..."
+              </p>
+            </div>
+            <div className="bg-white border border-gray-200 rounded-lg p-4">
+              <p className="text-xs font-black uppercase tracking-widest text-violet-600 mb-2">Cómo quieres los resultados</p>
+              <p className="text-sm font-semibold text-gray-900 mb-1">Dile qué esperas obtener</p>
+              <p className="text-xs text-gray-500 leading-relaxed mb-3">
+                Si quieres una lista de acciones, un análisis, un guion, una tabla... El agente se adapta al formato que más te ayude.
+              </p>
+              <p className="text-xs text-gray-400 italic">
+                "Dame 3 acciones concretas que pueda aplicar esta semana, ordenadas por impacto."
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* ─── AGENTES DISPONIBLES ────────────────────────────────────────── */}
         <h2 className="text-xs font-black uppercase tracking-widest text-gray-400 border-b border-gray-200 pb-2 mb-8">
           Disponibles ahora
         </h2>
 
-        <div className="space-y-4 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
           {disponibles.map((agente) => (
             <div
               key={agente.slug}
-              className="border border-gray-200 rounded-xl p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+              className="border border-gray-200 rounded-xl p-6 flex flex-col justify-between gap-4"
             >
-              <div className="flex-1">
+              <div>
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-xs font-bold text-violet-600 bg-violet-50 px-2 py-0.5 rounded">
                     {agente.pilar}
@@ -168,8 +225,7 @@ export default function AgentesPage() {
                 <p className="text-sm text-gray-600 leading-relaxed">{agente.descripcion}</p>
               </div>
 
-              <div className="flex flex-col gap-2 shrink-0 md:items-end">
-                {/* Botón ChatGPT — solo si hay URL directa */}
+              <div className="flex flex-col sm:flex-row gap-2 sm:items-center">
                 {agente.chatgptUrl ? (
                   <a
                     href={agente.chatgptUrl}
@@ -184,12 +240,11 @@ export default function AgentesPage() {
                     Link próximamente
                   </span>
                 )}
-                {/* Guía con prompt manual */}
                 <Link
                   href={`/agentes/${agente.slug}/`}
                   className="text-xs text-violet-600 hover:underline text-center"
                 >
-                  Ver prompt y guía de uso →
+                  Ver prompt y guía →
                 </Link>
               </div>
             </div>
@@ -202,7 +257,7 @@ export default function AgentesPage() {
             <h2 className="text-xs font-black uppercase tracking-widest text-gray-400 border-b border-gray-200 pb-2 mb-8">
               En desarrollo
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
               {proximos.map((agente) => (
                 <div
                   key={agente.slug}
