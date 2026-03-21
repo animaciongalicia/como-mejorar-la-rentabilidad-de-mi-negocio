@@ -31,7 +31,7 @@ export const CATEGORIES: Record<string, CategoryConfig> = {
   },
   'productos-servicios': {
     label: 'Producto/Servicio',
-    description: 'Lo que vendes importa. Cómo diseñar y diferenciar tu oferta para que no te comparen por precio.',
+    description: 'Lo que vendes importa. Cómo diseñar y diferenciar tu oferta para que no te comparen.',
     color: 'bg-sky-100',
     textColor: 'text-sky-700',
     hoverColor: 'hover:bg-sky-200',

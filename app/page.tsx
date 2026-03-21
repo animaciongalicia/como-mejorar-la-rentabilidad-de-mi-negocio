@@ -81,16 +81,18 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════
           MASTHEAD
       ══════════════════════════════════════════════════ */}
-      <div className="border-b-4 border-gray-900 py-6 bg-white">
+      <div className="border-b-4 border-gray-900 py-10 bg-amber-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-1">
+          <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-5">
             Para propietarios de negocios físicos y pymes en toda España
           </p>
-          <h1 className="text-4xl md:text-6xl font-black text-gray-900 tracking-tight leading-none">
-            Foco Rentabilismo
-          </h1>
-          <p className="text-gray-400 mt-2 text-sm">
-            Más beneficio. Menos excusas. — Actualizado {formatDate(new Date().toISOString().split('T')[0])}
+          <div className="border-t-2 border-b-2 border-gray-400 py-5 my-1">
+            <h1 className="text-5xl md:text-7xl font-black text-gray-900 tracking-tight leading-none">
+              Foco Rentabilismo
+            </h1>
+          </div>
+          <p className="text-gray-500 mt-5 text-sm font-medium tracking-widest uppercase">
+            Más beneficio. Menos excusas.
           </p>
         </div>
       </div>

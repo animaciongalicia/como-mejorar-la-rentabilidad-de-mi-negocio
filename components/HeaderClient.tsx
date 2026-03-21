@@ -26,7 +26,7 @@ export default function HeaderClient() {
 
           {/* Logo */}
           <Link href="/" className="shrink-0">
-            <span className="text-lg font-black text-gray-900 tracking-tight">
+            <span className="text-2xl font-black text-gray-900 tracking-tight">
               FOCO<span className="text-teal-600">RENTABILISMO</span>
             </span>
           </Link>
