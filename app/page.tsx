@@ -84,15 +84,13 @@ export default function HomePage() {
       <div className="border-b-4 border-gray-900 py-10 bg-amber-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-5">
-            Para propietarios de negocios físicos y pymes en toda España
+            Ayudando a personas a mejorar sus empresas y negocios
           </p>
-          <div className="border-t-2 border-b-2 border-gray-400 py-5 my-1">
-            <h1 className="text-5xl md:text-7xl font-black text-gray-900 tracking-tight leading-none">
-              Foco Rentabilismo
-            </h1>
-          </div>
+          <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-none">
+            <span className="text-gray-900">Foco </span><span className="text-teal-600">Rentabilismo</span>
+          </h1>
           <p className="text-gray-500 mt-5 text-sm font-medium tracking-widest uppercase">
-            Más beneficio. Menos excusas.
+            No hay milagros, hay Método
           </p>
         </div>
       </div>
