@@ -15,7 +15,8 @@ export const metadata: Metadata = {
 }
 
 export default function BlogPage() {
-  const posts = getAllPosts()
+  // Excluir casos-practicos del blog general: tienen su propia sección en /casos-practicos/
+  const posts = getAllPosts().filter((p) => p.tipo !== 'caso-practico')
 
   const breadcrumbItems = [
     { name: 'Inicio', url: BASE_URL },

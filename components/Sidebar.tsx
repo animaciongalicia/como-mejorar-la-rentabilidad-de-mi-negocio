@@ -77,45 +77,39 @@ export default function Sidebar({ currentCategoria }: SidebarProps) {
         <h3 className="text-base font-bold text-gray-900 mb-4 uppercase tracking-wide">
           Herramientas gratuitas
         </h3>
-        <ul className="space-y-3">
+        <ul className="space-y-2">
           <li>
-            <a
-              href="https://rentabilismo.online"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/herramientas/diagnostico-negocio/"
               className="flex flex-col gap-0.5 px-3 py-2 rounded-lg hover:bg-orange-50 transition-colors group"
             >
               <span className="text-sm font-semibold text-gray-800 group-hover:text-orange-700">
                 Diagnóstico de negocio
               </span>
-              <span className="text-xs text-gray-500">rentabilismo.online</span>
-            </a>
+              <span className="text-xs text-gray-500">Detecta fugas de rentabilidad</span>
+            </Link>
           </li>
           <li>
-            <a
-              href="https://avatar-rentabilismo.com"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/herramientas/avatar-cliente/"
               className="flex flex-col gap-0.5 px-3 py-2 rounded-lg hover:bg-orange-50 transition-colors group"
             >
               <span className="text-sm font-semibold text-gray-800 group-hover:text-orange-700">
-                Define a quién le vendes
+                Define tu cliente ideal
               </span>
-              <span className="text-xs text-gray-500">avatar-rentabilismo.com</span>
-            </a>
+              <span className="text-xs text-gray-500">Vende mejor a quien te compra</span>
+            </Link>
           </li>
           <li>
-            <a
-              href="https://idea-rentabilismo.com"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/herramientas/analiza-tu-idea/"
               className="flex flex-col gap-0.5 px-3 py-2 rounded-lg hover:bg-orange-50 transition-colors group"
             >
               <span className="text-sm font-semibold text-gray-800 group-hover:text-orange-700">
                 Analiza tu idea de negocio
               </span>
-              <span className="text-xs text-gray-500">idea-rentabilismo.com</span>
-            </a>
+              <span className="text-xs text-gray-500">Valida antes de invertir</span>
+            </Link>
           </li>
         </ul>
       </div>

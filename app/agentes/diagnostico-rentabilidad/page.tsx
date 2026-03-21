@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { BASE_URL } from '@/lib/seo'
+import Sidebar from '@/components/Sidebar'
 
 export const metadata: Metadata = {
   title: 'Agente Diagnóstico — Radiografía rápida de tu negocio | Foco Rentabilismo',
@@ -40,7 +41,9 @@ export default function AgenteDiagnosticoPage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="lg:grid lg:gap-12" style={{ gridTemplateColumns: '1fr 260px' }}>
+          <div className="space-y-16">
 
         {/* 1. El dolor */}
         <section>
@@ -331,6 +334,35 @@ Sé directo. Sin rodeos. Sin palabrería. Este dueño no tiene tiempo para infor
           </div>
         </section>
 
+          </div>{/* fin columna principal */}
+
+          {/* Sidebar */}
+          <aside className="hidden lg:block">
+            <div className="sticky top-24 space-y-8">
+              <div className="bg-gray-50 border border-dashed border-gray-300 rounded-2xl flex items-center justify-center h-64">
+                <p className="text-xs text-gray-400 text-center px-4">Espacio publicitario</p>
+              </div>
+              <div className="bg-violet-50 border border-violet-100 rounded-2xl p-5">
+                <h3 className="text-sm font-black uppercase tracking-wide text-violet-700 mb-4">Otros agentes</h3>
+                <ul className="space-y-2">
+                  {[
+                    { slug: 'calculadora-precios', nombre: 'Agente Precios' },
+                    { slug: 'control-costes', nombre: 'Agente Costes' },
+                    { slug: 'guion-ventas', nombre: 'Agente Ventas' },
+                  ].map((a) => (
+                    <li key={a.slug}>
+                      <Link href={`/agentes/${a.slug}/`} className="text-sm font-semibold text-gray-700 hover:text-violet-700 transition-colors block px-2 py-1 rounded hover:bg-violet-100">
+                        {a.nombre} →
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <Sidebar />
+            </div>
+          </aside>
+
+        </div>
       </div>
     </div>
   )
