@@ -20,14 +20,10 @@ export function Callout({ children, tipo = 'info' }: { children: ReactNode; tipo
 // Paso numerado (para listas de pasos)
 export function Paso({ numero, titulo, children }: { numero: number; titulo: string; children: ReactNode }) {
   return (
-    <div className="my-5 flex gap-4">
-      <div className="shrink-0 w-8 h-8 rounded-full bg-teal-600 text-white font-black text-sm flex items-center justify-center mt-0.5">
-        {numero}
-      </div>
-      <div className="flex-1">
-        <p className="font-bold text-gray-900 mb-1">{titulo}</p>
-        <div className="text-gray-700 text-sm leading-relaxed">{children}</div>
-      </div>
+    <div className="my-6 border-l-2 border-orange-300 pl-5">
+      <p className="text-xs font-black text-orange-500 uppercase tracking-widest mb-1">Paso {numero}</p>
+      <p className="font-bold text-gray-900 mb-2">{titulo}</p>
+      <div className="text-gray-700 text-sm leading-relaxed">{children}</div>
     </div>
   )
 }
