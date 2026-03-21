@@ -174,17 +174,17 @@ export default function AgentesPage() {
                 Qué tipo de negocio tienes, cuántos años llevas, si trabajas solo o con empleados, y cuál es tu situación actual.
               </p>
               <p className="text-xs text-gray-400 italic">
-                "Tengo una peluquería con 2 empleadas, llevo 6 años y facturamos unos 8.000€ al mes..."
+                &ldquo;Tengo una peluquería con 2 empleadas, llevo 6 años y facturamos unos 8.000€ al mes...&rdquo;
               </p>
             </div>
             <div className="bg-white border border-gray-200 rounded-lg p-4">
               <p className="text-xs font-black uppercase tracking-widest text-violet-600 mb-2">Tu problema</p>
               <p className="text-sm font-semibold text-gray-900 mb-1">Explica qué necesitas resolver</p>
               <p className="text-xs text-gray-500 leading-relaxed mb-3">
-                Sé específico. No "quiero ganar más dinero" sino qué problema concreto tienes ahora mismo y qué ya has intentado.
+                Sé específico. No &ldquo;quiero ganar más dinero&rdquo; sino qué problema concreto tienes ahora mismo y qué ya has intentado.
               </p>
               <p className="text-xs text-gray-400 italic">
-                "No entiendo por qué a fin de mes casi no queda dinero aunque las ventas van bien..."
+                &ldquo;No entiendo por qué a fin de mes casi no queda dinero aunque las ventas van bien...&rdquo;
               </p>
             </div>
             <div className="bg-white border border-gray-200 rounded-lg p-4">
@@ -194,7 +194,7 @@ export default function AgentesPage() {
                 Si quieres una lista de acciones, un análisis, un guion, una tabla... El agente se adapta al formato que más te ayude.
               </p>
               <p className="text-xs text-gray-400 italic">
-                "Dame 3 acciones concretas que pueda aplicar esta semana, ordenadas por impacto."
+                &ldquo;Dame 3 acciones concretas que pueda aplicar esta semana, ordenadas por impacto.&rdquo;
               </p>
             </div>
           </div>
