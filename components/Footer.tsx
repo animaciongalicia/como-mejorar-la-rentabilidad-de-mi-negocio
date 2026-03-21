@@ -19,7 +19,7 @@ export default function Footer() {
               FOCO<span className="text-teal-400">RENTABILISMO</span>
             </Link>
             <p className="mt-3 text-sm leading-relaxed max-w-xs">
-              Para dueños de negocios físicos que están hartos de trabajar mucho y ganar poco. No hay milagros. Hay método.
+              Consultoría guiada a través de nuestras publicaciones, para personas con empresas y negocios que quieren mejorar su vida y su negocio. No hay milagros. Hay método.
             </p>
           </div>
 

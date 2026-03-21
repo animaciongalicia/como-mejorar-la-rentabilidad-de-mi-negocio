@@ -138,7 +138,7 @@ export default function BlogPostPage({ params }: Props) {
                     {post.author || 'Foco Rentabilismo'}
                   </p>
                   <p className="text-sm text-gray-600 mt-1">
-                    Escribimos para dueños de negocios físicos que quieren ganar dinero de verdad, no solo facturar más. Sin rodeos, sin teoría vacía. No hay milagros. Hay método.
+                    Consultoría guiada a través de nuestras publicaciones. Ayudamos a personas con empresas y negocios a mejorar su rentabilidad y su vida. No hay milagros. Hay método.
                   </p>
                 </div>
               </div>
