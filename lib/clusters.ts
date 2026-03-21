@@ -20,7 +20,7 @@ export const PILLARS = [
     id: 'productos-servicios',
     name: 'Producto/Servicio',
     slug: 'productos-servicios',
-    description: 'Lo que vendes importa. Cómo diseñar y diferenciar tu oferta para que no te comparen por precio.',
+    description: 'Lo que vendes importa. Cómo diseñar y diferenciar tu oferta para que no te comparen.',
     clusters: ['diseno-oferta', 'diferenciacion', 'packaging-servicio', 'propuesta-valor'],
   },
   {

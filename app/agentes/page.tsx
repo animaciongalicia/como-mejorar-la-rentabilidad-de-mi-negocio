@@ -82,25 +82,32 @@ export default function AgentesPage() {
 
       {/* ─── HERO ─────────────────────────────────────────────────────────── */}
       <div className="border-b-2 border-violet-500 bg-violet-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <p className="text-xs font-black uppercase tracking-widest text-violet-600 mb-3">Gratis · Sin registro · En ChatGPT</p>
-          <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-5 leading-tight">
-            Agentes Consultores<br className="hidden md:block" /> para tu negocio
+          <h1 className="text-3xl md:text-4xl font-black text-gray-900 mb-3 leading-tight">
+            Agentes Consultores para tu negocio
           </h1>
-          <p className="text-lg text-gray-700 max-w-2xl leading-relaxed mb-4">
-            Rentabilismo pone a tu disposición agentes de inteligencia artificial entrenados
-            específicamente para ayudarte a mejorar la rentabilidad de tu negocio.
-          </p>
-          <p className="text-base text-gray-600 max-w-2xl leading-relaxed">
-            No son chatbots genéricos. Cada agente tiene un objetivo concreto, conoce los
-            problemas reales de los negocios físicos y te guía paso a paso. Y son completamente
-            gratuitos — los usas directamente en ChatGPT, sin pagar nada, sin registrarte en
-            ningún sitio.
+          <p className="text-lg text-gray-600 max-w-3xl">
+            Inteligencia artificial especializada en negocios físicos. Lista para usar, sin configurar nada.
           </p>
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        {/* ─── INTRO ─────────────────────────────────────────────────────── */}
+        <div className="bg-violet-50 border border-violet-200 rounded-xl p-6 mb-12">
+          <p className="text-gray-800 text-base leading-relaxed mb-2">
+            <strong>Esto no son chatbots genéricos.</strong> Cada agente tiene un objetivo
+            concreto y conoce de primera mano los problemas de los negocios físicos: márgenes
+            ajustados, clientes que regatean, procesos que se comen el tiempo. Te hace las
+            preguntas correctas y te guía paso a paso hacia una respuesta útil.
+          </p>
+          <p className="text-gray-700 text-base leading-relaxed">
+            Son completamente gratuitos. Los abres directamente en ChatGPT — sin pagar nada,
+            sin registrarte en ningún sitio, sin instalar nada.
+          </p>
+        </div>
 
         {/* ─── CÓMO FUNCIONA ──────────────────────────────────────────────── */}
         <div className="mb-16">

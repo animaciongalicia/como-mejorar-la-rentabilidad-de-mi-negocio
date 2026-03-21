@@ -81,7 +81,7 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════
           MASTHEAD
       ══════════════════════════════════════════════════ */}
-      <div className="border-b-4 border-gray-900 py-10 bg-amber-50">
+      <div className="border-b border-gray-300 py-10 bg-amber-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-5">
             Ayudando a personas a mejorar sus empresas y negocios
