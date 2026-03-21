@@ -1,14 +1,15 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { BASE_URL, CHATGPT_AGENTES_URL } from '@/lib/seo'
+import { BASE_URL } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Agentes Consultores IA | Foco Rentabilismo',
-  description: 'Agentes de inteligencia artificial diseñados para ayudarte a mejorar la rentabilidad de tu negocio. Prompts, usos y resultados reales.',
+  title: 'Agentes Consultores IA Gratuitos | Foco Rentabilismo',
+  description: 'Rentabilismo pone a tu disposición agentes consultores de IA especializados para mejorar la rentabilidad de tu negocio. Gratis. En ChatGPT. Sin configurar nada.',
   alternates: { canonical: `${BASE_URL}/agentes/` },
 }
 
-// Agentes — cada uno tendrá su página propia en /agentes/[slug]/
+// ─── AGENTES ───────────────────────────────────────────────────────────────
+// Añade el chatgptUrl cuando tengas el link directo del GPT en ChatGPT
 const AGENTES = [
   {
     slug: 'diagnostico-rentabilidad',
@@ -17,7 +18,8 @@ const AGENTES = [
     descripcion: 'Analiza los números clave de tu negocio y detecta en qué áreas estás perdiendo dinero sin saberlo.',
     usos: ['Detectar fugas de margen', 'Identificar productos o servicios no rentables', 'Priorizar dónde actuar primero'],
     pilar: 'Diagnóstico',
-    estado: 'disponible',
+    estado: 'disponible' as const,
+    chatgptUrl: '', // ← pega aquí el link directo del GPT cuando lo tengas
   },
   {
     slug: 'calculadora-precios',
@@ -26,7 +28,8 @@ const AGENTES = [
     descripcion: 'Te ayuda a calcular el precio real que necesitas cobrar para ganar dinero, sin malvender ni perder clientes.',
     usos: ['Calcular precio mínimo con margen', 'Comparar tu precio con el mercado', 'Argumentar subidas de precio al cliente'],
     pilar: 'Precios',
-    estado: 'disponible',
+    estado: 'disponible' as const,
+    chatgptUrl: '', // ← pega aquí el link directo del GPT cuando lo tengas
   },
   {
     slug: 'guion-ventas',
@@ -35,7 +38,8 @@ const AGENTES = [
     descripcion: 'Genera argumentarios personalizados para tu negocio. Responde objeciones, cierra más y cobra lo que vale tu trabajo.',
     usos: ['Crear argumentario de ventas', 'Responder objeciones de precio', 'Mejorar el discurso de presentación'],
     pilar: 'Ventas',
-    estado: 'disponible',
+    estado: 'disponible' as const,
+    chatgptUrl: '', // ← pega aquí el link directo del GPT cuando lo tengas
   },
   {
     slug: 'optimizador-procesos',
@@ -44,7 +48,8 @@ const AGENTES = [
     descripcion: 'Detecta cuellos de botella en tus operaciones y propone soluciones concretas para trabajar menos horas con más resultado.',
     usos: ['Mapear procesos actuales', 'Identificar tareas a eliminar o automatizar', 'Crear checklist operativos'],
     pilar: 'Procesos',
-    estado: 'próximamente',
+    estado: 'proximo' as const,
+    chatgptUrl: '',
   },
   {
     slug: 'estrategia-marketing',
@@ -53,7 +58,8 @@ const AGENTES = [
     descripcion: 'Diseña acciones de marketing con retorno medible. Sin gastar en publicidad que no funciona.',
     usos: ['Plan de captación de clientes', 'Estrategia de fidelización', 'Ideas de marketing local de bajo coste'],
     pilar: 'Publicidad/Marketing',
-    estado: 'próximamente',
+    estado: 'proximo' as const,
+    chatgptUrl: '',
   },
   {
     slug: 'mentor-empresarial',
@@ -62,7 +68,8 @@ const AGENTES = [
     descripcion: 'Resuelve dudas estratégicas, toma decisiones con más claridad y actúa como si tuvieras un consultor a tu lado.',
     usos: ['Resolver dilemas de negocio', 'Tomar decisiones con más información', 'Pensar estrategia a medio plazo'],
     pilar: 'Diagnóstico',
-    estado: 'próximamente',
+    estado: 'proximo' as const,
+    chatgptUrl: '',
   },
 ]
 
@@ -73,106 +80,151 @@ export default function AgentesPage() {
   return (
     <div className="bg-white min-h-screen">
 
-      {/* Cabecera de sección */}
+      {/* ─── HERO ─────────────────────────────────────────────────────────── */}
       <div className="border-b-2 border-violet-500 bg-violet-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-          <p className="text-xs font-black uppercase tracking-widest text-violet-600 mb-2">Sección especial</p>
-          <h1 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">Agentes Consultores</h1>
-          <p className="text-lg text-gray-600 max-w-3xl">
-            Agentes de IA diseñados para tu negocio. No son chatbots genéricos.
-            Cada agente tiene un objetivo concreto, prompts específicos y resultados medibles.
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+          <p className="text-xs font-black uppercase tracking-widest text-violet-600 mb-3">Gratis · Sin registro · En ChatGPT</p>
+          <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-5 leading-tight">
+            Agentes Consultores<br className="hidden md:block" /> para tu negocio
+          </h1>
+          <p className="text-lg text-gray-700 max-w-2xl leading-relaxed mb-4">
+            Rentabilismo pone a tu disposición agentes de inteligencia artificial entrenados
+            específicamente para ayudarte a mejorar la rentabilidad de tu negocio.
+          </p>
+          <p className="text-base text-gray-600 max-w-2xl leading-relaxed">
+            No son chatbots genéricos. Cada agente tiene un objetivo concreto, conoce los
+            problemas reales de los negocios físicos y te guía paso a paso. Y son completamente
+            gratuitos — los usas directamente en ChatGPT, sin pagar nada, sin registrarte en
+            ningún sitio.
           </p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
 
-        {/* Disponibles */}
+        {/* ─── CÓMO FUNCIONA ──────────────────────────────────────────────── */}
+        <div className="mb-16">
+          <h2 className="text-xl font-black text-gray-900 mb-6">¿Cómo funciona?</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                num: '1',
+                titulo: 'Elige el agente',
+                texto: 'Cada agente está especializado en un área concreta: precios, ventas, diagnóstico, procesos... Elige el que mejor se adapte a lo que necesitas ahora mismo.',
+              },
+              {
+                num: '2',
+                titulo: 'Ábrelo en ChatGPT',
+                texto: 'Pulsa el botón "Usar en ChatGPT". Se abre directamente con toda la configuración ya hecha. No tienes que copiar ningún prompt ni configurar nada.',
+              },
+              {
+                num: '3',
+                titulo: 'Cuéntale tu caso',
+                texto: 'El agente te hará preguntas sobre tu negocio y te dará respuestas concretas. No respuestas genéricas — análisis adaptados a tu situación real.',
+              },
+            ].map((paso) => (
+              <div key={paso.num} className="flex gap-4">
+                <div className="shrink-0 w-9 h-9 rounded-full bg-violet-600 text-white font-black text-base flex items-center justify-center">
+                  {paso.num}
+                </div>
+                <div>
+                  <p className="font-black text-gray-900 mb-1">{paso.titulo}</p>
+                  <p className="text-sm text-gray-600 leading-relaxed">{paso.texto}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ─── AGENTES DISPONIBLES ────────────────────────────────────────── */}
         <h2 className="text-xs font-black uppercase tracking-widest text-gray-400 border-b border-gray-200 pb-2 mb-8">
           Disponibles ahora
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+
+        <div className="space-y-4 mb-16">
           {disponibles.map((agente) => (
-            <Link
+            <div
               key={agente.slug}
-              href={`/agentes/${agente.slug}/`}
-              className="group block border border-gray-200 hover:border-violet-400 rounded-xl p-6 transition-all hover:shadow-md"
+              className="border border-gray-200 rounded-xl p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
             >
-              <div className="flex items-start justify-between mb-3">
-                <span className="text-xs font-bold text-violet-600 bg-violet-50 px-2 py-0.5 rounded">
-                  {agente.pilar}
-                </span>
-                <span className="text-xs font-bold text-green-700 bg-green-50 px-2 py-0.5 rounded">
-                  Disponible
-                </span>
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-xs font-bold text-violet-600 bg-violet-50 px-2 py-0.5 rounded">
+                    {agente.pilar}
+                  </span>
+                  <span className="text-xs font-bold text-green-700 bg-green-50 px-2 py-0.5 rounded">
+                    Disponible
+                  </span>
+                </div>
+                <h3 className="text-lg font-black text-gray-900 mb-0.5">{agente.nombre}</h3>
+                <p className="text-sm font-semibold text-gray-500 mb-2">{agente.subtitulo}</p>
+                <p className="text-sm text-gray-600 leading-relaxed">{agente.descripcion}</p>
               </div>
-              <h2 className="text-lg font-black text-gray-900 group-hover:text-violet-700 transition-colors mb-1">
-                {agente.nombre}
-              </h2>
-              <p className="text-sm font-semibold text-gray-500 mb-3">{agente.subtitulo}</p>
-              <p className="text-sm text-gray-600 mb-4 line-clamp-2">{agente.descripcion}</p>
-              <ul className="space-y-1">
-                {agente.usos.map((uso, i) => (
-                  <li key={i} className="flex items-start gap-2 text-xs text-gray-500">
-                    <span className="text-violet-400 mt-0.5">→</span>
-                    {uso}
-                  </li>
-                ))}
-              </ul>
-              <p className="text-xs font-bold text-violet-600 mt-5 group-hover:underline">
-                Ver agente →
-              </p>
-            </Link>
+
+              <div className="flex flex-col gap-2 shrink-0 md:items-end">
+                {/* Botón ChatGPT — solo si hay URL directa */}
+                {agente.chatgptUrl ? (
+                  <a
+                    href={agente.chatgptUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-violet-600 hover:bg-violet-700 text-white font-semibold px-5 py-2.5 rounded-lg transition-colors text-sm text-center whitespace-nowrap"
+                  >
+                    Usar en ChatGPT →
+                  </a>
+                ) : (
+                  <span className="bg-gray-100 text-gray-400 font-semibold px-5 py-2.5 rounded-lg text-sm text-center whitespace-nowrap cursor-not-allowed">
+                    Link próximamente
+                  </span>
+                )}
+                {/* Guía con prompt manual */}
+                <Link
+                  href={`/agentes/${agente.slug}/`}
+                  className="text-xs text-violet-600 hover:underline text-center"
+                >
+                  Ver prompt y guía de uso →
+                </Link>
+              </div>
+            </div>
           ))}
         </div>
 
-        {/* Próximamente */}
+        {/* ─── PRÓXIMAMENTE ──────────────────────────────────────────────── */}
         {proximos.length > 0 && (
           <>
             <h2 className="text-xs font-black uppercase tracking-widest text-gray-400 border-b border-gray-200 pb-2 mb-8">
-              Próximamente en el blog
+              En desarrollo
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
               {proximos.map((agente) => (
                 <div
                   key={agente.slug}
-                  className="border border-gray-100 rounded-xl p-6 bg-gray-50 opacity-70"
+                  className="border border-gray-100 rounded-xl p-5 bg-gray-50 opacity-70"
                 >
-                  <span className="text-xs font-bold text-gray-400 bg-gray-100 px-2 py-0.5 rounded mb-3 inline-block">
+                  <span className="text-xs font-bold text-gray-400 bg-gray-100 px-2 py-0.5 rounded mb-2 inline-block">
                     {agente.pilar}
                   </span>
-                  <h2 className="text-lg font-black text-gray-600 mb-1">{agente.nombre}</h2>
-                  <p className="text-sm font-semibold text-gray-400 mb-3">{agente.subtitulo}</p>
-                  <p className="text-sm text-gray-400 line-clamp-2">{agente.descripcion}</p>
-                  <p className="text-xs text-gray-400 mt-5 font-medium">Próximamente</p>
+                  <h3 className="text-base font-black text-gray-600 mb-0.5">{agente.nombre}</h3>
+                  <p className="text-sm font-semibold text-gray-400 mb-2">{agente.subtitulo}</p>
+                  <p className="text-xs text-gray-400 leading-relaxed">{agente.descripcion}</p>
+                  <p className="text-xs text-gray-400 mt-4 font-medium">Próximamente</p>
                 </div>
               ))}
             </div>
           </>
         )}
 
-        {/* CTA hub ChatGPT */}
-        <div className="mt-16 border-t border-gray-100 pt-12">
-          <div className="bg-violet-50 border border-violet-200 rounded-2xl p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            <div>
-              <p className="text-xs font-black uppercase tracking-widest text-violet-500 mb-2">Ya disponibles</p>
-              <h2 className="text-xl font-black text-gray-900 mb-2">
-                Más de 10 agentes rentabilistas en ChatGPT
-              </h2>
-              <p className="text-gray-600 text-sm max-w-lg leading-relaxed">
-                Si prefieres no copiar prompts, tenemos todos los agentes ya configurados
-                en ChatGPT. Entras, buscas y usas. Sin configurar nada.
-              </p>
-            </div>
-            <a
-              href={CHATGPT_AGENTES_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="shrink-0 bg-violet-600 hover:bg-violet-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors text-center whitespace-nowrap"
-            >
-              Ver todos en ChatGPT →
-            </a>
-          </div>
+        {/* ─── POR QUÉ SON GRATUITOS ─────────────────────────────────────── */}
+        <div className="border border-violet-200 bg-violet-50 rounded-2xl p-8">
+          <h2 className="text-xl font-black text-gray-900 mb-3">¿Por qué son gratuitos?</h2>
+          <p className="text-gray-700 text-sm leading-relaxed mb-3">
+            Porque en Rentabilismo creemos que la mayoría de negocios pequeños tienen los
+            problemas resueltos — solo les falta saber dónde mirar y cómo actuar. Los agentes
+            son nuestra forma de democratizar el acceso a un consultor de rentabilidad.
+          </p>
+          <p className="text-gray-700 text-sm leading-relaxed">
+            Necesitas una cuenta de ChatGPT (gratuita) para usarlos. Nada más.
+          </p>
         </div>
 
       </div>

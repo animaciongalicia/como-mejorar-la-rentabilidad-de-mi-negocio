@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { BASE_URL, CHATGPT_AGENTES_URL } from '@/lib/seo'
+import { BASE_URL } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Agente Diagnóstico — Radiografía rápida de tu negocio | Foco Rentabilismo',
@@ -320,14 +320,12 @@ Sé directo. Sin rodeos. Sin palabrería. Este dueño no tiene tiempo para infor
                 afinado para un problema concreto. Sin copiar prompts, sin configurar nada.
                 Entras y usas.
               </p>
-              <a
-                href={CHATGPT_AGENTES_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/agentes/"
                 className="inline-block bg-violet-600 hover:bg-violet-700 text-white font-semibold px-5 py-2.5 rounded-lg transition-colors text-sm"
               >
-                Ver agentes en ChatGPT →
-              </a>
+                Ver todos los agentes →
+              </Link>
             </div>
 
           </div>

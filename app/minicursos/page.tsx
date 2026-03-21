@@ -28,6 +28,16 @@ const MINICURSOS = [
     estado: 'disponible',
   },
   {
+    slug: 'escandallo-hosteleria',
+    titulo: 'Escandallo para hostelería y restaurantes',
+    descripcion: 'Guía completa para bares, restaurantes y cafeterías. Calcula el food cost, el coste real de cada plato y fija precios de carta que te dejen ganar dinero de verdad.',
+    lecciones: 1,
+    pilar: 'Precios',
+    nivel: 'Básico',
+    estado: 'disponible',
+    blogSlug: 'escandallo-hosteleria-restaurantes',
+  },
+  {
     slug: 'subir-precios-sin-perder-clientes',
     titulo: 'Cómo subir precios sin perder clientes',
     descripcion: 'El método paso a paso para comunicar una subida de precios y que tus mejores clientes lo entiendan y se queden.',
@@ -35,6 +45,7 @@ const MINICURSOS = [
     pilar: 'Precios',
     nivel: 'Intermedio',
     estado: 'próximamente',
+    blogSlug: null,
   },
   {
     slug: 'primer-empleado',
@@ -83,7 +94,7 @@ export default function MinicursosPage() {
               {disponibles.map((curso) => (
                 <Link
                   key={curso.slug}
-                  href={`/minicursos/${curso.slug}/`}
+                  href={'blogSlug' in curso && curso.blogSlug ? `/blog/${curso.blogSlug}/` : `/minicursos/${curso.slug}/`}
                   className="group block border border-gray-200 hover:border-orange-400 rounded-xl p-6 transition-all hover:shadow-md"
                 >
                   <div className="flex items-center gap-2 mb-3">
