@@ -29,6 +29,20 @@ export default function SectoresPage() {
         </div>
       </div>
 
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-0">
+        <div className="max-w-2xl prose prose-gray prose-p:text-gray-600 prose-p:leading-relaxed prose-strong:text-gray-900">
+          <p>
+            Los principios de rentabilidad son universales, pero los problemas concretos no lo son. Un bar no tiene los mismos cuellos de botella que una clínica dental. Una peluquería no gestiona su stock igual que una ferretería. Un taller mecánico no fideliza clientes de la misma forma que una academia.
+          </p>
+          <p>
+            Por eso existe esta sección. Cada sector tiene sus propias referencias de margen, sus propios errores habituales y sus propias palancas de mejora. Aquí encontrarás artículos, casos y estrategias escritos específicamente para tu tipo de negocio, no consejos genéricos que podrían aplicarse a cualquier cosa.
+          </p>
+          <p>
+            <strong>Elige tu sector</strong> y accede directamente a lo que es relevante para ti. Si el tuyo no está todavía, los pilares generales del blog tienen todo lo que necesitas para empezar.
+          </p>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="lg:grid lg:gap-12" style={{ gridTemplateColumns: '1fr 260px' }}>
 

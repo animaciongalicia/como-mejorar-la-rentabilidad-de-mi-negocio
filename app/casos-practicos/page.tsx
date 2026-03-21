@@ -68,6 +68,23 @@ export default function CasosPracticosPage() {
         </div>
       </div>
 
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-0">
+        <div className="max-w-2xl prose prose-gray prose-p:text-gray-600 prose-p:leading-relaxed prose-strong:text-gray-900">
+          <p>
+            La teoría está bien. Los casos reales son mejores.
+          </p>
+          <p>
+            Aquí no hay consultores de grandes empresas explicando lo que hizo Inditex. Hay bares, peluquerías, talleres, tiendas de barrio y clínicas que tenían un problema de rentabilidad concreto, tomaron decisiones específicas y obtuvieron resultados medibles. Lo que funcionó, lo que no y por qué.
+          </p>
+          <p>
+            Cada caso está estructurado igual: el problema de partida, el diagnóstico, las acciones que se tomaron y el resultado en números. Sin exagerar, sin esconder lo que no salió como se esperaba.
+          </p>
+          <p>
+            <strong>El valor de los casos prácticos</strong> no está solo en copiar lo que hizo otro. Está en reconocer tu propio negocio en la situación de partida y entender qué tipo de decisiones llevan a qué tipo de resultados.
+          </p>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="lg:grid lg:gap-12" style={{ gridTemplateColumns: '1fr 260px' }}>
 

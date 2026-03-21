@@ -100,6 +100,23 @@ export default function MinicursosPage() {
         </div>
       </div>
 
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-0">
+        <div className="max-w-2xl prose prose-gray prose-p:text-gray-600 prose-p:leading-relaxed prose-strong:text-gray-900">
+          <p>
+            Un artículo te explica el concepto. Un minicurso te lleva a aplicarlo paso a paso en tu propio negocio.
+          </p>
+          <p>
+            Cada minicurso está construido alrededor de un problema concreto que tienen los dueños de negocio físico: calcular el coste real de lo que venden, saber cuánto tienen que facturar para no perder dinero, entender qué productos les dejan margen y cuáles se lo comen. Sin rodeos, sin padding, sin ejemplos de multinacionales que no tienen nada que ver contigo.
+          </p>
+          <p>
+            Los minicursos son gratuitos. Puedes hacerlos a tu ritmo. Y al terminar cada uno tienes un número, una decisión o un sistema que antes no tenías.
+          </p>
+          <p>
+            <strong>Si estás empezando</strong>, el punto de equilibrio y el escandallo básico son los dos primeros que deberías hacer. Son la base de todo lo demás.
+          </p>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="lg:grid lg:gap-12" style={{ gridTemplateColumns: '1fr 260px' }}>
 

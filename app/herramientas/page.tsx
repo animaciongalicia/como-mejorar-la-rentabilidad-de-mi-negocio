@@ -88,6 +88,23 @@ export default function HerramientasPage() {
         </div>
       </div>
 
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-0">
+        <div className="max-w-2xl prose prose-gray prose-p:text-gray-600 prose-p:leading-relaxed prose-strong:text-gray-900">
+          <p>
+            Saber que tu negocio tiene un problema es el primer paso. Saber exactamente dónde está y cuánto te está costando es lo que te permite resolverlo.
+          </p>
+          <p>
+            Estas herramientas están diseñadas para dueños de negocio físico que quieren respuestas concretas, no informes de cuarenta páginas. Cada una resuelve una pregunta específica: ¿cuánto tengo que vender para no perder dinero? ¿Qué productos me dejan margen real y cuáles me lo están comiendo? ¿Qué está fallando en mi negocio ahora mismo?
+          </p>
+          <p>
+            No necesitas formación financiera. No necesitas registrarte. Introduces tus datos, obtienes tu respuesta y sabes qué hacer a continuación. Eso es todo.
+          </p>
+          <p>
+            <strong>Si no sabes por dónde empezar,</strong> usa el diagnóstico de negocio. En diez minutos te dice cuáles son las tres áreas prioritarias en las que trabajar para mejorar tu rentabilidad.
+          </p>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="lg:grid lg:gap-12" style={{ gridTemplateColumns: '1fr 260px' }}>
 
