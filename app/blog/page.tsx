@@ -4,6 +4,7 @@ import { BASE_URL, SITE_NAME, generateBreadcrumbSchema } from '@/lib/seo'
 import PostCard from '@/components/PostCard'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import SchemaOrg from '@/components/SchemaOrg'
+import Sidebar from '@/components/Sidebar'
 
 export const metadata: Metadata = {
   title: `Blog | ${SITE_NAME}`,
@@ -41,26 +42,46 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Posts */}
+      {/* Posts + Sidebar */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {posts.length > 0 ? (
-          <>
-            <p className="text-gray-500 mb-8">
-              {posts.length} {posts.length === 1 ? 'artículo publicado' : 'artículos publicados'}
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {posts.map((post) => (
-                <PostCard key={post.slug} post={post} />
-              ))}
-            </div>
-          </>
-        ) : (
-          <div className="text-center py-16">
-            <p className="text-gray-400 text-lg">
-              Próximamente nuevos artículos.
-            </p>
+        <div className="lg:grid lg:gap-12" style={{ gridTemplateColumns: '1fr 260px' }}>
+
+          {/* Columna principal */}
+          <div>
+            {posts.length > 0 ? (
+              <>
+                <p className="text-gray-500 mb-8">
+                  {posts.length} {posts.length === 1 ? 'artículo publicado' : 'artículos publicados'}
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {posts.map((post) => (
+                    <PostCard key={post.slug} post={post} />
+                  ))}
+                </div>
+              </>
+            ) : (
+              <div className="text-center py-16">
+                <p className="text-gray-400 text-lg">
+                  Próximamente nuevos artículos.
+                </p>
+              </div>
+            )}
           </div>
-        )}
+
+          {/* Sidebar */}
+          <aside className="hidden lg:block">
+            <div className="sticky top-24 space-y-8">
+              {/* Bloque reservado para AdSense */}
+              <div className="bg-gray-50 border border-dashed border-gray-300 rounded-2xl flex items-center justify-center h-64">
+                <p className="text-xs text-gray-400 text-center px-4">
+                  Espacio publicitario
+                </p>
+              </div>
+              <Sidebar />
+            </div>
+          </aside>
+
+        </div>
       </section>
     </>
   )
