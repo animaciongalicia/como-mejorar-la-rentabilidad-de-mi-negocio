@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { BASE_URL } from '@/lib/seo'
+import { getAllPosts } from '@/lib/posts'
 
 export const metadata: Metadata = {
   title: 'Agentes Consultores IA Gratuitos | Foco Rentabilismo',
@@ -95,6 +96,8 @@ const AGENTES = [
 export default function AgentesPage() {
   const disponibles = AGENTES.filter((a) => a.estado === 'disponible')
   const proximos = AGENTES.filter((a) => a.estado !== 'disponible')
+  const recentPosts = getAllPosts().slice(0, 4)
+  const destacado = AGENTES.find((a) => a.slug === 'diagnostico-rentabilidad')!
 
   return (
     <div className="bg-white min-h-screen">
@@ -113,6 +116,8 @@ export default function AgentesPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="lg:grid lg:gap-12" style={{ gridTemplateColumns: '1fr 260px' }}>
+      <div>{/* ─── COLUMNA PRINCIPAL ──────────────────────────────────────────── */}
 
         {/* ─── INTRO ─────────────────────────────────────────────────────── */}
         <div className="bg-violet-50 border border-violet-200 rounded-xl p-6 mb-12">
@@ -289,6 +294,83 @@ export default function AgentesPage() {
           </p>
         </div>
 
+      </div>{/* fin columna principal */}
+
+      {/* ─── SIDEBAR ────────────────────────────────────────────────────── */}
+      <aside className="hidden lg:block">
+        <div className="sticky top-24 space-y-8">
+
+          {/* Agente destacado */}
+          <div className="bg-violet-50 border border-violet-200 rounded-2xl p-5">
+            <p className="text-xs font-black uppercase tracking-widest text-violet-600 mb-3">
+              Empieza aquí
+            </p>
+            <h3 className="text-base font-black text-gray-900 mb-1">{destacado.nombre}</h3>
+            <p className="text-sm text-gray-600 leading-relaxed mb-4">{destacado.descripcion}</p>
+            <Link
+              href={`/agentes/${destacado.slug}/`}
+              className="block text-center bg-violet-600 hover:bg-violet-700 text-white font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors"
+            >
+              Ver guía completa →
+            </Link>
+          </div>
+
+          {/* Newsletter */}
+          <div className="bg-teal-50 rounded-2xl border border-teal-100 p-5">
+            <h3 className="text-base font-bold text-gray-900 mb-2">
+              Newsletter semanal
+            </h3>
+            <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+              Una idea de rentabilidad cada semana. Sin spam. Solo valor.
+            </p>
+            <div className="space-y-3">
+              <input
+                type="email"
+                placeholder="tu@email.com"
+                className="w-full px-4 py-2.5 rounded-lg border border-teal-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white"
+                aria-label="Correo electrónico para newsletter"
+              />
+              <button
+                type="button"
+                className="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors"
+              >
+                Suscribirme gratis
+              </button>
+            </div>
+            <p className="text-xs text-gray-400 mt-3">Sin spam. Baja cuando quieras.</p>
+          </div>
+
+          {/* Últimos artículos */}
+          {recentPosts.length > 0 && (
+            <div className="bg-white rounded-2xl border border-gray-200 p-5">
+              <h3 className="text-sm font-black uppercase tracking-wide text-gray-900 mb-4">
+                Últimos artículos
+              </h3>
+              <ul className="space-y-4">
+                {recentPosts.map((post) => (
+                  <li key={post.slug}>
+                    <Link
+                      href={`/blog/${post.slug}/`}
+                      className="text-sm font-semibold text-gray-800 hover:text-violet-600 transition-colors leading-snug block"
+                    >
+                      {post.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/blog/"
+                className="mt-4 block text-xs text-violet-600 hover:underline font-semibold"
+              >
+                Ver todos los artículos →
+              </Link>
+            </div>
+          )}
+
+        </div>
+      </aside>
+
+      </div>{/* fin grid */}
       </div>
     </div>
   )
