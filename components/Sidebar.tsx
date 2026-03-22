@@ -104,7 +104,7 @@ export default function Sidebar({ currentCategoria }: SidebarProps) {
           Sin tecnicismos. Con resultados medibles en 30 días.
         </p>
         <Link
-          href="/herramientas"
+          href="/herramientas/"
           className="block text-center bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors duration-200"
         >
           Ver herramientas gratuitas →

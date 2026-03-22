@@ -153,7 +153,7 @@ export default function BlogPostPage({ params }: Props) {
                 Recursos, calculadoras y guías gratuitas para que pongas orden en los números de tu negocio.
               </p>
               <a
-                href="/herramientas"
+                href="/herramientas/"
                 className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200 inline-block"
               >
                 Ver herramientas gratuitas →

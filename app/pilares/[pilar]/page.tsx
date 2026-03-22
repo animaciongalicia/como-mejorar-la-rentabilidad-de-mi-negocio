@@ -179,7 +179,7 @@ export default function PilarPage({ params }: Props) {
             Minicursos gratuitos y directos para dueños de negocios físicos.
           </p>
           <a
-            href="/minicursos"
+            href="/minicursos/"
             className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200 inline-block"
           >
             Empezar con los minicursos →
