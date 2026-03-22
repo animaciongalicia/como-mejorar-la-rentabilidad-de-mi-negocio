@@ -66,8 +66,8 @@ export default function HomePage() {
 
   // Hero
   const featuredPost = allPosts.find((p) => p.featured) || allPosts[0]
-  const heroSecondary = allPosts.filter((p) => p.slug !== featuredPost?.slug).slice(0, 2)
-  const sidebarPosts = allPosts.filter((p) => p.slug !== featuredPost?.slug).slice(2, 7)
+  const heroSecondary = allPosts.filter((p) => p.slug !== featuredPost?.slug).slice(0, 3)
+  const sidebarPosts = allPosts.filter((p) => p.slug !== featuredPost?.slug).slice(3, 8)
 
   // Secciones especiales
   const casosPosts = allPosts.filter((p) => p.tipo === 'caso-practico').slice(0, 5)
