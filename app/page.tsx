@@ -108,9 +108,23 @@ export default function HomePage() {
 
           {/* Columna izquierda: secundarios apilados */}
           <div className="lg:col-span-3 space-y-6 order-2 lg:order-1">
-            {heroSecondary.map((post) => (
-              <PostCard key={post.slug} post={post} variant="compact" />
-            ))}
+            {heroSecondary.length > 0 ? (
+              heroSecondary.map((post) => (
+                <PostCard key={post.slug} post={post} variant="compact" />
+              ))
+            ) : (
+              <div className="space-y-4">
+                {[
+                  { href: '/pilares/precios-y-margenes/', label: 'Precios y márgenes', desc: 'Cómo calcular el precio que te hace ganar dinero de verdad.' },
+                  { href: '/pilares/costes/', label: 'Costes', desc: 'Detecta y elimina gastos que están comiendo tu margen sin que lo veas.' },
+                ].map((item) => (
+                  <Link key={item.href} href={item.href} className="block group border border-gray-100 hover:border-teal-200 rounded-lg p-4 transition-all hover:shadow-sm">
+                    <span className="text-xs font-black uppercase tracking-wide text-teal-600 mb-1 block">{item.label}</span>
+                    <p className="text-sm text-gray-600 leading-snug group-hover:text-gray-900">{item.desc}</p>
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Centro: post destacado */}
@@ -130,24 +144,98 @@ export default function HomePage() {
             <div className="border-t-2 border-gray-900 pt-4">
               <p className="text-xs font-black uppercase tracking-widest text-gray-400 mb-4">Más leídos</p>
               <div className="space-y-0 divide-y divide-gray-100">
-                {sidebarPosts.map((post, i) => (
-                  <div key={post.slug} className="py-3 flex gap-3 items-start">
-                    <span className="text-2xl font-black text-gray-100 leading-none w-6 shrink-0">{i + 1}</span>
-                    <Link
-                      href={`/blog/${post.slug}/`}
-                      className="text-sm font-semibold text-gray-700 hover:text-teal-600 leading-snug transition-colors line-clamp-3"
-                    >
-                      {post.title}
-                    </Link>
-                  </div>
-                ))}
-                {sidebarPosts.length === 0 && (
-                  <p className="text-sm text-gray-300 py-4">Los artículos más leídos aparecerán aquí.</p>
+                {sidebarPosts.length > 0 ? (
+                  sidebarPosts.map((post, i) => (
+                    <div key={post.slug} className="py-3 flex gap-3 items-start">
+                      <span className="text-2xl font-black text-gray-100 leading-none w-6 shrink-0">{i + 1}</span>
+                      <Link
+                        href={`/blog/${post.slug}/`}
+                        className="text-sm font-semibold text-gray-700 hover:text-teal-600 leading-snug transition-colors line-clamp-3"
+                      >
+                        {post.title}
+                      </Link>
+                    </div>
+                  ))
+                ) : (
+                  <>
+                    {[
+                      { href: '/blog/punto-de-equilibrio-negocio/', title: 'Cómo calcular tu punto de equilibrio' },
+                      { href: '/blog/costes-ocultos-negocio/', title: 'Costes ocultos que destrozan tu margen' },
+                      { href: '/blog/cuanto-cobrar-por-mi-producto/', title: '¿Cuánto cobrar por tu producto o servicio?' },
+                      { href: '/blog/como-subir-ticket-medio/', title: 'Cómo subir el ticket medio sin perder clientes' },
+                      { href: '/blog/reducir-costes-sin-perder-calidad/', title: 'Reducir costes sin perder calidad' },
+                    ].map((item, i) => (
+                      <div key={item.href} className="py-3 flex gap-3 items-start">
+                        <span className="text-2xl font-black text-gray-100 leading-none w-6 shrink-0">{i + 1}</span>
+                        <Link
+                          href={item.href}
+                          className="text-sm font-semibold text-gray-700 hover:text-teal-600 leading-snug transition-colors line-clamp-3"
+                        >
+                          {item.title}
+                        </Link>
+                      </div>
+                    ))}
+                  </>
                 )}
               </div>
             </div>
           </aside>
         </div>
+      </Section>
+
+      {/* ══════════════════════════════════════════════════
+          HERRAMIENTAS GRATUITAS
+      ══════════════════════════════════════════════════ */}
+      <Section bg="bg-gray-50">
+        <SectionHeader title="Herramientas Gratuitas" href="/herramientas/" accentClass="border-blue-500" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
+          {[
+            { href: '/herramientas/diagnostico-negocio/', label: 'Diagnóstico', icon: '🔍', titulo: 'Diagnóstico de rentabilidad', descripcion: 'Detecta en qué áreas estás perdiendo dinero sin saberlo. Análisis completo guiado en 10 minutos.', color: 'border-teal-200 hover:border-teal-400', badge: 'bg-teal-50 text-teal-700' },
+            { href: '/herramientas/avatar-cliente/', label: 'Cliente ideal', icon: '🎯', titulo: 'Define tu cliente ideal', descripcion: 'Construye el perfil exacto de quien te compra para vender más y mejor, sin bajar precios.', color: 'border-orange-200 hover:border-orange-400', badge: 'bg-orange-50 text-orange-700' },
+            { href: '/herramientas/analiza-tu-idea/', label: 'Valida tu idea', icon: '💡', titulo: 'Analiza tu idea de negocio', descripcion: 'Valida si tu idea tiene mercado y viabilidad antes de invertir tiempo ni dinero en ella.', color: 'border-violet-200 hover:border-violet-400', badge: 'bg-violet-50 text-violet-700' },
+          ].map((t) => (
+            <Link key={t.href} href={t.href} className={`group block bg-white border rounded-2xl p-6 transition-all hover:shadow-md ${t.color}`}>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-xl">{t.icon}</span>
+                <span className={`text-xs font-black uppercase tracking-wide px-2 py-0.5 rounded ${t.badge}`}>{t.label}</span>
+              </div>
+              <h3 className="text-base font-black text-gray-900 mb-2 leading-snug group-hover:text-teal-700 transition-colors">{t.titulo}</h3>
+              <p className="text-sm text-gray-500 leading-relaxed">{t.descripcion}</p>
+              <p className="text-xs font-bold text-gray-400 mt-4 group-hover:text-teal-600">Acceder gratis →</p>
+            </Link>
+          ))}
+        </div>
+        <div className="border-t border-gray-200 pt-5">
+          <p className="text-xs font-black uppercase tracking-widest text-gray-400 mb-4">Artículos y recursos</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {allPosts.filter((p) => p.categoria === 'diagnostico-empresarial' || p.categoria === 'precios-y-margenes').slice(0, 4).map((post) => (
+              <PostCard key={post.slug} post={post} variant="default" />
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* ══════════════════════════════════════════════════
+          CASOS PRÁCTICOS
+      ══════════════════════════════════════════════════ */}
+      <Section bg="bg-white">
+        <SectionHeader title="Casos Prácticos" href="/casos-practicos/" accentClass="border-amber-500" />
+        {casosPosts.length > 0 ? (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            {/* Caso destacado */}
+            <div className="lg:col-span-7">
+              <PostCard post={casosPosts[0]} variant="featured" />
+            </div>
+            {/* Lista de casos */}
+            <div className="lg:col-span-5 divide-y divide-gray-100">
+              {casosPosts.slice(1).map((post) => (
+                <PostCard key={post.slug} post={post} variant="compact" />
+              ))}
+            </div>
+          </div>
+        ) : (
+          <p className="text-sm text-gray-400">Los casos prácticos aparecerán aquí en cuanto se publiquen.</p>
+        )}
       </Section>
 
       {/* ══════════════════════════════════════════════════
@@ -194,61 +282,6 @@ export default function HomePage() {
               <span className="bg-gray-100 text-gray-500 rounded-full px-1.5 py-0.5 text-xs font-bold">{count}</span>
             </Link>
           ))}
-        </div>
-      </Section>
-
-      {/* ══════════════════════════════════════════════════
-          CASOS PRÁCTICOS
-      ══════════════════════════════════════════════════ */}
-      <Section bg="bg-white">
-        <SectionHeader title="Casos Prácticos" href="/casos-practicos/" accentClass="border-amber-500" />
-        {casosPosts.length > 0 ? (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            {/* Caso destacado */}
-            <div className="lg:col-span-7">
-              <PostCard post={casosPosts[0]} variant="featured" />
-            </div>
-            {/* Lista de casos */}
-            <div className="lg:col-span-5 divide-y divide-gray-100">
-              {casosPosts.slice(1).map((post) => (
-                <PostCard key={post.slug} post={post} variant="compact" />
-              ))}
-            </div>
-          </div>
-        ) : (
-          <p className="text-sm text-gray-400">Los casos prácticos aparecerán aquí en cuanto se publiquen.</p>
-        )}
-      </Section>
-
-      {/* ══════════════════════════════════════════════════
-          HERRAMIENTAS GRATUITAS
-      ══════════════════════════════════════════════════ */}
-      <Section bg="bg-gray-50">
-        <SectionHeader title="Herramientas Gratuitas" href="/herramientas/" accentClass="border-blue-500" />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
-          {[
-            { href: '/herramientas/diagnostico-negocio/', label: 'Diagnóstico', icon: '🔍', titulo: 'Diagnóstico de rentabilidad', descripcion: 'Detecta en qué áreas estás perdiendo dinero sin saberlo. Análisis completo guiado en 10 minutos.', color: 'border-teal-200 hover:border-teal-400', badge: 'bg-teal-50 text-teal-700' },
-            { href: '/herramientas/avatar-cliente/', label: 'Cliente ideal', icon: '🎯', titulo: 'Define tu cliente ideal', descripcion: 'Construye el perfil exacto de quien te compra para vender más y mejor, sin bajar precios.', color: 'border-orange-200 hover:border-orange-400', badge: 'bg-orange-50 text-orange-700' },
-            { href: '/herramientas/analiza-tu-idea/', label: 'Valida tu idea', icon: '💡', titulo: 'Analiza tu idea de negocio', descripcion: 'Valida si tu idea tiene mercado y viabilidad antes de invertir tiempo ni dinero en ella.', color: 'border-violet-200 hover:border-violet-400', badge: 'bg-violet-50 text-violet-700' },
-          ].map((t) => (
-            <Link key={t.href} href={t.href} className={`group block bg-white border rounded-2xl p-6 transition-all hover:shadow-md ${t.color}`}>
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-xl">{t.icon}</span>
-                <span className={`text-xs font-black uppercase tracking-wide px-2 py-0.5 rounded ${t.badge}`}>{t.label}</span>
-              </div>
-              <h3 className="text-base font-black text-gray-900 mb-2 leading-snug group-hover:text-teal-700 transition-colors">{t.titulo}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">{t.descripcion}</p>
-              <p className="text-xs font-bold text-gray-400 mt-4 group-hover:text-teal-600">Acceder gratis →</p>
-            </Link>
-          ))}
-        </div>
-        <div className="border-t border-gray-200 pt-5">
-          <p className="text-xs font-black uppercase tracking-widest text-gray-400 mb-4">Artículos y recursos</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            {allPosts.filter((p) => p.categoria === 'diagnostico-empresarial' || p.categoria === 'precios-y-margenes').slice(0, 4).map((post) => (
-              <PostCard key={post.slug} post={post} variant="default" />
-            ))}
-          </div>
         </div>
       </Section>
 
