@@ -394,11 +394,12 @@ export default function HomePage() {
           <div className="max-w-2xl mx-auto text-center">
             <p className="text-xs font-black uppercase tracking-widest text-teal-400 mb-3">Newsletter semanal</p>
             <h2 className="text-3xl font-black text-white mb-4">
-              Una idea cada semana para ganar más con tu negocio
+              Ideas y herramientas para mejorar empresas y negocios.
             </h2>
-            <p className="text-gray-400 mb-8">
-              Sin spam. Sin relleno. Solo estrategia práctica para negocios físicos.
+            <p className="text-gray-400 mb-2">
+              Sin spam. Sin relleno. Solo estrategia práctica para negocios y empresas.
             </p>
+            <p className="text-xs font-black uppercase tracking-widest text-gray-500 mb-8">Sin humo</p>
             <NewsletterInline />
           </div>
         </div>
