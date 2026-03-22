@@ -91,7 +91,7 @@ export function generateBreadcrumbSchema(
   }
 }
 
-const DEFAULT_OG_IMAGE = `/og-default.jpg` // Crear imagen 1200×630 en /public/og-default.jpg
+const DEFAULT_OG_IMAGE = `/opengraph-image`
 
 export function generateMetadataForPost(post: Post): Metadata {
   const url = `${BASE_URL}/blog/${post.slug}/`

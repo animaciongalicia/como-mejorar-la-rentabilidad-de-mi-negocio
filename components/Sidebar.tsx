@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { getAllCategorias, getCategoriaCount } from '@/lib/posts'
 import { getCategoryLabel } from '@/lib/categories'
+import NewsletterForm from '@/components/NewsletterForm'
 
 interface SidebarProps {
   currentCategoria?: string
@@ -44,33 +45,8 @@ export default function Sidebar({ currentCategoria }: SidebarProps) {
         </ul>
       </div>
 
-      {/* Newsletter - TODO: Integrar con ActiveCampaign */}
-      {/* TODO: Conectar formulario de newsletter con ActiveCampaign una vez configurada la cuenta */}
-      <div className="bg-teal-50 rounded-2xl border border-teal-100 p-6">
-        <h3 className="text-base font-bold text-gray-900 mb-2">
-          Newsletter semanal
-        </h3>
-        <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-          Una idea de rentabilidad cada semana. Sin spam. Solo valor.
-        </p>
-        <div className="space-y-3">
-          <input
-            type="email"
-            placeholder="tu@email.com"
-            className="w-full px-4 py-2.5 rounded-lg border border-teal-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white"
-            aria-label="Correo electrónico para newsletter"
-          />
-          <button
-            type="button"
-            className="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors duration-200"
-          >
-            Suscribirme gratis
-          </button>
-        </div>
-        <p className="text-xs text-gray-400 mt-3">
-          Sin spam. Baja cuando quieras.
-        </p>
-      </div>
+      {/* Newsletter */}
+      <NewsletterForm variant="sidebar" />
 
       {/* Herramientas gratuitas */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6">

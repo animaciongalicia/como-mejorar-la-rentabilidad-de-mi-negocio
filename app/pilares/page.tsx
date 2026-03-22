@@ -8,13 +8,13 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 
 export const metadata: Metadata = {
   title: 'Pilares temáticos | Foco Rentabilismo',
-  description: 'Explora los 13 pilares temáticos sobre rentabilidad empresarial: diagnóstico, precios, costes, ventas, procesos y mucho más.',
+  description: 'Explora los 11 pilares temáticos sobre rentabilidad empresarial: diagnóstico, precios, costes, ventas, procesos y mucho más.',
   alternates: {
     canonical: `${BASE_URL}/pilares/`,
   },
   openGraph: {
     title: 'Pilares temáticos | Foco Rentabilismo',
-    description: 'Explora los 13 pilares temáticos sobre rentabilidad empresarial: diagnóstico, precios, costes, ventas, procesos y mucho más.',
+    description: 'Explora los 11 pilares temáticos sobre rentabilidad empresarial: diagnóstico, precios, costes, ventas, procesos y mucho más.',
     url: `${BASE_URL}/pilares/`,
   },
 }
@@ -52,10 +52,10 @@ export default function PilaresPage() {
           <Breadcrumbs items={breadcrumbItems} light />
           <div className="mt-6 max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Los 13 pilares de la rentabilidad
+              Los 11 pilares de la rentabilidad
             </h1>
             <p className="text-xl text-teal-100 leading-relaxed">
-              No hay un único camino para hacer tu negocio rentable. Hay 13 áreas clave que debes dominar. Aquí las tienes todas, organizadas para que sepas exactamente por dónde empezar.
+              No hay un único camino para hacer tu negocio rentable. Hay 11 áreas clave que debes dominar. Aquí las tienes todas, organizadas para que sepas exactamente por dónde empezar.
             </p>
           </div>
         </div>
