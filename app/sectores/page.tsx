@@ -30,7 +30,7 @@ export default function SectoresPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-0">
-        <div className="max-w-2xl prose prose-gray prose-p:text-gray-600 prose-p:leading-relaxed prose-strong:text-gray-900">
+        <div className="prose max-w-none prose-gray prose-p:text-gray-600 prose-p:leading-relaxed prose-strong:text-gray-900">
           <p>
             Los principios de rentabilidad son universales, pero los problemas concretos no lo son. Un bar no tiene los mismos cuellos de botella que una clínica dental. Una peluquería no gestiona su stock igual que una ferretería. Un taller mecánico no fideliza clientes de la misma forma que una academia.
           </p>

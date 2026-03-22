@@ -69,7 +69,7 @@ export default function CasosPracticosPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-0">
-        <div className="max-w-2xl prose prose-gray prose-p:text-gray-600 prose-p:leading-relaxed prose-strong:text-gray-900">
+        <div className="prose max-w-none prose-gray prose-p:text-gray-600 prose-p:leading-relaxed prose-strong:text-gray-900">
           <p>
             La teoría está bien. Los casos reales son mejores.
           </p>
