@@ -37,6 +37,12 @@ const MINICURSOS_META: Record<string, { titulo: string; descripcion: string; pil
     pilar: 'Precios',
     nivel: 'Básico',
   },
+  'rentabilidad-taller': {
+    titulo: 'Cómo ganar más en tu taller sin meter más coches',
+    descripcion: 'Tarifa hora, horas productivas, mix de trabajos y presupuestos. Todo lo que necesitas para mejorar la rentabilidad de tu taller sin trabajar más horas.',
+    pilar: 'Precios',
+    nivel: 'Básico',
+  },
   'estructurar-servicios': {
     titulo: 'Cómo estructurar tu oferta de servicios para ganar más',
     descripcion: 'Precio por hora, por proyecto o retención mensual: cuándo usar cada modelo, cómo calcular tu tarifa mínima y cómo diseñar paquetes que protejan tu margen.',

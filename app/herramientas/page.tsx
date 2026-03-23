@@ -44,6 +44,14 @@ const herramientas = [
     href: '/herramientas/analiza-tu-idea/',
   },
   {
+    slug: 'rentabilidad-taller',
+    titulo: 'Calculadora de rentabilidad por trabajo',
+    subtitulo: '¿Qué margen deja cada intervención en tu taller?',
+    descripcion: 'Para talleres mecánicos. Introduce precio, recambios y horas de cada tipo de trabajo y descubre cuáles son rentables, cuáles revisar y cómo mejorar tu mix.',
+    estado: 'disponible',
+    href: '/herramientas/rentabilidad-taller/',
+  },
+  {
     slug: 'rentabilidad-clientes',
     titulo: 'Analizador de rentabilidad por cliente',
     subtitulo: '¿Cuánto ganas realmente por hora con cada cliente?',
