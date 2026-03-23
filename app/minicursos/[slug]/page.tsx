@@ -31,6 +31,12 @@ const MINICURSOS_META: Record<string, { titulo: string; descripcion: string; pil
     pilar: 'Precios',
     nivel: 'Básico',
   },
+  'carta-rentable': {
+    titulo: 'Cómo diseñar una carta rentable',
+    descripcion: 'Del escandallo al rediseño completo. En 3 lecciones aprenderás a analizar tu carta, identificar qué platos destruyen tu margen y cómo reorganizarla para ganar más sin trabajar más.',
+    pilar: 'Precios',
+    nivel: 'Básico',
+  },
 }
 
 const NIVEL_COLORS: Record<string, string> = {

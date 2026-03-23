@@ -44,6 +44,14 @@ const herramientas = [
     href: '/herramientas/analiza-tu-idea/',
   },
   {
+    slug: 'margen-carta',
+    titulo: 'Calculadora de food cost por plato',
+    subtitulo: 'Para bares, restaurantes y cafeterías',
+    descripcion: 'Introduce los platos de tu carta con precio y coste de ingredientes. Descubre cuáles tienen margen real y cuáles te están drenando, con código de color inmediato.',
+    estado: 'disponible',
+    href: '/herramientas/margen-carta/',
+  },
+  {
     slug: 'analizador-margen',
     titulo: 'Analizador de margen por producto',
     subtitulo: 'Identifica qué productos te hacen ganar y cuáles te drenan',

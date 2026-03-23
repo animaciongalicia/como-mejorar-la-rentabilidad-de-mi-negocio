@@ -52,6 +52,16 @@ const AGENTES = [
     chatgptUrl: '',
   },
   {
+    slug: 'escandallos-hosteleria',
+    nombre: 'Agente Escandallos',
+    subtitulo: 'Escandalla tu carta y optimiza el margen',
+    descripcion: 'IA especializada en hostelería. Calcula el food cost real de tus platos, detecta cuáles destruyen tu margen y te dice exactamente qué cambiar.',
+    usos: ['Escandallo completo plato a plato', 'Análisis de rentabilidad de carta', 'Simulación de cambios de precio o ingrediente'],
+    pilar: 'Precios',
+    estado: 'disponible' as const,
+    chatgptUrl: 'https://chatgpt.com/g/g-68f20f01efb081918fa661604da76721-asistente-de-escandallos-restaurante',
+  },
+  {
     slug: 'optimizador-procesos',
     nombre: 'Agente Procesos',
     subtitulo: 'Elimina lo que te hace perder tiempo y dinero',
