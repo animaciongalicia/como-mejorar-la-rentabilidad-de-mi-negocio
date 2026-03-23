@@ -44,6 +44,14 @@ const herramientas = [
     href: '/herramientas/analiza-tu-idea/',
   },
   {
+    slug: 'analizador-productos',
+    titulo: 'Analizador de productos 80/20',
+    subtitulo: 'Descubre qué productos sostienen tu negocio',
+    descripcion: 'Introduce tus productos o categorías con ventas y margen. La herramienta clasifica automáticamente cuáles son tus estrella, cuáles complementan y cuáles deberías revisar o eliminar.',
+    estado: 'disponible',
+    href: '/herramientas/analizador-productos/',
+  },
+  {
     slug: 'margen-carta',
     titulo: 'Calculadora de food cost por plato',
     subtitulo: 'Para bares, restaurantes y cafeterías',

@@ -52,6 +52,16 @@ const AGENTES = [
     chatgptUrl: '',
   },
   {
+    slug: 'analista-competencia',
+    nombre: 'Agente Competencia',
+    subtitulo: 'Encuentra tu ventaja diferencial real',
+    descripcion: 'Analiza tu competencia e identifica exactamente en qué eres mejor y cómo comunicarlo para dejar de competir en precio.',
+    usos: ['Mapa de competidores directos e indirectos', 'Identificar ventaja diferencial', 'Argumentario anti-precio'],
+    pilar: 'Ventas',
+    estado: 'disponible' as const,
+    chatgptUrl: 'https://chatgpt.com/g/g-688be838bae88191af036229689f9188-r1-analista-de-competencia',
+  },
+  {
     slug: 'escandallos-hosteleria',
     nombre: 'Agente Escandallos',
     subtitulo: 'Escandalla tu carta y optimiza el margen',
