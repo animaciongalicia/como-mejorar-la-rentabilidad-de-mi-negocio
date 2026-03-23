@@ -44,6 +44,14 @@ const herramientas = [
     href: '/herramientas/analiza-tu-idea/',
   },
   {
+    slug: 'rentabilidad-clientes',
+    titulo: 'Analizador de rentabilidad por cliente',
+    subtitulo: '¿Cuánto ganas realmente por hora con cada cliente?',
+    descripcion: 'Para autónomos y negocios de servicios. Introduce lo que cobras y las horas reales que dedicas a cada cliente y descubre cuáles son rentables y cuáles te están costando dinero.',
+    estado: 'disponible',
+    href: '/herramientas/rentabilidad-clientes/',
+  },
+  {
     slug: 'analizador-productos',
     titulo: 'Analizador de productos 80/20',
     subtitulo: 'Descubre qué productos sostienen tu negocio',

@@ -37,6 +37,12 @@ const MINICURSOS_META: Record<string, { titulo: string; descripcion: string; pil
     pilar: 'Precios',
     nivel: 'Básico',
   },
+  'estructurar-servicios': {
+    titulo: 'Cómo estructurar tu oferta de servicios para ganar más',
+    descripcion: 'Precio por hora, por proyecto o retención mensual: cuándo usar cada modelo, cómo calcular tu tarifa mínima y cómo diseñar paquetes que protejan tu margen.',
+    pilar: 'Precios',
+    nivel: 'Básico',
+  },
   'productos-estrella': {
     titulo: 'Cómo identificar tus productos estrella',
     descripcion: 'El 20% de tus productos genera el 80% de tus ventas. Aprende a identificar cuáles son, qué hacer con el resto y cómo reorganizar tu catálogo para que trabaje a tu favor.',
