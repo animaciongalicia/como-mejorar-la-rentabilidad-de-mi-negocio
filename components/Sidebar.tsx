@@ -98,7 +98,7 @@ export default function Sidebar({ currentCategoria }: SidebarProps) {
         <p className="text-sm text-gray-600 leading-relaxed mb-4">
           En Foco Rentabilismo aplicamos el Método Foco: un proceso estructurado
           para identificar y capturar oportunidades de mejora de rentabilidad en
-          negocios físicos.
+          tu negocio.
         </p>
         <p className="text-sm text-gray-600 leading-relaxed mb-4">
           Sin tecnicismos. Con resultados medibles en 30 días.

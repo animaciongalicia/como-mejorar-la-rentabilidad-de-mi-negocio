@@ -8,7 +8,7 @@ import Sidebar from '@/components/Sidebar'
 
 export const metadata: Metadata = {
   title: `Blog | ${SITE_NAME}`,
-  description: 'Todos los artículos sobre rentabilidad empresarial, costes, ventas y gestión para negocios físicos y pymes.',
+  description: 'Artículos sobre rentabilidad empresarial, costes, ventas y gestión. Método directo, sin teoría vacía.',
   alternates: {
     canonical: `${BASE_URL}/blog/`,
   },

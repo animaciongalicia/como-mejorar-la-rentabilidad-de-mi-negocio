@@ -51,7 +51,7 @@ export default function Image() {
             maxWidth: 700,
           }}
         >
-          Estrategias reales para dueños de negocios físicos y pymes.
+          Rentabilidad con método. Para empresarios que quieren mejor negocio y más vida.
         </div>
       </div>
     ),

@@ -160,7 +160,7 @@ export default function NewsletterForm({ variant, leadMagnet, pilar }: Newslette
             Estrategias reales, cada semana
           </h4>
           <p className="text-xs text-gray-600 mb-3">
-            Para dueños de negocios físicos que quieren resultados reales.
+            Para empresarios que quieren resultados reales.
           </p>
           <form onSubmit={handleSubmit} className="space-y-2">
             <input type="hidden" name="lead_magnet" value={leadMagnet || ''} />

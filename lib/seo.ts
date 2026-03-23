@@ -8,7 +8,7 @@ export const SITE_NAME = 'Foco Rentabilismo'
 // Hub de agentes en ChatGPT — cambia solo este valor si el término de búsqueda cambia
 export const CHATGPT_AGENTES_URL = 'https://chatgpt.com/gpts/discovery?q=rentabilismo'
 export const SITE_DESCRIPTION =
-  'Blog de referencia sobre rentabilidad empresarial para negocios físicos y pymes. Estrategias probadas para mejorar tu negocio.'
+  'Rentabilidad con método. Para empresarios que quieren mejor negocio y más vida.'
 
 export function generateOrganizationSchema() {
   return {
@@ -17,7 +17,7 @@ export function generateOrganizationSchema() {
     name: 'Foco Rentabilismo',
     url: BASE_URL,
     description:
-      'Blog de referencia sobre rentabilidad empresarial para negocios físicos y pymes',
+      'Consultoría guiada a través de publicaciones para empresarios que quieren más rentabilidad y mejor vida.',
     sameAs: ['https://rentabilismo.com', 'https://consultoriametodo.es'],
   }
 }

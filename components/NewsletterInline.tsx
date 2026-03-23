@@ -26,7 +26,7 @@ export default function NewsletterInline() {
     <div className="bg-gray-900 text-white rounded-xl p-6">
       <p className="text-xs uppercase tracking-widest font-bold text-gray-400 mb-2">Sin humo</p>
       <h3 className="font-black text-lg leading-tight mb-2">Un artículo útil cada semana.</h3>
-      <p className="text-gray-400 text-sm mb-4">Solo negocios físicos. Solo lo que funciona. Sin spam.</p>
+      <p className="text-gray-400 text-sm mb-4">Solo método. Solo lo que funciona. Sin spam.</p>
 
       {status === 'ok' ? (
         <p className="text-teal-400 font-semibold text-sm">Suscrito. Revisa tu bandeja de entrada.</p>

@@ -8,8 +8,8 @@ import { PILLARS, SECTORES } from '@/lib/clusters'
 import { BASE_URL, SITE_NAME, formatDate } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: `${SITE_NAME} | Rentabilidad real para negocios físicos`,
-  description: 'Estrategias probadas para mejorar la rentabilidad de tu negocio físico. Sin teoría vacía. Solo lo que funciona.',
+  title: `${SITE_NAME} | Rentabilidad con método`,
+  description: 'Rentabilidad con método. Para empresarios que quieren mejor negocio y más vida.',
   alternates: { canonical: BASE_URL },
 }
 

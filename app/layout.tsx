@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
-  keywords: ['rentabilidad', 'pymes', 'negocios físicos', 'margen bruto', 'costes', 'beneficio'],
+  keywords: ['rentabilidad', 'pymes', 'empresarios', 'método', 'margen bruto', 'costes', 'beneficio'],
   authors: [{ name: 'Foco Rentabilismo' }],
   creator: 'Foco Rentabilismo',
   publisher: 'Foco Rentabilismo',
