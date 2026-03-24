@@ -35,6 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${pillar.name} | Foco Rentabilismo`,
       description: pillar.description,
       url: `${BASE_URL}/pilares/${pillar.slug}/`,
+      images: [{ url: `${BASE_URL}/pilares/${pillar.slug}/opengraph-image`, width: 1200, height: 630 }],
     },
   }
 }
