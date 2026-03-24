@@ -1,18 +1,11 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import '@fontsource-variable/inter'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import SchemaOrg from '@/components/SchemaOrg'
 import Analytics from '@/components/Analytics'
 import { generateOrganizationSchema, generateWebSiteSchema, BASE_URL, SITE_NAME, SITE_DESCRIPTION } from '@/lib/seo'
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-  preload: true,
-})
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -71,7 +64,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" className={inter.variable}>
+    <html lang="es">
       <head>
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />

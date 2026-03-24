@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --font-inter: 'Inter Variable', system-ui, sans-serif;
+  }
+
   html {
     scroll-behavior: smooth;
   }
