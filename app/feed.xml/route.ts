@@ -1,8 +1,12 @@
 import { getAllPosts } from '@/lib/posts'
-import { BASE_URL, SITE_NAME, SITE_DESCRIPTION } from '@/lib/seo'
+import { BASE_URL, SITE_NAME } from '@/lib/seo'
+
+export const dynamic = 'force-static'
+
+const RSS_DESCRIPTION = 'Blog sobre rentabilidad y gestión de negocios'
 
 export async function GET() {
-  const posts = getAllPosts()
+  const posts = getAllPosts().slice(0, 20)
 
   const items = posts
     .map((post) => {
@@ -11,13 +15,16 @@ export async function GET() {
       const categories = post.tags
         ? post.tags.map((tag) => `<category>${escapeXml(tag)}</category>`).join('')
         : ''
+      const description =
+        post.description ||
+        post.content.replace(/[#*`[\]<>]/g, '').trim().slice(0, 160)
 
       return `
     <item>
       <title>${escapeXml(post.title)}</title>
       <link>${url}</link>
       <guid isPermaLink="true">${url}</guid>
-      <description>${escapeXml(post.description)}</description>
+      <description>${escapeXml(description)}</description>
       <pubDate>${pubDate}</pubDate>
       <author>hola@focorentabilismo.com (${escapeXml(post.author || 'Foco Rentabilismo')})</author>
       ${categories}
@@ -30,7 +37,7 @@ export async function GET() {
   <channel>
     <title>${escapeXml(SITE_NAME)}</title>
     <link>${BASE_URL}</link>
-    <description>${escapeXml(SITE_DESCRIPTION)}</description>
+    <description>${escapeXml(RSS_DESCRIPTION)}</description>
     <language>es</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${BASE_URL}/feed.xml" rel="self" type="application/rss+xml"/>
