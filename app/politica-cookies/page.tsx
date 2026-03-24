@@ -13,7 +13,7 @@ export default function Page() {
         <Link href="/" className="text-sm text-teal-600 hover:underline mb-8 inline-block">← Volver al inicio</Link>
         <h1 className="text-3xl font-black text-gray-900 mb-8">Política de Cookies</h1>
         <div className="prose prose-gray max-w-none space-y-4 text-gray-700 leading-relaxed">
-          <p>Este sitio web utiliza cookies para mejorar la experiencia de navegación y analizar el uso del sitio.</p>
+          <p>Este sitio web, titularidad de <strong>Inversiones SHISHO SL</strong> (CIF B70319223), utiliza cookies para mejorar la experiencia de navegación y analizar el uso del sitio. Contacto: info@rentabilismo.com.</p>
 
             <h2>¿Qué son las cookies?</h2>
             <p>Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas un sitio web. Permiten recordar tus preferencias y analizar cómo usas el sitio.</p>

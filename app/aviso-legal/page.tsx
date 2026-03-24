@@ -13,7 +13,14 @@ export default function Page() {
         <Link href="/" className="text-sm text-teal-600 hover:underline mb-8 inline-block">← Volver al inicio</Link>
         <h1 className="text-3xl font-black text-gray-900 mb-8">Aviso Legal</h1>
         <div className="prose prose-gray max-w-none space-y-4 text-gray-700 leading-relaxed">
-          <p>El titular de este sitio web es <strong>Foco Rentabilismo</strong>, con dominio focorentabilismo.com.</p>
+          <p>El titular de este sitio web es:</p>
+            <ul>
+              <li><strong>Razón social:</strong> Inversiones SHISHO SL</li>
+              <li><strong>CIF:</strong> B70319223</li>
+              <li><strong>Domicilio social:</strong> Ronda de Montealto, 4 — 15002 A Coruña</li>
+              <li><strong>Correo electrónico:</strong> info@rentabilismo.com</li>
+              <li><strong>Dominio:</strong> focorentabilismo.com</li>
+            </ul>
             <p>El acceso y uso de este sitio web implica la aceptación plena de las condiciones de uso aquí recogidas. Si no está de acuerdo con estas condiciones, debe abandonar el sitio web.</p>
 
             <h2>Propiedad intelectual</h2>
@@ -28,7 +35,7 @@ export default function Page() {
             <p>Este aviso legal se rige por la legislación española. Para cualquier controversia, las partes se someten a los juzgados y tribunales competentes.</p>
 
             <h2>Contacto</h2>
-            <p>Para cualquier consulta relacionada con este aviso legal, puedes contactar a través del formulario de contacto del sitio web.</p>
+            <p>Para cualquier consulta relacionada con este aviso legal, puedes contactarnos en <strong>info@rentabilismo.com</strong>.</p>
         </div>
         <p className="text-xs text-gray-400 mt-12">Última actualización: marzo 2026</p>
       </div>

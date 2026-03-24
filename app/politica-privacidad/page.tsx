@@ -16,7 +16,12 @@ export default function Page() {
           <p>En cumplimiento del Reglamento General de Protección de Datos (RGPD) y la Ley Orgánica de Protección de Datos (LOPDGDD), te informamos sobre el tratamiento de tus datos personales en este sitio web.</p>
 
             <h2>Responsable del tratamiento</h2>
-            <p><strong>Foco Rentabilismo</strong> — focorentabilismo.com</p>
+            <ul>
+              <li><strong>Razón social:</strong> Inversiones SHISHO SL</li>
+              <li><strong>CIF:</strong> B70319223</li>
+              <li><strong>Domicilio:</strong> Ronda de Montealto, 4 — 15002 A Coruña</li>
+              <li><strong>Correo electrónico:</strong> info@rentabilismo.com</li>
+            </ul>
 
             <h2>Datos que recopilamos</h2>
             <p>Este sitio puede recopilar los siguientes tipos de datos:</p>
@@ -36,7 +41,7 @@ export default function Page() {
             <p>El tratamiento de tus datos se basa en el consentimiento que prestas al suscribirte o contactarnos.</p>
 
             <h2>Tus derechos</h2>
-            <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, portabilidad y oposición contactando a través del formulario del sitio web.</p>
+            <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, portabilidad y oposición enviando un correo a <strong>info@rentabilismo.com</strong>.</p>
 
             <h2>Conservación de datos</h2>
             <p>Los datos se conservan mientras seas suscriptor activo o mientras exista una relación de comunicación. Puedes darte de baja en cualquier momento.</p>
