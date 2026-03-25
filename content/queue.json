@@ -1,0 +1,182 @@
+[
+  {
+    "slug": "diferencia-costes-fijos-variables",
+    "title": "Costes fijos y variables: la diferencia que cambia cómo gestionas tu negocio",
+    "keyword": "diferencia costes fijos y variables",
+    "pilar": "costes",
+    "cluster": "costes-fijos",
+    "categoria": "costes",
+    "tags": ["costes fijos", "costes variables", "rentabilidad", "gestión de negocio"]
+  },
+  {
+    "slug": "google-my-business-optimizar-negocio-local",
+    "title": "Cómo optimizar Google My Business para atraer más clientes sin gastar en publicidad",
+    "keyword": "google my business optimizar",
+    "pilar": "marketing-rentable",
+    "cluster": "marketing-local",
+    "categoria": "marketing",
+    "tags": ["google my business", "negocio local", "clientes", "marketing gratuito"]
+  },
+  {
+    "slug": "como-vender-mas-en-mi-tienda",
+    "title": "Cómo vender más en tu tienda sin bajar precios ni aumentar el tráfico",
+    "keyword": "cómo vender más en mi tienda",
+    "pilar": "ventas",
+    "cluster": "conversion-tienda",
+    "categoria": "ventas",
+    "tags": ["ventas", "tienda física", "conversión", "ticket medio", "rentabilidad"]
+  },
+  {
+    "slug": "conseguir-clientes-negocio-local",
+    "title": "Cómo conseguir clientes para tu negocio local sin depender de las redes sociales",
+    "keyword": "cómo conseguir clientes negocio local",
+    "pilar": "marketing-rentable",
+    "cluster": "captacion-local",
+    "categoria": "marketing",
+    "tags": ["captación de clientes", "negocio local", "marketing local", "publicidad"]
+  },
+  {
+    "slug": "margen-bruto-vs-margen-neto",
+    "title": "Margen bruto vs margen neto: cuál importa más en tu negocio y por qué",
+    "keyword": "margen bruto vs margen neto diferencia",
+    "pilar": "precios-y-margenes",
+    "cluster": "margen-bruto",
+    "categoria": "finanzas",
+    "tags": ["margen bruto", "margen neto", "rentabilidad", "finanzas negocio"]
+  },
+  {
+    "slug": "precio-minimo-venta-formula",
+    "title": "Cómo calcular el precio mínimo de venta antes de que te arruines vendiendo",
+    "keyword": "precio mínimo de venta fórmula",
+    "pilar": "precios-y-margenes",
+    "cluster": "calculo-precios",
+    "categoria": "precios",
+    "tags": ["precio mínimo", "precio de venta", "costes", "margen", "cálculo precios"]
+  },
+  {
+    "slug": "gastos-innecesarios-empresa",
+    "title": "Los 8 gastos innecesarios que tienen casi todos los negocios pequeños",
+    "keyword": "gastos innecesarios en una empresa",
+    "pilar": "costes",
+    "cluster": "reduccion-costes",
+    "categoria": "costes",
+    "tags": ["gastos innecesarios", "reducir costes", "rentabilidad", "pymes"]
+  },
+  {
+    "slug": "mejorar-conversion-tienda-fisica",
+    "title": "Cómo mejorar la conversión en tu tienda física sin invertir en publicidad",
+    "keyword": "cómo mejorar la conversión en tienda",
+    "pilar": "ventas",
+    "cluster": "conversion-tienda",
+    "categoria": "ventas",
+    "tags": ["conversión", "tienda física", "ventas", "experiencia de cliente"]
+  },
+  {
+    "slug": "kpis-negocio-pequeno",
+    "title": "Los 7 KPIs que todo dueño de negocio pequeño debería revisar cada semana",
+    "keyword": "kpis para pequeños negocios",
+    "pilar": "diagnostico-empresarial",
+    "cluster": "kpis",
+    "categoria": "gestion",
+    "tags": ["kpis", "indicadores", "control de negocio", "gestión", "rentabilidad"]
+  },
+  {
+    "slug": "flujo-de-caja-negocio",
+    "title": "Flujo de caja: por qué tu negocio puede ser rentable y quedarse sin dinero",
+    "keyword": "flujo de caja positivo negocio",
+    "pilar": "diagnostico-empresarial",
+    "cluster": "rentabilidad-real",
+    "categoria": "finanzas",
+    "tags": ["flujo de caja", "tesorería", "liquidez", "rentabilidad", "gestión financiera"]
+  },
+  {
+    "slug": "que-es-el-margen-neto",
+    "title": "Qué es el margen neto y cómo saber si el tuyo es suficiente para vivir bien",
+    "keyword": "qué es el margen neto",
+    "pilar": "precios-y-margenes",
+    "cluster": "margen-bruto",
+    "categoria": "finanzas",
+    "tags": ["margen neto", "rentabilidad", "beneficio", "finanzas negocio"]
+  },
+  {
+    "slug": "psicologia-precios-negocio",
+    "title": "Psicología de precios: cómo percibe el cliente el precio y cómo usarlo a tu favor",
+    "keyword": "psicología de precios estrategias",
+    "pilar": "precios-y-margenes",
+    "cluster": "estrategia-precios",
+    "categoria": "precios",
+    "tags": ["psicología de precios", "estrategia de precios", "ventas", "percepción valor"]
+  },
+  {
+    "slug": "controlar-gastos-negocio",
+    "title": "Cómo controlar los gastos de tu negocio sin necesitar un contable a diario",
+    "keyword": "cómo controlar los gastos del negocio",
+    "pilar": "costes",
+    "cluster": "costes-ocultos",
+    "categoria": "costes",
+    "tags": ["control de gastos", "gestión financiera", "costes", "pymes"]
+  },
+  {
+    "slug": "cuanto-cobrar-autonomo",
+    "title": "Cuánto debe cobrar un autónomo por hora para no trabajar gratis",
+    "keyword": "cuánto debe cobrar el autónomo",
+    "pilar": "dinero-personal-empresario",
+    "cluster": "sueldo-empresario",
+    "categoria": "dinero-personal",
+    "tags": ["autónomo", "tarifa hora", "cuánto cobrar", "precio servicios"]
+  },
+  {
+    "slug": "como-organizarse-como-autonomo",
+    "title": "Cómo organizarse como autónomo cuando tienes el negocio y la vida mezclados",
+    "keyword": "cómo organizarse como autónomo",
+    "pilar": "procesos",
+    "cluster": "estandarizacion",
+    "categoria": "gestion",
+    "tags": ["organización", "autónomo", "productividad", "gestión tiempo", "procesos"]
+  },
+  {
+    "slug": "estandarizar-procesos-empresa",
+    "title": "Cómo estandarizar procesos en tu empresa para que las cosas salgan bien sin ti",
+    "keyword": "estandarizar procesos empresa",
+    "pilar": "procesos",
+    "cluster": "estandarizacion",
+    "categoria": "procesos",
+    "tags": ["estandarizar procesos", "procedimientos", "delegación", "negocio escalable"]
+  },
+  {
+    "slug": "como-delegar-en-tu-negocio",
+    "title": "Cómo delegar en tu negocio sin que todo salga mal cuando no estás",
+    "keyword": "cómo delegar en tu negocio",
+    "pilar": "procesos",
+    "cluster": "estandarizacion",
+    "categoria": "procesos",
+    "tags": ["delegar", "liderazgo", "procesos", "equipo", "gestión"]
+  },
+  {
+    "slug": "roi-marketing-como-calcularlo",
+    "title": "Cómo calcular el ROI de tu marketing y dejar de gastar dinero a ciegas",
+    "keyword": "roi del marketing cómo calcularlo",
+    "pilar": "marketing-rentable",
+    "cluster": "marketing-local",
+    "categoria": "marketing",
+    "tags": ["ROI marketing", "retorno inversión", "publicidad", "marketing rentable"]
+  },
+  {
+    "slug": "redes-sociales-negocio-local",
+    "title": "Redes sociales para negocios locales: qué funciona y qué es perder el tiempo",
+    "keyword": "redes sociales para negocios locales",
+    "pilar": "marketing-rentable",
+    "cluster": "marketing-local",
+    "categoria": "marketing",
+    "tags": ["redes sociales", "negocio local", "instagram", "marketing digital"]
+  },
+  {
+    "slug": "tecnicas-upselling-negocio",
+    "title": "Técnicas de upselling para negocios físicos que no parecen agresivas",
+    "keyword": "técnicas de upselling para negocios",
+    "pilar": "ventas",
+    "cluster": "ticket-medio",
+    "categoria": "ventas",
+    "tags": ["upselling", "ticket medio", "ventas", "cross-selling", "negocio físico"]
+  }
+]

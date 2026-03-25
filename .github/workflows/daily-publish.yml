@@ -1,4 +1,4 @@
-name: Publicación diaria
+name: Publicación diaria con IA
 
 on:
   schedule:
@@ -6,12 +6,30 @@ on:
   workflow_dispatch:        # También se puede lanzar a mano desde GitHub
 
 jobs:
-  rebuild:
-    name: Rebuild Vercel para publicar posts programados
+  generate-and-publish:
+    name: Generar post y publicar
     runs-on: ubuntu-latest
 
     steps:
-      - name: Trigger deploy en Vercel
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generar post con Claude
+        id: generate
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/generate-post.mjs
+
+      - name: Commit y push del nuevo post
         run: |
-          curl -s -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}"
-          echo "Deploy lanzado — focorentabilismo.com se reconstruirá en ~1 min"
+          git config user.name "Claude Bot"
+          git config user.email "noreply@anthropic.com"
+          git add content/posts/ content/queue.json
+          git diff --staged --quiet && echo "Nada nuevo que commitear" && exit 0
+          git commit -m "post: ${{ steps.generate.outputs.title }}"
+          git push
