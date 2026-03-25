@@ -1,23 +1,5 @@
 [
   {
-    "slug": "diferencia-costes-fijos-variables",
-    "title": "Costes fijos y variables: la diferencia que cambia cómo gestionas tu negocio",
-    "keyword": "diferencia costes fijos y variables",
-    "pilar": "costes",
-    "cluster": "costes-fijos",
-    "categoria": "costes",
-    "tags": ["costes fijos", "costes variables", "rentabilidad", "gestión de negocio"]
-  },
-  {
-    "slug": "google-my-business-optimizar-negocio-local",
-    "title": "Cómo optimizar Google My Business para atraer más clientes sin gastar en publicidad",
-    "keyword": "google my business optimizar",
-    "pilar": "marketing-rentable",
-    "cluster": "marketing-local",
-    "categoria": "marketing",
-    "tags": ["google my business", "negocio local", "clientes", "marketing gratuito"]
-  },
-  {
     "slug": "como-vender-mas-en-mi-tienda",
     "title": "Cómo vender más en tu tienda sin bajar precios ni aumentar el tráfico",
     "keyword": "cómo vender más en mi tienda",
@@ -178,5 +160,194 @@
     "cluster": "ticket-medio",
     "categoria": "ventas",
     "tags": ["upselling", "ticket medio", "ventas", "cross-selling", "negocio físico"]
+  },
+  {
+    "slug": "costes-variables-ejemplos-negocio",
+    "title": "Costes variables: qué son y ejemplos reales en distintos tipos de negocio",
+    "keyword": "costes variables ejemplos",
+    "pilar": "costes",
+    "cluster": "costes-fijos",
+    "categoria": "costes",
+    "tags": ["costes variables", "costes fijos", "ejemplos", "rentabilidad", "gestión"]
+  },
+  {
+    "slug": "facturacion-vs-beneficio",
+    "title": "La diferencia entre facturar mucho y ganar poco (el error que cometen el 80% de los negocios)",
+    "keyword": "facturación vs beneficio negocio",
+    "pilar": "diagnostico-empresarial",
+    "cluster": "rentabilidad-real",
+    "categoria": "finanzas",
+    "tags": ["facturación", "beneficio", "rentabilidad", "diagnóstico", "negocio físico"]
+  },
+  {
+    "slug": "analisis-financiero-negocio-pequeno",
+    "title": "Cómo hacer un análisis financiero básico de tu negocio sin ser economista",
+    "keyword": "análisis financiero negocio pequeño",
+    "pilar": "diagnostico-empresarial",
+    "cluster": "rentabilidad-real",
+    "categoria": "gestion",
+    "tags": ["análisis financiero", "pymes", "diagnóstico", "contabilidad básica", "negocio pequeño"]
+  },
+  {
+    "slug": "reseñas-google-como-conseguirlas",
+    "title": "Cómo conseguir reseñas en Google: el activo gratuito que más clientes te trae",
+    "keyword": "conseguir reseñas google negocio",
+    "pilar": "marketing-rentable",
+    "cluster": "captacion-local",
+    "categoria": "marketing",
+    "tags": ["reseñas google", "google maps", "negocio local", "reputación online", "clientes"]
+  },
+  {
+    "slug": "iva-autonomo-como-funciona",
+    "title": "IVA para autónomos: cómo funciona de verdad y cómo no llevarte sorpresas cada trimestre",
+    "keyword": "iva autónomo cómo funciona",
+    "pilar": "dinero-personal-empresario",
+    "cluster": "sueldo-empresario",
+    "categoria": "dinero-personal",
+    "tags": ["IVA", "autónomo", "trimestres", "hacienda", "fiscalidad", "negocio"]
+  },
+  {
+    "slug": "negociar-con-proveedores",
+    "title": "Cómo negociar con tus proveedores para bajar costes sin perder calidad ni la relación",
+    "keyword": "negociar con proveedores pymes",
+    "pilar": "costes",
+    "cluster": "reduccion-costes",
+    "categoria": "costes",
+    "tags": ["proveedores", "negociación", "reducir costes", "compras", "pymes"]
+  },
+  {
+    "slug": "manual-procedimientos-empresa",
+    "title": "Cómo hacer un manual de procedimientos que el equipo realmente use",
+    "keyword": "manual de procedimientos empresa",
+    "pilar": "procesos",
+    "cluster": "estandarizacion",
+    "categoria": "procesos",
+    "tags": ["manual de procedimientos", "procesos", "equipo", "estandarización", "delegación"]
+  },
+  {
+    "slug": "clientes-morosos-como-cobrar",
+    "title": "Cómo cobrar lo que te deben sin perder al cliente ni ir a juicio",
+    "keyword": "cobrar facturas impagadas pymes",
+    "pilar": "ventas",
+    "cluster": "fidelizacion",
+    "categoria": "ventas",
+    "tags": ["morosos", "impagados", "cobrar facturas", "clientes", "pymes"]
+  },
+  {
+    "slug": "gestion-caja-diaria-negocio",
+    "title": "El cuadre de caja diario: el hábito de 10 minutos que salva negocios",
+    "keyword": "gestión caja diaria negocio",
+    "pilar": "procesos",
+    "cluster": "estandarizacion",
+    "categoria": "procesos",
+    "tags": ["caja", "tesorería", "control diario", "negocio físico", "hábitos"]
+  },
+  {
+    "slug": "prevision-ventas-negocio-pequeno",
+    "title": "Cómo hacer una previsión de ventas realista cuando llevas un negocio pequeño",
+    "keyword": "previsión de ventas negocio pequeño",
+    "pilar": "diagnostico-empresarial",
+    "cluster": "kpis",
+    "categoria": "gestion",
+    "tags": ["previsión de ventas", "planificación", "negocio pequeño", "objetivos", "presupuesto"]
+  },
+  {
+    "slug": "kpis-restaurante-bar",
+    "title": "Los 8 KPIs que todo bar o restaurante debería mirar cada semana (y cómo calcularlos)",
+    "keyword": "indicadores kpis restaurante",
+    "pilar": "diagnostico-empresarial",
+    "cluster": "kpis",
+    "categoria": "gestion",
+    "tags": ["kpis", "restaurante", "bar", "hostelería", "indicadores", "rentabilidad"]
+  },
+  {
+    "slug": "gestion-stock-tienda-pequena",
+    "title": "Gestión de stock para tienda pequeña: cómo evitar que el almacén te coma el margen",
+    "keyword": "gestión de stock comercio pequeño",
+    "pilar": "productos-servicios",
+    "cluster": "diseno-oferta",
+    "categoria": "gestion",
+    "tags": ["stock", "inventario", "tienda", "retail", "rotación", "margen"]
+  },
+  {
+    "slug": "rentabilidad-peluqueria-barberia",
+    "title": "Cómo calcular la rentabilidad real de una peluquería o barbería (con números)",
+    "keyword": "rentabilidad peluquería barbería",
+    "pilar": "precios-y-margenes",
+    "cluster": "calculo-precios",
+    "categoria": "sectorial",
+    "tags": ["peluquería", "barbería", "rentabilidad", "precio servicio", "margen", "sectorial"]
+  },
+  {
+    "slug": "abrir-tienda-ropa-rentable",
+    "title": "Cuánto cuesta abrir una tienda de ropa y cuándo empieza a dar dinero de verdad",
+    "keyword": "abrir tienda de ropa rentable",
+    "pilar": "emprendimiento",
+    "cluster": "errores-comunes",
+    "categoria": "emprendimiento",
+    "tags": ["tienda de ropa", "moda", "retail", "abrir negocio", "inversión", "rentabilidad"]
+  },
+  {
+    "slug": "fontanero-electricista-precio-hora",
+    "title": "Cómo calcular tu precio hora como fontanero, electricista o técnico sin regalar trabajo",
+    "keyword": "precio hora fontanero electricista autónomo",
+    "pilar": "precios-y-margenes",
+    "cluster": "calculo-precios",
+    "categoria": "sectorial",
+    "tags": ["fontanero", "electricista", "técnico", "precio hora", "autónomo", "oficios"]
+  },
+  {
+    "slug": "marketing-restaurante",
+    "title": "Marketing para tu restaurante sin presupuesto: las 6 acciones que realmente llenan mesas",
+    "keyword": "marketing para restaurantes sin dinero",
+    "pilar": "marketing-rentable",
+    "cluster": "marketing-local",
+    "categoria": "marketing",
+    "tags": ["marketing restaurante", "hostelería", "redes sociales", "captación", "sin presupuesto"]
+  },
+  {
+    "slug": "negocio-estacional-temporada",
+    "title": "Cómo preparar tu negocio para la temporada alta sin quedarte sin liquidez en los meses flojos",
+    "keyword": "negocio estacional temporada alta",
+    "pilar": "diagnostico-empresarial",
+    "cluster": "rentabilidad-real",
+    "categoria": "gestion",
+    "tags": ["negocio estacional", "temporada", "liquidez", "tesorería", "planificación"]
+  },
+  {
+    "slug": "cuando-crear-sl",
+    "title": "¿Autónomo o SL? Cuándo te sale a cuenta crear una sociedad limitada",
+    "keyword": "cuándo crear sociedad limitada autónomo",
+    "pilar": "dinero-personal-empresario",
+    "cluster": "sueldo-empresario",
+    "categoria": "dinero-personal",
+    "tags": ["sociedad limitada", "autónomo", "SL", "fiscalidad", "ahorro fiscal"]
+  },
+  {
+    "slug": "publicidad-local-donde-invertir",
+    "title": "Publicidad local: dónde poner el dinero y dónde lo estás tirando sin saberlo",
+    "keyword": "publicidad local efectiva pequeño negocio",
+    "pilar": "marketing-rentable",
+    "cluster": "captacion-local",
+    "categoria": "marketing",
+    "tags": ["publicidad local", "inversión publicitaria", "ROI", "negocio local", "marketing"]
+  },
+  {
+    "slug": "reducir-costes-personal-sin-despedir",
+    "title": "Cómo reducir el coste de personal sin despedir a nadie (y sin hundir la moral del equipo)",
+    "keyword": "reducir costes laborales sin despidos",
+    "pilar": "costes",
+    "cluster": "reduccion-costes",
+    "categoria": "costes",
+    "tags": ["coste personal", "nóminas", "reducir costes", "equipo", "rentabilidad"]
+  },
+  {
+    "slug": "rentabilidad-local-comercial",
+    "title": "Cómo saber si el local que estás pagando te está arruinando (o vale cada euro)",
+    "keyword": "rentabilidad local comercial alquiler",
+    "pilar": "costes",
+    "cluster": "costes-fijos",
+    "categoria": "costes",
+    "tags": ["alquiler local", "costes fijos", "rentabilidad", "negocio físico", "ubicación"]
   }
 ]
