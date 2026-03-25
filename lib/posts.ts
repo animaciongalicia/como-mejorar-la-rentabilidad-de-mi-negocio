@@ -44,7 +44,12 @@ export function getAllPosts(): Post[] {
     } as Post
   })
 
-  _postsCache = posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  const today = new Date()
+  today.setHours(23, 59, 59, 999)
+
+  _postsCache = posts
+    .filter((post) => new Date(post.date) <= today)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
   return _postsCache
 }
 
