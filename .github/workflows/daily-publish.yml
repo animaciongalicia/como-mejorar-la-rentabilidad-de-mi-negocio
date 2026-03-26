@@ -34,4 +34,5 @@ jobs:
           git add content/posts/ content/queue.json
           git diff --staged --quiet && echo "Nada nuevo que commitear" && exit 0
           git commit -m "post: ${{ steps.generate.outputs.title }}"
+          git pull --rebase origin claude/create-project-docs-ZmDcJ
           git push
