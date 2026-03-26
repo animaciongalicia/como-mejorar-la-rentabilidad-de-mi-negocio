@@ -1,21 +1,17 @@
 [
   {
-    "slug": "como-vender-mas-en-mi-tienda",
-    "title": "Cómo vender más en tu tienda sin bajar precios ni aumentar el tráfico",
-    "keyword": "cómo vender más en mi tienda",
-    "pilar": "ventas",
-    "cluster": "conversion-tienda",
-    "categoria": "ventas",
-    "tags": ["ventas", "tienda física", "conversión", "ticket medio", "rentabilidad"]
-  },
-  {
     "slug": "conseguir-clientes-negocio-local",
     "title": "Cómo conseguir clientes para tu negocio local sin depender de las redes sociales",
     "keyword": "cómo conseguir clientes negocio local",
     "pilar": "marketing-rentable",
     "cluster": "captacion-local",
     "categoria": "marketing",
-    "tags": ["captación de clientes", "negocio local", "marketing local", "publicidad"]
+    "tags": [
+      "captación de clientes",
+      "negocio local",
+      "marketing local",
+      "publicidad"
+    ]
   },
   {
     "slug": "margen-bruto-vs-margen-neto",
@@ -24,7 +20,12 @@
     "pilar": "precios-y-margenes",
     "cluster": "margen-bruto",
     "categoria": "finanzas",
-    "tags": ["margen bruto", "margen neto", "rentabilidad", "finanzas negocio"]
+    "tags": [
+      "margen bruto",
+      "margen neto",
+      "rentabilidad",
+      "finanzas negocio"
+    ]
   },
   {
     "slug": "precio-minimo-venta-formula",
@@ -33,7 +34,13 @@
     "pilar": "precios-y-margenes",
     "cluster": "calculo-precios",
     "categoria": "precios",
-    "tags": ["precio mínimo", "precio de venta", "costes", "margen", "cálculo precios"]
+    "tags": [
+      "precio mínimo",
+      "precio de venta",
+      "costes",
+      "margen",
+      "cálculo precios"
+    ]
   },
   {
     "slug": "gastos-innecesarios-empresa",
@@ -42,7 +49,12 @@
     "pilar": "costes",
     "cluster": "reduccion-costes",
     "categoria": "costes",
-    "tags": ["gastos innecesarios", "reducir costes", "rentabilidad", "pymes"]
+    "tags": [
+      "gastos innecesarios",
+      "reducir costes",
+      "rentabilidad",
+      "pymes"
+    ]
   },
   {
     "slug": "mejorar-conversion-tienda-fisica",
@@ -51,7 +63,12 @@
     "pilar": "ventas",
     "cluster": "conversion-tienda",
     "categoria": "ventas",
-    "tags": ["conversión", "tienda física", "ventas", "experiencia de cliente"]
+    "tags": [
+      "conversión",
+      "tienda física",
+      "ventas",
+      "experiencia de cliente"
+    ]
   },
   {
     "slug": "kpis-negocio-pequeno",
@@ -60,7 +77,13 @@
     "pilar": "diagnostico-empresarial",
     "cluster": "kpis",
     "categoria": "gestion",
-    "tags": ["kpis", "indicadores", "control de negocio", "gestión", "rentabilidad"]
+    "tags": [
+      "kpis",
+      "indicadores",
+      "control de negocio",
+      "gestión",
+      "rentabilidad"
+    ]
   },
   {
     "slug": "flujo-de-caja-negocio",
@@ -69,7 +92,13 @@
     "pilar": "diagnostico-empresarial",
     "cluster": "rentabilidad-real",
     "categoria": "finanzas",
-    "tags": ["flujo de caja", "tesorería", "liquidez", "rentabilidad", "gestión financiera"]
+    "tags": [
+      "flujo de caja",
+      "tesorería",
+      "liquidez",
+      "rentabilidad",
+      "gestión financiera"
+    ]
   },
   {
     "slug": "que-es-el-margen-neto",
@@ -78,7 +107,12 @@
     "pilar": "precios-y-margenes",
     "cluster": "margen-bruto",
     "categoria": "finanzas",
-    "tags": ["margen neto", "rentabilidad", "beneficio", "finanzas negocio"]
+    "tags": [
+      "margen neto",
+      "rentabilidad",
+      "beneficio",
+      "finanzas negocio"
+    ]
   },
   {
     "slug": "psicologia-precios-negocio",
@@ -87,7 +121,12 @@
     "pilar": "precios-y-margenes",
     "cluster": "estrategia-precios",
     "categoria": "precios",
-    "tags": ["psicología de precios", "estrategia de precios", "ventas", "percepción valor"]
+    "tags": [
+      "psicología de precios",
+      "estrategia de precios",
+      "ventas",
+      "percepción valor"
+    ]
   },
   {
     "slug": "controlar-gastos-negocio",
@@ -96,7 +135,12 @@
     "pilar": "costes",
     "cluster": "costes-ocultos",
     "categoria": "costes",
-    "tags": ["control de gastos", "gestión financiera", "costes", "pymes"]
+    "tags": [
+      "control de gastos",
+      "gestión financiera",
+      "costes",
+      "pymes"
+    ]
   },
   {
     "slug": "cuanto-cobrar-autonomo",
@@ -105,7 +149,12 @@
     "pilar": "dinero-personal-empresario",
     "cluster": "sueldo-empresario",
     "categoria": "dinero-personal",
-    "tags": ["autónomo", "tarifa hora", "cuánto cobrar", "precio servicios"]
+    "tags": [
+      "autónomo",
+      "tarifa hora",
+      "cuánto cobrar",
+      "precio servicios"
+    ]
   },
   {
     "slug": "como-organizarse-como-autonomo",
@@ -114,7 +163,13 @@
     "pilar": "procesos",
     "cluster": "estandarizacion",
     "categoria": "gestion",
-    "tags": ["organización", "autónomo", "productividad", "gestión tiempo", "procesos"]
+    "tags": [
+      "organización",
+      "autónomo",
+      "productividad",
+      "gestión tiempo",
+      "procesos"
+    ]
   },
   {
     "slug": "estandarizar-procesos-empresa",
@@ -123,7 +178,12 @@
     "pilar": "procesos",
     "cluster": "estandarizacion",
     "categoria": "procesos",
-    "tags": ["estandarizar procesos", "procedimientos", "delegación", "negocio escalable"]
+    "tags": [
+      "estandarizar procesos",
+      "procedimientos",
+      "delegación",
+      "negocio escalable"
+    ]
   },
   {
     "slug": "como-delegar-en-tu-negocio",
@@ -132,7 +192,13 @@
     "pilar": "procesos",
     "cluster": "estandarizacion",
     "categoria": "procesos",
-    "tags": ["delegar", "liderazgo", "procesos", "equipo", "gestión"]
+    "tags": [
+      "delegar",
+      "liderazgo",
+      "procesos",
+      "equipo",
+      "gestión"
+    ]
   },
   {
     "slug": "roi-marketing-como-calcularlo",
@@ -141,7 +207,12 @@
     "pilar": "marketing-rentable",
     "cluster": "marketing-local",
     "categoria": "marketing",
-    "tags": ["ROI marketing", "retorno inversión", "publicidad", "marketing rentable"]
+    "tags": [
+      "ROI marketing",
+      "retorno inversión",
+      "publicidad",
+      "marketing rentable"
+    ]
   },
   {
     "slug": "redes-sociales-negocio-local",
@@ -150,7 +221,12 @@
     "pilar": "marketing-rentable",
     "cluster": "marketing-local",
     "categoria": "marketing",
-    "tags": ["redes sociales", "negocio local", "instagram", "marketing digital"]
+    "tags": [
+      "redes sociales",
+      "negocio local",
+      "instagram",
+      "marketing digital"
+    ]
   },
   {
     "slug": "tecnicas-upselling-negocio",
@@ -159,7 +235,13 @@
     "pilar": "ventas",
     "cluster": "ticket-medio",
     "categoria": "ventas",
-    "tags": ["upselling", "ticket medio", "ventas", "cross-selling", "negocio físico"]
+    "tags": [
+      "upselling",
+      "ticket medio",
+      "ventas",
+      "cross-selling",
+      "negocio físico"
+    ]
   },
   {
     "slug": "costes-variables-ejemplos-negocio",
@@ -168,7 +250,13 @@
     "pilar": "costes",
     "cluster": "costes-fijos",
     "categoria": "costes",
-    "tags": ["costes variables", "costes fijos", "ejemplos", "rentabilidad", "gestión"]
+    "tags": [
+      "costes variables",
+      "costes fijos",
+      "ejemplos",
+      "rentabilidad",
+      "gestión"
+    ]
   },
   {
     "slug": "facturacion-vs-beneficio",
@@ -177,7 +265,13 @@
     "pilar": "diagnostico-empresarial",
     "cluster": "rentabilidad-real",
     "categoria": "finanzas",
-    "tags": ["facturación", "beneficio", "rentabilidad", "diagnóstico", "negocio físico"]
+    "tags": [
+      "facturación",
+      "beneficio",
+      "rentabilidad",
+      "diagnóstico",
+      "negocio físico"
+    ]
   },
   {
     "slug": "analisis-financiero-negocio-pequeno",
@@ -186,7 +280,13 @@
     "pilar": "diagnostico-empresarial",
     "cluster": "rentabilidad-real",
     "categoria": "gestion",
-    "tags": ["análisis financiero", "pymes", "diagnóstico", "contabilidad básica", "negocio pequeño"]
+    "tags": [
+      "análisis financiero",
+      "pymes",
+      "diagnóstico",
+      "contabilidad básica",
+      "negocio pequeño"
+    ]
   },
   {
     "slug": "reseñas-google-como-conseguirlas",
@@ -195,7 +295,13 @@
     "pilar": "marketing-rentable",
     "cluster": "captacion-local",
     "categoria": "marketing",
-    "tags": ["reseñas google", "google maps", "negocio local", "reputación online", "clientes"]
+    "tags": [
+      "reseñas google",
+      "google maps",
+      "negocio local",
+      "reputación online",
+      "clientes"
+    ]
   },
   {
     "slug": "iva-autonomo-como-funciona",
@@ -204,7 +310,14 @@
     "pilar": "dinero-personal-empresario",
     "cluster": "sueldo-empresario",
     "categoria": "dinero-personal",
-    "tags": ["IVA", "autónomo", "trimestres", "hacienda", "fiscalidad", "negocio"]
+    "tags": [
+      "IVA",
+      "autónomo",
+      "trimestres",
+      "hacienda",
+      "fiscalidad",
+      "negocio"
+    ]
   },
   {
     "slug": "negociar-con-proveedores",
@@ -213,7 +326,13 @@
     "pilar": "costes",
     "cluster": "reduccion-costes",
     "categoria": "costes",
-    "tags": ["proveedores", "negociación", "reducir costes", "compras", "pymes"]
+    "tags": [
+      "proveedores",
+      "negociación",
+      "reducir costes",
+      "compras",
+      "pymes"
+    ]
   },
   {
     "slug": "manual-procedimientos-empresa",
@@ -222,7 +341,13 @@
     "pilar": "procesos",
     "cluster": "estandarizacion",
     "categoria": "procesos",
-    "tags": ["manual de procedimientos", "procesos", "equipo", "estandarización", "delegación"]
+    "tags": [
+      "manual de procedimientos",
+      "procesos",
+      "equipo",
+      "estandarización",
+      "delegación"
+    ]
   },
   {
     "slug": "clientes-morosos-como-cobrar",
@@ -231,7 +356,13 @@
     "pilar": "ventas",
     "cluster": "fidelizacion",
     "categoria": "ventas",
-    "tags": ["morosos", "impagados", "cobrar facturas", "clientes", "pymes"]
+    "tags": [
+      "morosos",
+      "impagados",
+      "cobrar facturas",
+      "clientes",
+      "pymes"
+    ]
   },
   {
     "slug": "gestion-caja-diaria-negocio",
@@ -240,7 +371,13 @@
     "pilar": "procesos",
     "cluster": "estandarizacion",
     "categoria": "procesos",
-    "tags": ["caja", "tesorería", "control diario", "negocio físico", "hábitos"]
+    "tags": [
+      "caja",
+      "tesorería",
+      "control diario",
+      "negocio físico",
+      "hábitos"
+    ]
   },
   {
     "slug": "prevision-ventas-negocio-pequeno",
@@ -249,7 +386,13 @@
     "pilar": "diagnostico-empresarial",
     "cluster": "kpis",
     "categoria": "gestion",
-    "tags": ["previsión de ventas", "planificación", "negocio pequeño", "objetivos", "presupuesto"]
+    "tags": [
+      "previsión de ventas",
+      "planificación",
+      "negocio pequeño",
+      "objetivos",
+      "presupuesto"
+    ]
   },
   {
     "slug": "kpis-restaurante-bar",
@@ -258,7 +401,14 @@
     "pilar": "diagnostico-empresarial",
     "cluster": "kpis",
     "categoria": "gestion",
-    "tags": ["kpis", "restaurante", "bar", "hostelería", "indicadores", "rentabilidad"]
+    "tags": [
+      "kpis",
+      "restaurante",
+      "bar",
+      "hostelería",
+      "indicadores",
+      "rentabilidad"
+    ]
   },
   {
     "slug": "gestion-stock-tienda-pequena",
@@ -267,7 +417,14 @@
     "pilar": "productos-servicios",
     "cluster": "diseno-oferta",
     "categoria": "gestion",
-    "tags": ["stock", "inventario", "tienda", "retail", "rotación", "margen"]
+    "tags": [
+      "stock",
+      "inventario",
+      "tienda",
+      "retail",
+      "rotación",
+      "margen"
+    ]
   },
   {
     "slug": "rentabilidad-peluqueria-barberia",
@@ -276,7 +433,14 @@
     "pilar": "precios-y-margenes",
     "cluster": "calculo-precios",
     "categoria": "sectorial",
-    "tags": ["peluquería", "barbería", "rentabilidad", "precio servicio", "margen", "sectorial"]
+    "tags": [
+      "peluquería",
+      "barbería",
+      "rentabilidad",
+      "precio servicio",
+      "margen",
+      "sectorial"
+    ]
   },
   {
     "slug": "abrir-tienda-ropa-rentable",
@@ -285,7 +449,14 @@
     "pilar": "emprendimiento",
     "cluster": "errores-comunes",
     "categoria": "emprendimiento",
-    "tags": ["tienda de ropa", "moda", "retail", "abrir negocio", "inversión", "rentabilidad"]
+    "tags": [
+      "tienda de ropa",
+      "moda",
+      "retail",
+      "abrir negocio",
+      "inversión",
+      "rentabilidad"
+    ]
   },
   {
     "slug": "fontanero-electricista-precio-hora",
@@ -294,7 +465,14 @@
     "pilar": "precios-y-margenes",
     "cluster": "calculo-precios",
     "categoria": "sectorial",
-    "tags": ["fontanero", "electricista", "técnico", "precio hora", "autónomo", "oficios"]
+    "tags": [
+      "fontanero",
+      "electricista",
+      "técnico",
+      "precio hora",
+      "autónomo",
+      "oficios"
+    ]
   },
   {
     "slug": "marketing-restaurante",
@@ -303,7 +481,13 @@
     "pilar": "marketing-rentable",
     "cluster": "marketing-local",
     "categoria": "marketing",
-    "tags": ["marketing restaurante", "hostelería", "redes sociales", "captación", "sin presupuesto"]
+    "tags": [
+      "marketing restaurante",
+      "hostelería",
+      "redes sociales",
+      "captación",
+      "sin presupuesto"
+    ]
   },
   {
     "slug": "negocio-estacional-temporada",
@@ -312,7 +496,13 @@
     "pilar": "diagnostico-empresarial",
     "cluster": "rentabilidad-real",
     "categoria": "gestion",
-    "tags": ["negocio estacional", "temporada", "liquidez", "tesorería", "planificación"]
+    "tags": [
+      "negocio estacional",
+      "temporada",
+      "liquidez",
+      "tesorería",
+      "planificación"
+    ]
   },
   {
     "slug": "cuando-crear-sl",
@@ -321,7 +511,13 @@
     "pilar": "dinero-personal-empresario",
     "cluster": "sueldo-empresario",
     "categoria": "dinero-personal",
-    "tags": ["sociedad limitada", "autónomo", "SL", "fiscalidad", "ahorro fiscal"]
+    "tags": [
+      "sociedad limitada",
+      "autónomo",
+      "SL",
+      "fiscalidad",
+      "ahorro fiscal"
+    ]
   },
   {
     "slug": "publicidad-local-donde-invertir",
@@ -330,7 +526,13 @@
     "pilar": "marketing-rentable",
     "cluster": "captacion-local",
     "categoria": "marketing",
-    "tags": ["publicidad local", "inversión publicitaria", "ROI", "negocio local", "marketing"]
+    "tags": [
+      "publicidad local",
+      "inversión publicitaria",
+      "ROI",
+      "negocio local",
+      "marketing"
+    ]
   },
   {
     "slug": "reducir-costes-personal-sin-despedir",
@@ -339,7 +541,13 @@
     "pilar": "costes",
     "cluster": "reduccion-costes",
     "categoria": "costes",
-    "tags": ["coste personal", "nóminas", "reducir costes", "equipo", "rentabilidad"]
+    "tags": [
+      "coste personal",
+      "nóminas",
+      "reducir costes",
+      "equipo",
+      "rentabilidad"
+    ]
   },
   {
     "slug": "rentabilidad-local-comercial",
@@ -348,6 +556,12 @@
     "pilar": "costes",
     "cluster": "costes-fijos",
     "categoria": "costes",
-    "tags": ["alquiler local", "costes fijos", "rentabilidad", "negocio físico", "ubicación"]
+    "tags": [
+      "alquiler local",
+      "costes fijos",
+      "rentabilidad",
+      "negocio físico",
+      "ubicación"
+    ]
   }
 ]
