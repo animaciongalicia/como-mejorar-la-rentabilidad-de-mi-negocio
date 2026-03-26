@@ -9,6 +9,8 @@ jobs:
   generate-and-publish:
     name: Generar post y publicar
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout
