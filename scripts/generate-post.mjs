@@ -116,7 +116,10 @@ async function main() {
   console.log(`Generando post: ${item.slug}`)
   console.log(`Título: ${item.title}`)
 
-  const content = await callClaude(prompt)
+  let content = await callClaude(prompt)
+
+  // Limpiar posible envoltura de bloque de código que Claude a veces añade
+  content = content.replace(/^```(?:mdx|md)?\n/, '').replace(/\n```$/, '').trim()
 
   // Guardar el post
   fs.mkdirSync(POSTS_DIR, { recursive: true })
