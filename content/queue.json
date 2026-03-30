@@ -1,5 +1,48 @@
 [
   {
+    "slug": "margen-bruto-vs-margen-neto",
+    "title": "Margen bruto vs margen neto: cuál importa más en tu negocio y por qué",
+    "keyword": "margen bruto vs margen neto diferencia",
+    "pilar": "precios-y-margenes",
+    "cluster": "margen-bruto",
+    "categoria": "finanzas",
+    "tags": [
+      "margen bruto",
+      "margen neto",
+      "rentabilidad",
+      "finanzas negocio"
+    ]
+  },
+  {
+    "slug": "precio-minimo-venta-formula",
+    "title": "Cómo calcular el precio mínimo de venta antes de que te arruines vendiendo",
+    "keyword": "precio mínimo de venta fórmula",
+    "pilar": "precios-y-margenes",
+    "cluster": "calculo-precios",
+    "categoria": "precios",
+    "tags": [
+      "precio mínimo",
+      "precio de venta",
+      "costes",
+      "margen",
+      "cálculo precios"
+    ]
+  },
+  {
+    "slug": "gastos-innecesarios-empresa",
+    "title": "Los 8 gastos innecesarios que tienen casi todos los negocios pequeños",
+    "keyword": "gastos innecesarios en una empresa",
+    "pilar": "diagnostico-empresarial",
+    "cluster": "reduccion-costes",
+    "categoria": "diagnostico-empresarial",
+    "tags": [
+      "gastos innecesarios",
+      "reducir costes",
+      "rentabilidad",
+      "pymes"
+    ]
+  },
+  {
     "slug": "mejorar-conversion-tienda-fisica",
     "title": "Cómo mejorar la conversión en tu tienda física sin invertir en publicidad",
     "keyword": "cómo mejorar la conversión en tienda",
@@ -75,9 +118,9 @@
     "slug": "controlar-gastos-negocio",
     "title": "Cómo controlar los gastos de tu negocio sin necesitar un contable a diario",
     "keyword": "cómo controlar los gastos del negocio",
-    "pilar": "costes",
+    "pilar": "diagnostico-empresarial",
     "cluster": "costes-ocultos",
-    "categoria": "costes",
+    "categoria": "diagnostico-empresarial",
     "tags": [
       "control de gastos",
       "gestión financiera",
@@ -190,9 +233,9 @@
     "slug": "costes-variables-ejemplos-negocio",
     "title": "Costes variables: qué son y ejemplos reales en distintos tipos de negocio",
     "keyword": "costes variables ejemplos",
-    "pilar": "costes",
+    "pilar": "diagnostico-empresarial",
     "cluster": "costes-fijos",
-    "categoria": "costes",
+    "categoria": "diagnostico-empresarial",
     "tags": [
       "costes variables",
       "costes fijos",
@@ -266,9 +309,9 @@
     "slug": "negociar-con-proveedores",
     "title": "Cómo negociar con tus proveedores para bajar costes sin perder calidad ni la relación",
     "keyword": "negociar con proveedores pymes",
-    "pilar": "costes",
+    "pilar": "diagnostico-empresarial",
     "cluster": "reduccion-costes",
-    "categoria": "costes",
+    "categoria": "diagnostico-empresarial",
     "tags": [
       "proveedores",
       "negociación",
@@ -481,9 +524,9 @@
     "slug": "reducir-costes-personal-sin-despedir",
     "title": "Cómo reducir el coste de personal sin despedir a nadie (y sin hundir la moral del equipo)",
     "keyword": "reducir costes laborales sin despidos",
-    "pilar": "costes",
+    "pilar": "diagnostico-empresarial",
     "cluster": "reduccion-costes",
-    "categoria": "costes",
+    "categoria": "diagnostico-empresarial",
     "tags": [
       "coste personal",
       "nóminas",
@@ -496,9 +539,9 @@
     "slug": "rentabilidad-local-comercial",
     "title": "Cómo saber si el local que estás pagando te está arruinando (o vale cada euro)",
     "keyword": "rentabilidad local comercial alquiler",
-    "pilar": "costes",
+    "pilar": "diagnostico-empresarial",
     "cluster": "costes-fijos",
-    "categoria": "costes",
+    "categoria": "diagnostico-empresarial",
     "tags": [
       "alquiler local",
       "costes fijos",

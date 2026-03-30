@@ -52,6 +52,9 @@ DATOS DEL ARTÍCULO:
 - Categoría: ${item.categoria}
 - Tags: ${item.tags.join(', ')}
 
+PILARES VÁLIDOS (usa EXACTAMENTE uno de estos valores en el frontmatter):
+diagnostico-empresarial | precios-y-margenes | productos-servicios | ventas | procesos | personas | marketing-rentable | emprendimiento | mentalidad | liderazgo | dinero-personal-empresario
+
 REGLAS OBLIGATORIAS:
 1. Empieza directamente con el frontmatter YAML (---), sin texto previo
 2. El artículo debe tener entre 1.000 y 1.400 palabras

@@ -119,14 +119,21 @@ export function getRelatedPosts(currentPost: Post, limit: number = 3): Post[] {
   return related.slice(0, limit)
 }
 
+const VALID_PILARES = new Set([
+  'diagnostico-empresarial','precios-y-margenes','productos-servicios','ventas',
+  'procesos','personas','marketing-rentable','emprendimiento','mentalidad',
+  'liderazgo','dinero-personal-empresario',
+])
+
 export function getAllCategorias(): string[] {
   const posts = getAllPosts()
   const seen: Record<string, boolean> = {}
   const categorias: string[] = []
   for (const post of posts) {
-    if (!seen[post.categoria]) {
-      seen[post.categoria] = true
-      categorias.push(post.categoria)
+    const cat = post.categoria
+    if (cat && VALID_PILARES.has(cat) && !seen[cat]) {
+      seen[cat] = true
+      categorias.push(cat)
     }
   }
   return categorias.sort()
