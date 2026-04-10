@@ -4,40 +4,45 @@ import { BASE_URL } from '@/lib/seo'
 import Sidebar from '@/components/Sidebar'
 
 export const metadata: Metadata = {
-  title: 'Agente Diagnóstico — Radiografía rápida de tu negocio | Foco Rentabilismo',
-  description:
-    'Un agente de IA que analiza los números de tu negocio y te dice exactamente dónde estás perdiendo dinero. Sin rodeos, sin teoría. Solo lo que tienes que hacer.',
+  title: 'Agente Diagnóstico de Rentabilidad — IA para detectar fugas en tu negocio | Foco Rentabilismo',
+  description: 'Agente de IA especializado en diagnóstico de rentabilidad. Analiza tus números, detecta dónde se pierde el dinero y te dice exactamente dónde actuar primero.',
   alternates: { canonical: `${BASE_URL}/agentes/diagnostico-rentabilidad/` },
 }
+
+const CHATGPT_URL = '' // ← añade aquí el link de ChatGPT cuando lo tengas
 
 export default function AgenteDiagnosticoPage() {
   return (
     <div className="bg-white min-h-screen">
 
-      {/* Hero */}
       <div className="border-b-2 border-violet-500 bg-violet-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <Link
-            href="/agentes/"
-            className="text-xs font-bold text-violet-500 uppercase tracking-widest hover:text-violet-700 transition-colors"
-          >
+          <Link href="/agentes/" className="text-xs font-bold text-violet-500 uppercase tracking-widest hover:text-violet-700 transition-colors">
             ← Todos los agentes
           </Link>
           <div className="mt-4 flex items-center gap-3 mb-4">
-            <span className="text-xs font-bold text-violet-600 bg-white border border-violet-200 px-3 py-1 rounded-full">
-              Diagnóstico
-            </span>
-            <span className="text-xs font-bold text-green-700 bg-green-50 border border-green-200 px-3 py-1 rounded-full">
-              Disponible ahora
-            </span>
+            <span className="text-xs font-bold text-violet-700 bg-white border border-violet-200 px-3 py-1 rounded-full">Cualquier negocio físico</span>
+            <span className="text-xs font-bold text-green-700 bg-green-50 border border-green-200 px-3 py-1 rounded-full">Disponible ahora</span>
           </div>
           <h1 className="text-3xl md:text-4xl font-black text-gray-900 leading-tight mb-4">
-            Agente Diagnóstico
+            Agente Diagnóstico de Rentabilidad
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
-            Radiografía rápida de tu negocio. Detecta en qué áreas estás perdiendo dinero
-            antes de tomar ninguna decisión.
+            IA especializada en detectar por qué tu negocio factura bien pero a final de mes sobra poco. Analiza tus números clave y te dice exactamente dónde se escapa el dinero.
           </p>
+          <div className="mt-6">
+            {CHATGPT_URL ? (
+              <a href={CHATGPT_URL} target="_blank" rel="noopener noreferrer"
+                className="inline-block bg-violet-600 hover:bg-violet-700 text-white font-black px-8 py-3.5 rounded-xl text-base transition-colors">
+                Abrir agente en ChatGPT →
+              </a>
+            ) : (
+              <span className="inline-block bg-gray-200 text-gray-500 font-black px-8 py-3.5 rounded-xl text-base cursor-not-allowed">
+                Disponible próximamente en ChatGPT
+              </span>
+            )}
+            <p className="text-xs text-gray-400 mt-2">Gratis · Requiere cuenta ChatGPT · Sin datos de tarjeta</p>
+          </div>
         </div>
       </div>
 
@@ -45,323 +50,123 @@ export default function AgenteDiagnosticoPage() {
         <div className="lg:grid lg:gap-12" style={{ gridTemplateColumns: '1fr 260px' }}>
           <div className="space-y-16">
 
-        {/* 1. El dolor */}
-        <section>
-          <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">
-            El problema que resuelve
-          </h2>
-          <div className="prose prose-gray max-w-none">
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Muchos dueños de negocio trabajan 10 horas al día, facturan bien y al final del mes
-              se preguntan dónde ha ido el dinero. No es mala suerte. Es que hay fugas que no se ven
-              a simple vista.
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              El problema no es que no trabajas. Es que no sabes <strong>dónde exactamente se va el
-              margen</strong>. Puede ser en un producto que vendes mucho pero que casi no deja nada.
-              Puede ser en horas de personal que no se traducen en facturación. Puede ser en costes
-              fijos que se han ido acumulando sin que nadie los haya cuestionado.
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              Sin un diagnóstico claro, cualquier decisión que tomes va a ser a ciegas. Contratas más
-              personal sin saber si te lo puedes permitir. Bajas precios para vender más sin saber si
-              eso te hace ganar o perder. Inviertes en marketing cuando el problema real está en los
-              costes.
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              Este agente existe para eso: <strong>darte un diagnóstico honesto antes de que tomes
-              decisiones que salgan caras</strong>.
-            </p>
-          </div>
-        </section>
-
-        {/* 2. La solución */}
-        <section>
-          <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">
-            Qué consigues con él
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-            {[
-              {
-                titulo: 'Identificar fugas de margen',
-                desc: 'Descubre qué productos, servicios o áreas están consumiendo recursos sin devolver lo suficiente.',
-              },
-              {
-                titulo: 'Priorizar dónde actuar',
-                desc: 'No todo merece la misma atención. El agente te dice por dónde empezar para tener impacto real y rápido.',
-              },
-              {
-                titulo: 'Entender tu punto de equilibrio real',
-                desc: 'Cuánto tienes que facturar para no perder dinero. Con tus números, no con teoría.',
-              },
-              {
-                titulo: 'Detectar costes que no cuestionas',
-                desc: 'Gastos fijos que llevas años pagando y que ya no tienen sentido. El agente los saca a la luz.',
-              },
-              {
-                titulo: 'Ver el negocio desde fuera',
-                desc: 'A veces lo más difícil es ver lo que tenemos delante. Una perspectiva externa cambia el enfoque.',
-              },
-              {
-                titulo: 'Un plan de acción concreto',
-                desc: 'No un informe bonito. Tres o cuatro pasos específicos que puedes empezar esta semana.',
-              },
-            ].map((item) => (
-              <div
-                key={item.titulo}
-                className="border border-violet-100 bg-violet-50 rounded-xl p-5"
-              >
-                <p className="font-black text-gray-900 mb-1 text-sm">→ {item.titulo}</p>
-                <p className="text-sm text-gray-600 leading-snug">{item.desc}</p>
+            <section>
+              <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">El problema que resuelve</h2>
+              <div className="prose prose-gray max-w-none">
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  La mayoría de dueños de negocio saben cuánto facturan. Muy pocos saben realmente cuánto ganan. Y casi ninguno sabe con exactitud dónde se está yendo la diferencia.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  Sin un diagnóstico claro, las decisiones se toman a ojo: subir precios, meter más clientes, reducir personal... sin saber si eso resolverá el problema real o simplemente moverá el dinero de un agujero a otro.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  Este agente hace el diagnóstico que la mayoría de negocios nunca se para a hacer: analiza tu estructura de ingresos y costes, detecta qué áreas destruyen margen sin que se note, y te dice cuál es el primer paso concreto para mejorar la rentabilidad.
+                </p>
               </div>
-            ))}
-          </div>
-        </section>
+            </section>
 
-        {/* 3. Cómo funciona */}
-        <section>
-          <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">
-            Cómo funciona
-          </h2>
-          <p className="text-gray-700 leading-relaxed mb-6">
-            El Agente Diagnóstico trabaja con un prompt estructurado que guía a ChatGPT o Claude
-            para comportarse como un consultor especializado en rentabilidad de negocios físicos.
-            No es magia. Es un prompt bien diseñado que hace las preguntas correctas y procesa
-            las respuestas de forma útil.
-          </p>
-          <ol className="space-y-6">
-            {[
-              {
-                n: '01',
-                titulo: 'Le das contexto de tu negocio',
-                desc: 'Tipo de negocio, facturación aproximada, número de empleados, principales costes. No hace falta que sea exacto al céntimo. El agente trabaja bien con rangos.',
-              },
-              {
-                n: '02',
-                titulo: 'El agente hace preguntas específicas',
-                desc: 'No te pregunta de todo. Te pregunta lo que necesita saber para identificar las fugas principales. Margen por producto, estructura de costes, ticket medio, rotación.',
-              },
-              {
-                n: '03',
-                titulo: 'Analiza y detecta patrones',
-                desc: 'Cruza la información que le das y detecta dónde está el problema real. Si hay una incoherencia entre lo que facturas y lo que te queda, la señala.',
-              },
-              {
-                n: '04',
-                titulo: 'Te da un diagnóstico y un plan',
-                desc: 'No un resumen académico. Te dice: "El problema principal está aquí, esto es lo que está pasando y esto es lo que tienes que hacer primero."',
-              },
-            ].map((paso) => (
-              <li key={paso.n} className="flex gap-5">
-                <span className="shrink-0 text-3xl font-black text-violet-200 leading-none">{paso.n}</span>
-                <div>
-                  <p className="font-black text-gray-900 mb-1">{paso.titulo}</p>
-                  <p className="text-gray-600 text-sm leading-relaxed">{paso.desc}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </section>
-
-        {/* 4. Cómo usarlo bien */}
-        <section>
-          <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">
-            Cómo sacarle el máximo partido
-          </h2>
-          <div className="space-y-4">
-            <div className="border-l-4 border-violet-400 pl-5">
-              <p className="font-bold text-gray-900 mb-1">Sé específico con los números</p>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Cuanto más concreto seas, mejor diagnóstico recibes. &ldquo;Facturo unos 15.000€ al mes&rdquo;
-                es mucho más útil que &ldquo;facturo bastante&rdquo;. No tiene que ser exacto, pero sí aproximado.
-              </p>
-            </div>
-            <div className="border-l-4 border-violet-400 pl-5">
-              <p className="font-bold text-gray-900 mb-1">Empieza por lo que más te preocupa</p>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Si sabes que hay un área que te tiene intranquilo (los costes de personal, un
-                producto que no rinde, el alquiler...), díselo al inicio. El agente ajustará
-                el análisis a eso.
-              </p>
-            </div>
-            <div className="border-l-4 border-violet-400 pl-5">
-              <p className="font-bold text-gray-900 mb-1">Hazle preguntas de seguimiento</p>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Si el diagnóstico inicial no te convence o quieres profundizar en algo,
-                pregunta. &ldquo;¿Y si te digo que también tenemos X?&rdquo; o &ldquo;¿Qué pasaría si redujera
-                esto un 20%?&rdquo; El agente aguanta bien el hilo.
-              </p>
-            </div>
-            <div className="border-l-4 border-violet-400 pl-5">
-              <p className="font-bold text-gray-900 mb-1">Pídele que priorice</p>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Si te da cinco problemas, pregúntale: &ldquo;¿Por cuál empezarías tú y por qué?&rdquo;
-                No todo tiene el mismo impacto. El agente sabe distinguir lo urgente de lo
-                importante.
-              </p>
-            </div>
-            <div className="border-l-4 border-violet-400 pl-5">
-              <p className="font-bold text-gray-900 mb-1">Úsalo como punto de partida, no como oráculo</p>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                El agente no conoce tu mercado local ni a tus clientes. Lo que sí hace es
-                forzarte a pensar con estructura. Toma el diagnóstico, valídalo con tu
-                experiencia y actúa.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* 5. Cómo pararlo / redirigirlo */}
-        <section>
-          <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">
-            Cómo corregirlo cuando se desvía
-          </h2>
-          <p className="text-gray-700 leading-relaxed mb-6">
-            A veces la IA se va por las ramas, te da respuestas demasiado genéricas o se pone
-            en modo &ldquo;consultor de PowerPoint&rdquo;. Aquí van las frases que funcionan para
-            reconducirlo:
-          </p>
-          <div className="space-y-3">
-            {[
-              {
-                problema: 'Te da consejos genéricos de libro',
-                solucion: '"Olvida los consejos generales. Con los datos que te he dado, dime qué está fallando específicamente en mi negocio."',
-              },
-              {
-                problema: 'Se enrolla demasiado',
-                solucion: '"Dame solo los tres puntos clave. Sin explicaciones largas. Qué problema, por qué y qué hago."',
-              },
-              {
-                problema: 'No te convence el diagnóstico',
-                solucion: '"Ese diagnóstico no encaja con lo que veo. Te doy más contexto: [añade info]. Revísalo."',
-              },
-              {
-                problema: 'Te pide datos que no tienes',
-                solucion: '"No tengo ese dato exacto. Trabaja con este rango aproximado y dime qué cambiaría."',
-              },
-              {
-                problema: 'Se pone optimista sin base',
-                solucion: '"Sé crítico. ¿Qué es lo peor que podría estar pasando con estos números? Quiero el diagnóstico duro."',
-              },
-            ].map((item) => (
-              <div key={item.problema} className="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                <p className="text-xs font-black uppercase tracking-widest text-gray-400 mb-1">{item.problema}</p>
-                <p className="text-sm text-gray-700 italic">{item.solucion}</p>
+            <section>
+              <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">Qué puede hacer por tu negocio</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  { titulo: 'Radiografía de márgenes reales', desc: 'Calcula el margen bruto y neto real, no el teórico. Descubre la diferencia entre lo que crees que ganas y lo que realmente entra.' },
+                  { titulo: 'Mapa de fugas de rentabilidad', desc: 'Identifica qué productos, servicios o clientes están destruyendo margen. A veces el problema no es ganar más sino dejar de perder.' },
+                  { titulo: 'Análisis de estructura de costes', desc: 'Separa fijos de variables, detecta qué gastos han crecido sin control y cuáles podrías reducir sin dañar el negocio.' },
+                  { titulo: 'Punto de equilibrio real', desc: 'Cuánto tienes que facturar para no perder dinero, y a qué distancia estás de esa cifra ahora mismo.' },
+                  { titulo: 'Priorización de acciones', desc: 'No una lista de 20 mejoras posibles. Las tres que más impacto tienen en tu negocio concreto, en el orden correcto.' },
+                  { titulo: 'Comparativa sectorial', desc: 'Dónde están tus ratios clave respecto a lo habitual en negocios similares. Para saber si el problema es tuyo o del sector.' },
+                ].map((item) => (
+                  <div key={item.titulo} className="border border-violet-100 bg-violet-50 rounded-xl p-5">
+                    <p className="font-black text-gray-900 mb-1 text-sm">→ {item.titulo}</p>
+                    <p className="text-sm text-gray-600 leading-snug">{item.desc}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </section>
+            </section>
 
-        {/* 6. El prompt */}
-        <section>
-          <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">
-            El prompt — cópialo y úsalo
-          </h2>
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Copia este prompt, pégalo en ChatGPT o Claude, y responde a las preguntas que te haga.
-            Tarda menos de 10 minutos y el resultado es más útil que muchas horas de análisis
-            por tu cuenta.
-          </p>
-          <div className="bg-gray-900 rounded-2xl p-6 relative">
-            <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Prompt — Agente Diagnóstico</p>
-            <pre className="text-sm text-gray-100 leading-relaxed whitespace-pre-wrap font-mono">
-{`Actúa como un consultor especializado en rentabilidad de negocios físicos y pymes españolas. Tu objetivo es hacer un diagnóstico rápido pero honesto del negocio que te voy a describir.
+            <section>
+              <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">Para qué tipos de negocio es más útil</h2>
+              <div className="space-y-3">
+                {[
+                  'Negocios que facturan bien pero a final de mes no sobra lo esperado',
+                  'Dueños que sienten que trabajan mucho pero el beneficio no refleja el esfuerzo',
+                  'Negocios que han crecido en ventas pero no en beneficio',
+                  'Tiendas, talleres, restaurantes o servicios con varios productos o líneas de negocio',
+                  'Cualquier pyme o autónomo que nunca ha hecho un diagnóstico financiero serio',
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <span className="mt-1 shrink-0 text-violet-500 font-black">→</span>
+                    <span className="text-gray-700 text-sm leading-relaxed">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
 
-Primero, hazme las preguntas mínimas necesarias para entender:
-1. Tipo de negocio y qué vende
-2. Facturación mensual aproximada
-3. Principales costes (personal, alquiler, proveedores)
-4. Margen aproximado por producto o servicio principal
-5. Número de empleados
-6. Lo que más le preocupa al dueño ahora mismo
+            <section>
+              <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">Cómo usarlo</h2>
+              <div className="space-y-4">
+                {[
+                  { n: '01', titulo: 'Prepara tus cifras básicas', desc: 'Facturación mensual aproximada, principales gastos fijos (alquiler, sueldos, suministros) y si puedes, el margen de tus productos o servicios más importantes. No hace falta contabilidad perfecta.' },
+                  { n: '02', titulo: 'Describe el síntoma que más te preocupa', desc: 'El agente funciona mejor cuando le dices el problema concreto: "a fin de mes no llego", "las ventas suben pero el beneficio no", "no sé qué productos me dan más margen". Cuanto más específico, mejor diagnóstico.' },
+                  { n: '03', titulo: 'Pide el diagnóstico o la acción concreta', desc: 'Puedes pedirle diagnóstico completo, análisis de un área concreta o directamente las tres acciones con más impacto. El agente se adapta a lo que necesitas resolver ahora.' },
+                ].map((item) => (
+                  <div key={item.n} className="flex gap-5">
+                    <span className="shrink-0 text-3xl font-black text-violet-200 leading-none">{item.n}</span>
+                    <div>
+                      <p className="font-black text-gray-900 mb-1">{item.titulo}</p>
+                      <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
 
-Una vez tengas esa información, analiza y dime:
-— Cuál es el problema principal que detectas
-— Por qué está pasando (causa real, no síntoma)
-— Qué tres acciones concretas tomaría esta semana
-— Qué indicador debería seguir cada semana para saber si mejora
-
-Sé directo. Sin rodeos. Sin palabrería. Este dueño no tiene tiempo para informes largos. Quiere saber qué está fallando y qué hacer.`}
-            </pre>
-          </div>
-          <p className="text-xs text-gray-400 mt-3">
-            Funciona con ChatGPT 4o, Claude 3.5 Sonnet y versiones superiores.
-          </p>
-        </section>
-
-        {/* CTA final — dos opciones */}
-        <section>
-          <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-8">
-            ¿Por dónde empezar?
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-            {/* Opción A: cópialo tú */}
-            <div className="border-2 border-gray-200 rounded-2xl p-7">
-              <p className="text-xs font-black uppercase tracking-widest text-gray-400 mb-3">Opción A</p>
-              <h3 className="text-lg font-black text-gray-900 mb-3">
-                Configúralo tú mismo
-              </h3>
-              <p className="text-sm text-gray-600 leading-relaxed mb-5">
-                Copia el prompt de arriba y pégalo en ChatGPT, Claude o la IA que uses
-                habitualmente. Funciona desde el primer mensaje. Sin cuenta, sin registro,
-                sin nada.
-              </p>
-              <p className="text-sm font-bold text-gray-500">
-                ↑ El prompt está justo arriba. Es tuyo.
-              </p>
-            </div>
-
-            {/* Opción B: hub ChatGPT */}
-            <div className="border-2 border-violet-400 bg-violet-50 rounded-2xl p-7">
-              <p className="text-xs font-black uppercase tracking-widest text-violet-500 mb-3">Opción B</p>
-              <h3 className="text-lg font-black text-gray-900 mb-3">
-                Usa nuestra versión ya configurada
-              </h3>
-              <p className="text-sm text-gray-600 leading-relaxed mb-5">
-                Tenemos más de 10 agentes rentabilistas listos en ChatGPT. Cada uno está
-                afinado para un problema concreto. Sin copiar prompts, sin configurar nada.
-                Entras y usas.
-              </p>
-              <Link
-                href="/agentes/"
-                className="inline-block bg-violet-600 hover:bg-violet-700 text-white font-semibold px-5 py-2.5 rounded-lg transition-colors text-sm"
-              >
-                Ver todos los agentes →
-              </Link>
-            </div>
+            <section>
+              <h2 className="text-sm font-black uppercase tracking-widest text-gray-400 border-b border-gray-200 pb-2 mb-6">Recursos relacionados</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <Link href="/herramientas/diagnostico-negocio/" className="group block border border-gray-200 hover:border-violet-400 rounded-xl p-5 transition-all hover:shadow-sm">
+                  <p className="text-xs font-black uppercase tracking-widest text-violet-600 mb-2">Herramienta</p>
+                  <p className="font-black text-gray-900 group-hover:text-violet-700 mb-1">Diagnóstico de rentabilidad</p>
+                  <p className="text-sm text-gray-500">Detecta en 10 minutos las principales fugas de rentabilidad.</p>
+                  <p className="text-xs font-bold text-violet-600 mt-3 group-hover:underline">Hacer diagnóstico →</p>
+                </Link>
+                <Link href="/blog/diagnostico-rentabilidad-negocio/" className="group block border border-gray-200 hover:border-violet-400 rounded-xl p-5 transition-all hover:shadow-sm">
+                  <p className="text-xs font-black uppercase tracking-widest text-violet-600 mb-2">Artículo</p>
+                  <p className="font-black text-gray-900 group-hover:text-violet-700 mb-1">Cómo hacer un diagnóstico de rentabilidad</p>
+                  <p className="text-sm text-gray-500">El proceso completo paso a paso.</p>
+                  <p className="text-xs font-bold text-violet-600 mt-3 group-hover:underline">Leer →</p>
+                </Link>
+                <Link href="/blog/costes-ocultos-negocio/" className="group block border border-gray-200 hover:border-gray-400 rounded-xl p-5 transition-all hover:shadow-sm">
+                  <p className="text-xs font-black uppercase tracking-widest text-gray-500 mb-2">Artículo</p>
+                  <p className="font-black text-gray-900 group-hover:text-gray-700 mb-1">Costes ocultos que destrozan el margen</p>
+                  <p className="text-sm text-gray-500">Los gastos que no aparecen en la cuenta de resultados pero destruyen la rentabilidad.</p>
+                  <p className="text-xs font-bold text-gray-500 mt-3 group-hover:underline">Leer →</p>
+                </Link>
+                <Link href="/blog/punto-de-equilibrio-negocio/" className="group block border border-gray-200 hover:border-gray-400 rounded-xl p-5 transition-all hover:shadow-sm">
+                  <p className="text-xs font-black uppercase tracking-widest text-gray-500 mb-2">Artículo</p>
+                  <p className="font-black text-gray-900 group-hover:text-gray-700 mb-1">El punto de equilibrio que debes conocer</p>
+                  <p className="text-sm text-gray-500">Cuánto tienes que facturar para no perder dinero.</p>
+                  <p className="text-xs font-bold text-gray-500 mt-3 group-hover:underline">Leer →</p>
+                </Link>
+              </div>
+            </section>
 
           </div>
-        </section>
 
-          </div>{/* fin columna principal */}
-
-          {/* Sidebar */}
           <aside className="hidden lg:block">
             <div className="sticky top-24 space-y-8">
-              <div className="bg-gray-50 border border-dashed border-gray-300 rounded-2xl flex items-center justify-center h-64">
-                <p className="text-xs text-gray-400 text-center px-4">Espacio publicitario</p>
-              </div>
-              <div className="bg-violet-50 border border-violet-100 rounded-2xl p-5">
-                <h3 className="text-sm font-black uppercase tracking-wide text-violet-700 mb-4">Otros agentes</h3>
-                <ul className="space-y-2">
-                  {[
-                    { slug: 'calculadora-precios', nombre: 'Agente Precios' },
-                    { slug: 'control-costes', nombre: 'Agente Costes' },
-                    { slug: 'guion-ventas', nombre: 'Agente Ventas' },
-                  ].map((a) => (
-                    <li key={a.slug}>
-                      <Link href={`/agentes/${a.slug}/`} className="text-sm font-semibold text-gray-700 hover:text-violet-700 transition-colors block px-2 py-1 rounded hover:bg-violet-100">
-                        {a.nombre} →
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+              <div className="bg-violet-50 border border-violet-200 rounded-2xl p-5">
+                <p className="text-xs font-black uppercase tracking-widest text-violet-600 mb-3">Empieza aquí</p>
+                <p className="text-sm font-black text-gray-900 mb-2">Herramienta de diagnóstico rápido</p>
+                <p className="text-xs text-gray-500 mb-4 leading-relaxed">Responde 10 preguntas y detecta las áreas críticas de tu negocio.</p>
+                <Link href="/herramientas/diagnostico-negocio/"
+                  className="block text-center bg-violet-600 hover:bg-violet-700 text-white font-bold text-sm px-4 py-2.5 rounded-lg transition-colors">
+                  Hacer diagnóstico →
+                </Link>
               </div>
               <Sidebar />
             </div>
           </aside>
-
         </div>
       </div>
     </div>

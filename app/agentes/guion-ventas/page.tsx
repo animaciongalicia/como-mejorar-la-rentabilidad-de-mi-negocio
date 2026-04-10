@@ -4,40 +4,45 @@ import { BASE_URL } from '@/lib/seo'
 import Sidebar from '@/components/Sidebar'
 
 export const metadata: Metadata = {
-  title: 'Agente Ventas — Guiones y argumentarios de venta para tu negocio | Foco Rentabilismo',
-  description:
-    'Un agente de IA que genera guiones de venta personalizados para tu negocio: cómo responder al "es caro", cerrar sin presionar y hacer seguimiento sin molestar.',
+  title: 'Agente de Ventas — IA para crear argumentarios y cerrar más sin bajar el precio | Foco Rentabilismo',
+  description: 'Agente de IA especializado en ventas para negocios físicos. Genera argumentarios personalizados, responde objeciones de precio y te ayuda a cerrar más sin hacer descuentos.',
   alternates: { canonical: `${BASE_URL}/agentes/guion-ventas/` },
 }
+
+const CHATGPT_URL = '' // ← añade aquí el link de ChatGPT cuando lo tengas
 
 export default function AgenteVentasPage() {
   return (
     <div className="bg-white min-h-screen">
 
-      {/* Hero */}
       <div className="border-b-2 border-violet-500 bg-violet-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <Link
-            href="/agentes/"
-            className="text-xs font-bold text-violet-500 uppercase tracking-widest hover:text-violet-700 transition-colors"
-          >
+          <Link href="/agentes/" className="text-xs font-bold text-violet-500 uppercase tracking-widest hover:text-violet-700 transition-colors">
             ← Todos los agentes
           </Link>
           <div className="mt-4 flex items-center gap-3 mb-4">
-            <span className="text-xs font-bold text-violet-600 bg-white border border-violet-200 px-3 py-1 rounded-full">
-              Ventas
-            </span>
-            <span className="text-xs font-bold text-green-700 bg-green-50 border border-green-200 px-3 py-1 rounded-full">
-              Disponible ahora
-            </span>
+            <span className="text-xs font-bold text-violet-700 bg-white border border-violet-200 px-3 py-1 rounded-full">Tiendas · Servicios · Comercios locales</span>
+            <span className="text-xs font-bold text-green-700 bg-green-50 border border-green-200 px-3 py-1 rounded-full">Disponible ahora</span>
           </div>
           <h1 className="text-3xl md:text-4xl font-black text-gray-900 leading-tight mb-4">
-            Agente Ventas
+            Agente de Ventas
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
-            Guiones y argumentarios de venta personalizados para tu negocio. Responde al
-            &ldquo;es caro&rdquo;, cierra sin presionar y haz seguimiento sin molestar.
+            IA especializada en argumentarios y cierre de ventas para negocios físicos. Genera guiones personalizados para tu negocio, responde objeciones de precio y cierra más sin hacer descuentos.
           </p>
+          <div className="mt-6">
+            {CHATGPT_URL ? (
+              <a href={CHATGPT_URL} target="_blank" rel="noopener noreferrer"
+                className="inline-block bg-violet-600 hover:bg-violet-700 text-white font-black px-8 py-3.5 rounded-xl text-base transition-colors">
+                Abrir agente en ChatGPT →
+              </a>
+            ) : (
+              <span className="inline-block bg-gray-200 text-gray-500 font-black px-8 py-3.5 rounded-xl text-base cursor-not-allowed">
+                Disponible próximamente en ChatGPT
+              </span>
+            )}
+            <p className="text-xs text-gray-400 mt-2">Gratis · Requiere cuenta ChatGPT · Sin datos de tarjeta</p>
+          </div>
         </div>
       </div>
 
@@ -45,300 +50,123 @@ export default function AgenteVentasPage() {
         <div className="lg:grid lg:gap-12" style={{ gridTemplateColumns: '1fr 260px' }}>
           <div className="space-y-16">
 
-        {/* 1. El dolor */}
-        <section>
-          <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">
-            El problema que resuelve
-          </h2>
-          <div className="prose prose-gray max-w-none">
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Tu producto o servicio es bueno. Lo sabes. Tus clientes actuales lo saben. El problema
-              es que cuando alguien nuevo te pregunta el precio, la conversación se complica.
-              &ldquo;Es caro.&rdquo; &ldquo;Lo pienso.&rdquo; &ldquo;Ya tengo a alguien.&rdquo; Y tú no sabes qué decir sin
-              parecer desesperado ni perder la venta.
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              El problema no es tu precio. Es que <strong>no tienes un argumentario</strong>.
-              No tienes la frase concreta para responder a cada objeción. No tienes el guión de
-              presentación que engancha en 60 segundos. No tienes el mensaje de seguimiento que
-              reactiva al que desapareció sin decir nada.
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              Eso se aprende. O se encarga a alguien que lo haga por ti. Este agente hace exactamente eso:
-              <strong> genera argumentarios concretos, con tu tono, para tu tipo de cliente y tu sector</strong>.
-              No guiones de libro de texto. Frases que puedes usar literalmente mañana.
-            </p>
-          </div>
-        </section>
-
-        {/* 2. La solución */}
-        <section>
-          <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">
-            Qué consigues con él
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-            {[
-              {
-                titulo: 'Guión de presentación en 60 segundos',
-                desc: 'Cómo presentar tu negocio cuando alguien te pregunta qué haces. Que capture atención, no que aburra.',
-              },
-              {
-                titulo: 'Respuesta al "es caro"',
-                desc: 'Argumentos específicos para tu producto o servicio. Sin bajar el precio. Con datos y sin defensiva.',
-              },
-              {
-                titulo: 'Respuesta al "lo pienso"',
-                desc: 'Cómo reconducir la conversación sin presionar. Que el cliente decida, pero con la información correcta.',
-              },
-              {
-                titulo: 'Técnica de upselling natural',
-                desc: 'Cómo ofrecer la versión superior sin que suene a venta agresiva. Que el cliente lo pida casi solo.',
-              },
-              {
-                titulo: 'Guión de seguimiento',
-                desc: 'Qué decir cuando un lead desapareció. El mensaje que reactiva sin resultar pesado ni desesperado.',
-              },
-              {
-                titulo: 'Cierre adaptado a tu canal',
-                desc: 'La frase final que convierte la conversación en decisión. Distinta para presencial, WhatsApp o teléfono.',
-              },
-            ].map((item) => (
-              <div
-                key={item.titulo}
-                className="border border-violet-100 bg-violet-50 rounded-xl p-5"
-              >
-                <p className="font-black text-gray-900 mb-1 text-sm">→ {item.titulo}</p>
-                <p className="text-sm text-gray-600 leading-snug">{item.desc}</p>
+            <section>
+              <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">El problema que resuelve</h2>
+              <div className="prose prose-gray max-w-none">
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  La mayoría de negocios físicos vende bien cuando el cliente ya quiere comprar. El problema es cuando duda, cuando compara, cuando dice "es caro" o cuando simplemente no vuelve.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  Sin un argumentario claro, la respuesta habitual al "es que en otro sitio lo vi más barato" es bajar el precio o dejar ir al cliente. Los dos caminos destruyen margen. El primero directamente, el segundo porque deja de entrar dinero que podría haber entrado.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  Este agente construye el argumentario que necesitas para tu negocio concreto: cómo presentar lo que vendes, cómo responder las objeciones más frecuentes y cómo cerrar la venta sin necesidad de hacer descuentos que no puedes permitirte.
+                </p>
               </div>
-            ))}
-          </div>
-        </section>
+            </section>
 
-        {/* 3. Cómo funciona */}
-        <section>
-          <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">
-            Cómo funciona
-          </h2>
-          <p className="text-gray-700 leading-relaxed mb-6">
-            El Agente Ventas usa un prompt diseñado para extraer el contexto de tu negocio y
-            generar argumentarios que encajen con tu sector, tu tipo de cliente y tu forma de
-            comunicarte. No es un generador genérico de frases de venta.
-          </p>
-          <ol className="space-y-6">
-            {[
-              {
-                n: '01',
-                titulo: 'Describes tu negocio y tu cliente',
-                desc: 'Qué vendes, a quién, a qué precio medio. También el canal habitual: presencial, teléfono, WhatsApp. Cuanto más específico, mejor el resultado.',
-              },
-              {
-                n: '02',
-                titulo: 'Le dices cuál es tu mayor problema',
-                desc: 'Objeciones que más escuchas, dónde se rompen las ventas, qué respuestas no tienes. El agente prioriza eso.',
-              },
-              {
-                n: '03',
-                titulo: 'Genera los argumentarios personalizados',
-                desc: 'Con el tono que le indiques (cercano, profesional, técnico) y adaptados a lo que más valoran tus clientes: precio, calidad, rapidez, confianza.',
-              },
-              {
-                n: '04',
-                titulo: 'Lo pruebas y lo afinas',
-                desc: 'Si una frase suena rara, se la dices. Si necesitas la versión corta para WhatsApp, se la pides. En 2-3 iteraciones tienes algo que puedes usar de verdad.',
-              },
-            ].map((paso) => (
-              <li key={paso.n} className="flex gap-5">
-                <span className="shrink-0 text-3xl font-black text-violet-200 leading-none">{paso.n}</span>
-                <div>
-                  <p className="font-black text-gray-900 mb-1">{paso.titulo}</p>
-                  <p className="text-gray-600 text-sm leading-relaxed">{paso.desc}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </section>
-
-        {/* 4. Cómo sacarle partido */}
-        <section>
-          <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">
-            Cómo sacarle el máximo partido
-          </h2>
-          <div className="space-y-4">
-            {[
-              {
-                titulo: 'Describe a tu cliente típico con detalle',
-                desc: 'No "empresas" ni "particulares". Edad aproximada, qué le importa, qué le preocupa, por qué compra. Cuanto más específico, más útil el argumentario.',
-              },
-              {
-                titulo: 'Dile la objeción exacta que más escuchas',
-                desc: 'No "el precio". La frase literal que te dicen: "Acabo de contratar a alguien", "Lo hago yo mismo", "Ahora no es buen momento". El agente trabaja mejor con la frase real.',
-              },
-              {
-                titulo: 'Pídele el tono correcto',
-                desc: 'Si tus clientes son directivos, el tono es distinto que si son autónomos. Si vendes servicios técnicos, distinto que si vendes moda. Dile cómo hablas tú normalmente.',
-              },
-              {
-                titulo: 'Prueba el guión en voz alta',
-                desc: 'Leerlo está bien. Decirlo en voz alta es mejor. Si hay una frase que no fluye, vuelve al agente y dísela. Se corrige en segundos.',
-              },
-              {
-                titulo: 'Pide versiones por canal',
-                desc: 'El argumentario para una reunión presencial no es el mismo que para WhatsApp. Pídele los dos. El de WhatsApp tiene que caber en 3 líneas.',
-              },
-            ].map((item) => (
-              <div key={item.titulo} className="border-l-4 border-violet-400 pl-5">
-                <p className="font-bold text-gray-900 mb-1">{item.titulo}</p>
-                <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+            <section>
+              <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">Qué puede hacer por tu negocio</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  { titulo: 'Argumentario de ventas personalizado', desc: 'Un guion adaptado a tu negocio, tus productos y tus clientes. No frases genéricas de manual de ventas, sino lo que tiene sentido decir en tu tienda, taller o negocio.' },
+                  { titulo: 'Respuestas a las objeciones más frecuentes', desc: 'Las 5 o 6 objeciones que escuchas una y otra vez: "es caro", "me lo pienso", "lo vi más barato"... Con respuestas concretas que no suenan a vendedor agresivo.' },
+                  { titulo: 'Técnicas de cierre sin descuento', desc: 'Cómo cerrar la venta cuando el cliente duda, sin recurrir al descuento como primer movimiento. Alternativas que mantienen el precio y la dignidad del negocio.' },
+                  { titulo: 'Estrategia de upselling y cross-selling', desc: 'Cómo subir el ticket medio proponiendo productos o servicios adicionales en el momento correcto, sin que parezca que estás intentando vender más a toda costa.' },
+                  { titulo: 'Discurso de presentación del negocio', desc: 'Cómo explicar en 30 segundos qué haces, por qué eres diferente y por qué el cliente debería comprarte a ti y no a la competencia. Para que la primera impresión cuente.' },
+                  { titulo: 'Plan de seguimiento de clientes', desc: 'Qué hacer con el cliente que se fue sin comprar, cómo reactivar a los que llevan tiempo sin volver y cómo construir una relación que genera repetición sin ser pesado.' },
+                ].map((item) => (
+                  <div key={item.titulo} className="border border-violet-100 bg-violet-50 rounded-xl p-5">
+                    <p className="font-black text-gray-900 mb-1 text-sm">→ {item.titulo}</p>
+                    <p className="text-sm text-gray-600 leading-snug">{item.desc}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </section>
+            </section>
 
-        {/* 5. Frases para corregirlo */}
-        <section>
-          <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">
-            Cómo corregirlo cuando no encaja
-          </h2>
-          <p className="text-gray-700 leading-relaxed mb-6">
-            El primer resultado no siempre es el bueno. Estas frases funcionan para reconducirlo
-            rápido:
-          </p>
-          <div className="space-y-3">
-            {[
-              {
-                problema: 'Suena a manual de ventas, no a persona real',
-                solucion: '"Eso suena demasiado artificial. Escríbelo como si lo dijera alguien normal hablando con un conocido."',
-              },
-              {
-                problema: 'La objeción que más me dan no es esa',
-                solucion: '"La objeción que más escucho es X. Reescribe el argumentario enfocándote en eso."',
-              },
-              {
-                problema: 'El tono no encaja con mis clientes',
-                solucion: '"Mis clientes son [perfil]. Ese tono no les va. Hazlo más [formal/cercano/directo]."',
-              },
-              {
-                problema: 'Necesito solo una parte',
-                solucion: '"Dame solo la respuesta al precio. Lo demás ya lo tengo. Que quede en 3-4 líneas."',
-              },
-              {
-                problema: 'Quiero la versión WhatsApp',
-                solucion: '"Ahora hazme el guión de seguimiento para WhatsApp. Máximo 3 líneas, que no parezca spam."',
-              },
-            ].map((item) => (
-              <div key={item.problema} className="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                <p className="text-xs font-black uppercase tracking-widest text-gray-400 mb-1">{item.problema}</p>
-                <p className="text-sm text-gray-700 italic">{item.solucion}</p>
+            <section>
+              <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">Para qué tipos de negocio es más útil</h2>
+              <div className="space-y-3">
+                {[
+                  'Tiendas de ropa, calzado, decoración o cualquier retail donde la competencia online presiona los precios',
+                  'Talleres mecánicos, fontaneros, electricistas o servicios donde el cliente siempre pregunta "¿y no puede ser más barato?"',
+                  'Centros de estética, peluquerías o servicios de bienestar donde cuesta comunicar el valor frente a la competencia',
+                  'Ópticas, clínicas dentales u otros servicios de salud donde el cliente compara presupuestos',
+                  'Cualquier negocio donde la tasa de conversión de presupuestos a ventas cerradas es baja',
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <span className="mt-1 shrink-0 text-violet-500 font-black">→</span>
+                    <span className="text-gray-700 text-sm leading-relaxed">{item}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">Cómo usarlo</h2>
+              <div className="space-y-4">
+                {[
+                  { n: '01', titulo: 'Describe tu negocio y lo que vendes', desc: 'Qué tipo de negocio tienes, cuál es tu producto o servicio principal, a qué precio lo vendes y qué tipo de cliente te compra habitualmente. Cuanto más concreto, más útil será el argumentario.' },
+                  { n: '02', titulo: 'Cuéntale las objeciones que más escuchas', desc: 'Las frases que te dicen los clientes cuando no compran o cuando regatean. Con esa información el agente construye respuestas específicas para tu situación, no frases genéricas.' },
+                  { n: '03', titulo: 'Pide lo que necesitas', desc: 'Puedes pedirle el argumentario completo, respuestas solo para objeciones de precio, técnicas de cierre para un producto concreto o el discurso de presentación de tu negocio. El agente se adapta.' },
+                ].map((item) => (
+                  <div key={item.n} className="flex gap-5">
+                    <span className="shrink-0 text-3xl font-black text-violet-200 leading-none">{item.n}</span>
+                    <div>
+                      <p className="font-black text-gray-900 mb-1">{item.titulo}</p>
+                      <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-sm font-black uppercase tracking-widest text-gray-400 border-b border-gray-200 pb-2 mb-6">Recursos relacionados</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <Link href="/blog/como-subir-ticket-medio/" className="group block border border-gray-200 hover:border-violet-400 rounded-xl p-5 transition-all hover:shadow-sm">
+                  <p className="text-xs font-black uppercase tracking-widest text-violet-600 mb-2">Artículo</p>
+                  <p className="font-black text-gray-900 group-hover:text-violet-700 mb-1">Cómo subir el ticket medio</p>
+                  <p className="text-sm text-gray-500">Más ingreso por cliente sin necesitar más clientes. Las técnicas que funcionan en negocios físicos.</p>
+                  <p className="text-xs font-bold text-violet-600 mt-3 group-hover:underline">Leer →</p>
+                </Link>
+                <Link href="/blog/como-fidelizar-clientes-negocio-local/" className="group block border border-gray-200 hover:border-violet-400 rounded-xl p-5 transition-all hover:shadow-sm">
+                  <p className="text-xs font-black uppercase tracking-widest text-violet-600 mb-2">Artículo</p>
+                  <p className="font-black text-gray-900 group-hover:text-violet-700 mb-1">Cómo fidelizar clientes en tu negocio local</p>
+                  <p className="text-sm text-gray-500">El cliente que repite vale más que diez clientes nuevos. Cómo construir esa repetición.</p>
+                  <p className="text-xs font-bold text-violet-600 mt-3 group-hover:underline">Leer →</p>
+                </Link>
+                <Link href="/blog/como-diferenciarse-de-la-competencia-negocio/" className="group block border border-gray-200 hover:border-gray-400 rounded-xl p-5 transition-all hover:shadow-sm">
+                  <p className="text-xs font-black uppercase tracking-widest text-gray-500 mb-2">Artículo</p>
+                  <p className="font-black text-gray-900 group-hover:text-gray-700 mb-1">Cómo diferenciarse de la competencia</p>
+                  <p className="text-sm text-gray-500">Cómo dejar de competir en precio encontrando lo que solo tú puedes ofrecer.</p>
+                  <p className="text-xs font-bold text-gray-500 mt-3 group-hover:underline">Leer →</p>
+                </Link>
+                <Link href="/agentes/analista-competencia/" className="group block border border-gray-200 hover:border-gray-400 rounded-xl p-5 transition-all hover:shadow-sm">
+                  <p className="text-xs font-black uppercase tracking-widest text-gray-500 mb-2">Agente relacionado</p>
+                  <p className="font-black text-gray-900 group-hover:text-gray-700 mb-1">Agente Competencia</p>
+                  <p className="text-sm text-gray-500">Antes de construir el argumentario, analiza tu ventaja diferencial real frente a la competencia.</p>
+                  <p className="text-xs font-bold text-gray-500 mt-3 group-hover:underline">Ver agente →</p>
+                </Link>
+              </div>
+            </section>
+
           </div>
-        </section>
 
-        {/* 6. El prompt */}
-        <section>
-          <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">
-            El prompt — cópialo y úsalo
-          </h2>
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Copia este prompt en ChatGPT o Claude. Responde a sus preguntas y en menos de
-            5 minutos tienes argumentarios que puedes probar hoy mismo.
-          </p>
-          <div className="bg-gray-900 rounded-2xl p-6 relative">
-            <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Prompt — Agente Ventas</p>
-            <pre className="text-sm text-gray-100 leading-relaxed whitespace-pre-wrap font-mono">
-{`Actúa como un experto en ventas para negocios físicos y pymes. Voy a describir mi negocio y necesito que me des argumentarios y guiones de venta concretos, adaptados a mi sector y a mis clientes reales.
-
-Para empezar hazme estas preguntas:
-1. Qué vendo y a quién (tipo de cliente, edad aproximada, perfil)
-2. Cuál es el precio medio de lo que vendo
-3. Cuál es la objeción más frecuente que recibo ("es caro", "lo pienso", "ya tengo proveedor"...)
-4. Cómo se produce normalmente la venta (presencial, por teléfono, por WhatsApp...)
-5. Qué tono quiero usar (cercano, profesional, técnico, directo...)
-6. Qué es lo que más valoran mis clientes de comprarme a mí (precio, calidad, cercanía, rapidez...)
-
-Con esa información dame:
-— Guión de presentación en 60 segundos (para cuando alguien me pregunta qué hago)
-— Respuesta a la objeción principal que te he dado, sin bajar el precio
-— Técnica de cierre adaptada a mi canal de venta
-— Guión de seguimiento para leads que no han respondido en 3-4 días
-— Frase de upselling para ofrecer el servicio o producto superior
-
-Que todo suene natural, no a manual de ventas. Que lo pueda usar literalmente mañana.`}
-            </pre>
-          </div>
-          <p className="text-xs text-gray-400 mt-3">
-            Funciona con ChatGPT 4o, Claude 3.5 Sonnet y versiones superiores.
-          </p>
-        </section>
-
-        {/* CTA final */}
-        <section>
-          <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-8">
-            ¿Por dónde empezar?
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="border-2 border-gray-200 rounded-2xl p-7">
-              <p className="text-xs font-black uppercase tracking-widest text-gray-400 mb-3">Opción A</p>
-              <h3 className="text-lg font-black text-gray-900 mb-3">
-                Configúralo tú mismo
-              </h3>
-              <p className="text-sm text-gray-600 leading-relaxed mb-5">
-                Copia el prompt de arriba y pégalo en ChatGPT, Claude o la IA que uses
-                habitualmente. Funciona desde el primer mensaje. Sin cuenta, sin registro,
-                sin nada extra.
-              </p>
-              <p className="text-sm font-bold text-gray-500">
-                ↑ El prompt está justo arriba. Es tuyo.
-              </p>
-            </div>
-            <div className="border-2 border-violet-400 bg-violet-50 rounded-2xl p-7">
-              <p className="text-xs font-black uppercase tracking-widest text-violet-500 mb-3">Opción B</p>
-              <h3 className="text-lg font-black text-gray-900 mb-3">
-                Usa nuestra versión ya configurada
-              </h3>
-              <p className="text-sm text-gray-600 leading-relaxed mb-5">
-                Tenemos más de 10 agentes rentabilistas listos en ChatGPT. Cada uno está
-                afinado para un problema concreto. Sin copiar prompts, sin configurar nada.
-                Entras y usas.
-              </p>
-              <Link
-                href="/agentes/"
-                className="inline-block bg-violet-600 hover:bg-violet-700 text-white font-semibold px-5 py-2.5 rounded-lg transition-colors text-sm"
-              >
-                Ver todos los agentes →
-              </Link>
-            </div>
-          </div>
-        </section>
-
-          </div>{/* fin columna principal */}
-
-          {/* Sidebar */}
           <aside className="hidden lg:block">
             <div className="sticky top-24 space-y-8">
-              <div className="bg-gray-50 border border-dashed border-gray-300 rounded-2xl flex items-center justify-center h-64">
-                <p className="text-xs text-gray-400 text-center px-4">Espacio publicitario</p>
-              </div>
-              <div className="bg-violet-50 border border-violet-100 rounded-2xl p-5">
-                <h3 className="text-sm font-black uppercase tracking-wide text-violet-700 mb-4">Otros agentes</h3>
-                <ul className="space-y-2">
-                  {[
-                    { slug: 'diagnostico-rentabilidad', nombre: 'Agente Diagnóstico' },
-                    { slug: 'calculadora-precios', nombre: 'Agente Precios' },
-                    { slug: 'control-costes', nombre: 'Agente Costes' },
-                  ].map((a) => (
-                    <li key={a.slug}>
-                      <Link href={`/agentes/${a.slug}/`} className="text-sm font-semibold text-gray-700 hover:text-violet-700 transition-colors block px-2 py-1 rounded hover:bg-violet-100">
-                        {a.nombre} →
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+              <div className="bg-violet-50 border border-violet-200 rounded-2xl p-5">
+                <p className="text-xs font-black uppercase tracking-widest text-violet-600 mb-3">Primero esto</p>
+                <p className="text-sm font-black text-gray-900 mb-2">Analiza tu ventaja diferencial</p>
+                <p className="text-xs text-gray-500 mb-4 leading-relaxed">Un buen argumentario empieza por saber en qué eres mejor que la competencia. El Agente Competencia te ayuda a descubrirlo.</p>
+                <Link href="/agentes/analista-competencia/"
+                  className="block text-center bg-violet-600 hover:bg-violet-700 text-white font-bold text-sm px-4 py-2.5 rounded-lg transition-colors">
+                  Ver Agente Competencia →
+                </Link>
               </div>
               <Sidebar />
             </div>
           </aside>
-
         </div>
       </div>
     </div>

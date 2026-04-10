@@ -4,40 +4,45 @@ import { BASE_URL } from '@/lib/seo'
 import Sidebar from '@/components/Sidebar'
 
 export const metadata: Metadata = {
-  title: 'Agente Precios — Calcula el precio mínimo rentable de tu producto | Foco Rentabilismo',
-  description:
-    'Un agente de IA que calcula el precio mínimo rentable de tu producto o servicio con tus costes reales. Descubre tu margen bruto, simula escenarios y deja de cobrar de menos.',
+  title: 'Agente de Precios — IA para calcular tu precio mínimo rentable | Foco Rentabilismo',
+  description: 'Agente de IA especializado en fijación de precios. Calcula el precio mínimo que necesitas cobrar para ganar dinero, defiende tu tarifa y deja de malvender tu trabajo.',
   alternates: { canonical: `${BASE_URL}/agentes/calculadora-precios/` },
 }
+
+const CHATGPT_URL = '' // ← añade aquí el link de ChatGPT cuando lo tengas
 
 export default function AgentePreciosPage() {
   return (
     <div className="bg-white min-h-screen">
 
-      {/* Hero */}
       <div className="border-b-2 border-violet-500 bg-violet-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <Link
-            href="/agentes/"
-            className="text-xs font-bold text-violet-500 uppercase tracking-widest hover:text-violet-700 transition-colors"
-          >
+          <Link href="/agentes/" className="text-xs font-bold text-violet-500 uppercase tracking-widest hover:text-violet-700 transition-colors">
             ← Todos los agentes
           </Link>
           <div className="mt-4 flex items-center gap-3 mb-4">
-            <span className="text-xs font-bold text-violet-600 bg-white border border-violet-200 px-3 py-1 rounded-full">
-              Precios
-            </span>
-            <span className="text-xs font-bold text-green-700 bg-green-50 border border-green-200 px-3 py-1 rounded-full">
-              Disponible ahora
-            </span>
+            <span className="text-xs font-bold text-violet-700 bg-white border border-violet-200 px-3 py-1 rounded-full">Tiendas · Servicios · Hostelería</span>
+            <span className="text-xs font-bold text-green-700 bg-green-50 border border-green-200 px-3 py-1 rounded-full">Disponible ahora</span>
           </div>
           <h1 className="text-3xl md:text-4xl font-black text-gray-900 leading-tight mb-4">
-            Agente Precios
+            Agente de Precios
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
-            Calcula el precio mínimo rentable de tu producto o servicio. Con tus costes reales,
-            no con lo que cobra la competencia.
+            IA especializada en fijación de precios rentables. Calcula el precio mínimo que necesitas cobrar para ganar dinero de verdad, sin malvender y sin perder clientes por el camino.
           </p>
+          <div className="mt-6">
+            {CHATGPT_URL ? (
+              <a href={CHATGPT_URL} target="_blank" rel="noopener noreferrer"
+                className="inline-block bg-violet-600 hover:bg-violet-700 text-white font-black px-8 py-3.5 rounded-xl text-base transition-colors">
+                Abrir agente en ChatGPT →
+              </a>
+            ) : (
+              <span className="inline-block bg-gray-200 text-gray-500 font-black px-8 py-3.5 rounded-xl text-base cursor-not-allowed">
+                Disponible próximamente en ChatGPT
+              </span>
+            )}
+            <p className="text-xs text-gray-400 mt-2">Gratis · Requiere cuenta ChatGPT · Sin datos de tarjeta</p>
+          </div>
         </div>
       </div>
 
@@ -45,328 +50,123 @@ export default function AgentePreciosPage() {
         <div className="lg:grid lg:gap-12" style={{ gridTemplateColumns: '1fr 260px' }}>
           <div className="space-y-16">
 
-        {/* 1. El dolor */}
-        <section>
-          <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">
-            El problema que resuelve
-          </h2>
-          <div className="prose prose-gray max-w-none">
-            <p className="text-lg text-gray-700 leading-relaxed">
-              La mayoría de dueños de negocio fijan sus precios mirando lo que cobra el de al lado.
-              Sin saber si ese precio les cubre los costes. Sin saber si les deja margen real. Sin
-              saber si están regalando trabajo o vendiendo con sentido.
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              El resultado es siempre el mismo: vendes, trabajas, te cansas y al final del mes
-              el dinero no aparece. Porque <strong>cobrar no es lo mismo que ganar</strong>. Entre
-              lo que entra y lo que te queda hay una diferencia que muchos negocios no calculan nunca.
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              Y cuando alguien pide un descuento, no sabes qué responder. Porque no tienes los
-              números. No sabes hasta dónde puedes bajar sin perder. No sabes qué argumentar.
-              Así que o pierdes la venta o la cierras perdiendo margen que no tienes.
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              Este agente existe para eso: <strong>darte el número exacto por debajo del cual
-              pierdes dinero en cada venta</strong>, y el argumento para defender tu precio
-              ante cualquier cliente que intente regatearte.
-            </p>
-          </div>
-        </section>
-
-        {/* 2. La solución */}
-        <section>
-          <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">
-            Qué consigues con él
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-            {[
-              {
-                titulo: 'Tu precio mínimo rentable',
-                desc: 'El precio exacto por debajo del cual pierdes dinero en cada venta. Con tus costes reales, no con estimaciones genéricas.',
-              },
-              {
-                titulo: 'Tu margen bruto actual',
-                desc: 'Lo que realmente te queda de cada producto o servicio una vez descontados los costes directos. El número que importa.',
-              },
-              {
-                titulo: 'Cuánto puedes bajar sin perder',
-                desc: 'El límite real de descuento que puedes ofrecer sin que la venta te cueste dinero. Fundamental para negociar con seguridad.',
-              },
-              {
-                titulo: 'Comparativa con la competencia',
-                desc: 'Si cobras de menos o de más respecto al sector, y por qué eso importa o no importa según tu estructura de costes.',
-              },
-              {
-                titulo: 'El argumento para subir precios',
-                desc: 'Cómo justificarlo ante el cliente con datos reales, no con excusas. Un argumento concreto que puedes usar mañana.',
-              },
-              {
-                titulo: 'Simulador de escenarios',
-                desc: 'Qué pasa si subes un 10%, si cambias el volumen de ventas, si bajas costes de materiales. Los números antes de tomar la decisión.',
-              },
-            ].map((item) => (
-              <div
-                key={item.titulo}
-                className="border border-violet-100 bg-violet-50 rounded-xl p-5"
-              >
-                <p className="font-black text-gray-900 mb-1 text-sm">→ {item.titulo}</p>
-                <p className="text-sm text-gray-600 leading-snug">{item.desc}</p>
+            <section>
+              <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">El problema que resuelve</h2>
+              <div className="prose prose-gray max-w-none">
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  La mayoría de negocios fijan sus precios mirando a la competencia o por intuición. Ninguno de los dos métodos garantiza rentabilidad. Solo garantiza que sigues en el mercado hasta que los números te alcancen.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  El precio correcto no es el más barato del mercado. Tampoco el más caro. Es el que cubre todos tus costes reales, incluye el margen que necesitas para que el negocio valga la pena y resiste la comparación con la competencia sin necesidad de justificarse con descuentos.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  Este agente hace el cálculo que la mayoría de dueños evita por no saber cómo hacerlo: cuánto debes cobrar como mínimo, qué pasa si subes un 10% y cómo argumentar ese precio ante un cliente que dice que es caro.
+                </p>
               </div>
-            ))}
-          </div>
-        </section>
+            </section>
 
-        {/* 3. Cómo funciona */}
-        <section>
-          <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">
-            Cómo funciona
-          </h2>
-          <p className="text-gray-700 leading-relaxed mb-6">
-            El Agente Precios usa un prompt estructurado que convierte a ChatGPT o Claude en
-            un especialista en fijación de precios para negocios físicos. Te hace las preguntas
-            correctas, procesa tus costes reales y te devuelve los números que necesitas para
-            tomar decisiones con cabeza.
-          </p>
-          <ol className="space-y-6">
-            {[
-              {
-                n: '01',
-                titulo: 'Le das tus costes por producto o servicio',
-                desc: 'Coste de materiales o mercancía, tiempo que llevas empleado en producirlo o prestarlo, y la porción de costes fijos que corresponde a esa unidad (alquiler, luz, herramientas). No hace falta que sea exacto al céntimo.',
-              },
-              {
-                n: '02',
-                titulo: 'Le dices tu precio actual y tu volumen de ventas',
-                desc: 'El precio al que vendes ahora mismo —o al que quieres vender— y cuántas unidades aproximadas vendes al mes. Con eso el agente puede calcular el impacto real de cualquier cambio.',
-              },
-              {
-                n: '03',
-                titulo: 'El agente calcula tu precio mínimo y tu margen real',
-                desc: 'Cruza los datos, calcula el coste total por unidad, el margen bruto actual y los precios mínimos para distintos niveles de rentabilidad. Y te compara con referencias del sector.',
-              },
-              {
-                n: '04',
-                titulo: 'Te da el precio recomendado y el argumento para defenderlo',
-                desc: 'No solo el número. Te explica qué pasaría si subes un 10%, si bajas un 15% para captar más volumen, o si reduces costes. Y te da la frase concreta para responder al cliente que pide descuento.',
-              },
-            ].map((paso) => (
-              <li key={paso.n} className="flex gap-5">
-                <span className="shrink-0 text-3xl font-black text-violet-200 leading-none">{paso.n}</span>
-                <div>
-                  <p className="font-black text-gray-900 mb-1">{paso.titulo}</p>
-                  <p className="text-gray-600 text-sm leading-relaxed">{paso.desc}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </section>
-
-        {/* 4. Cómo usarlo bien */}
-        <section>
-          <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">
-            Cómo sacarle el máximo partido
-          </h2>
-          <div className="space-y-4">
-            <div className="border-l-4 border-violet-400 pl-5">
-              <p className="font-bold text-gray-900 mb-1">Sé específico con los costes directos</p>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Cuanto más desglosados sean los costes que le des, más preciso será el cálculo.
-                No es lo mismo &ldquo;me cuesta unos 20€&rdquo; que &ldquo;materiales 12€, media hora de mi tiempo
-                a 25€/hora y un euro de overhead&rdquo;. El segundo te da un precio mínimo real.
-              </p>
-            </div>
-            <div className="border-l-4 border-violet-400 pl-5">
-              <p className="font-bold text-gray-900 mb-1">No olvides incluir tu tiempo como coste</p>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Es el error más común. Si tardas dos horas en hacer algo y no lo incluyes en el
-                coste, estás trabajando gratis. Dile al agente cuánto vale tu hora —aunque te
-                cueste ponerle número— y verás cómo cambia el precio mínimo.
-              </p>
-            </div>
-            <div className="border-l-4 border-violet-400 pl-5">
-              <p className="font-bold text-gray-900 mb-1">Pídele que calcule diferentes escenarios de precio</p>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                No te quedes con el primer resultado. Pídele: &ldquo;¿qué pasa si bajo los costes de
-                materiales un 15%?&rdquo; o &ldquo;¿cómo cambia si doblo el volumen de ventas?&rdquo;
-                Ver los escenarios lado a lado cambia completamente la perspectiva.
-              </p>
-            </div>
-            <div className="border-l-4 border-violet-400 pl-5">
-              <p className="font-bold text-gray-900 mb-1">Si no sabes los costes exactos, da rangos</p>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                No hace falta precisión quirúrgica. &ldquo;Entre 8 y 12€ de materiales&rdquo; es suficiente
-                para que el agente trabaje. Te dará el precio mínimo en ambos extremos y ya
-                decides tú con cuál quedarte.
-              </p>
-            </div>
-            <div className="border-l-4 border-violet-400 pl-5">
-              <p className="font-bold text-gray-900 mb-1">Pídele el argumento de venta una vez tengas el precio</p>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Una vez que tienes claro tu precio mínimo rentable, pídele la frase exacta para
-                responder al cliente que te dice que &ldquo;es caro&rdquo; o que &ldquo;la competencia cobra menos&rdquo;.
-                Tener el número detrás te da seguridad para defenderlo.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* 5. Cómo pararlo / redirigirlo */}
-        <section>
-          <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">
-            Cómo corregirlo cuando se desvía
-          </h2>
-          <p className="text-gray-700 leading-relaxed mb-6">
-            A veces la IA simplifica demasiado los cálculos, ignora costes que mencionaste
-            o te da una recomendación que no encaja con tu realidad. Estas frases te ayudan
-            a reconducirlo sin empezar de cero:
-          </p>
-          <div className="space-y-3">
-            {[
-              {
-                problema: 'Olvidaste añadir un coste',
-                solucion: '"Incluye también el tiempo que tardo en X" → añade ese coste y recalcula el precio mínimo con el dato nuevo.',
-              },
-              {
-                problema: 'Quieres simular un escenario de bajada de precio',
-                solucion: '"Calcula qué pasa si bajo el precio un 15% para captar más clientes" → te dirá cuánto más volumen necesitarías para compensar.',
-              },
-              {
-                problema: 'El margen calculado no te cuadra',
-                solucion: '"No me convence ese margen, tengo más gastos indirectos, te explico..." → dale el detalle y que recalcule desde ahí.',
-              },
-              {
-                problema: 'Vendes servicios y quieres precio por hora',
-                solucion: '"Tradúcelo a precio por hora, no por proyecto" → útil cuando el cliente te pregunta cuánto cobras la hora y quieres tener el dato claro.',
-              },
-              {
-                problema: 'Ya tienes el precio y quieres defenderlo',
-                solucion: '"Ahora dime cómo le explico este precio a un cliente que me pide descuento" → te da el argumento específico para tu producto y tu estructura de costes.',
-              },
-            ].map((item) => (
-              <div key={item.problema} className="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                <p className="text-xs font-black uppercase tracking-widest text-gray-400 mb-1">{item.problema}</p>
-                <p className="text-sm text-gray-700 italic">{item.solucion}</p>
+            <section>
+              <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">Qué puede hacer por tu negocio</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  { titulo: 'Precio mínimo rentable', desc: 'Calcula el precio por debajo del cual estás perdiendo dinero, incluyendo todos los costes directos e indirectos que muchos no tienen en cuenta.' },
+                  { titulo: 'Análisis de margen por producto o servicio', desc: 'Qué margen real está dejando cada cosa que vendes. Cuáles son rentables, cuáles apenas cubren costes y cuáles hay que subir o eliminar.' },
+                  { titulo: 'Simulación de escenarios de precio', desc: 'Qué pasa si subes un 10%, un 15% o un 20%. Cuántos clientes puedes perder sin que tu beneficio se resienta. El número muchas veces sorprende.' },
+                  { titulo: 'Argumentario de precio', desc: 'Cómo defender tu precio ante el típico "es que la competencia cobra menos". Con argumentos concretos basados en valor, no en descuentos.' },
+                  { titulo: 'Estrategia de subida de precios', desc: 'Si necesitas subir precios, cómo hacerlo sin perder clientes: timing, comunicación, excepciones y cómo proteger los clientes más valiosos.' },
+                  { titulo: 'Detección de servicios mal tarifados', desc: 'En negocios con varios servicios o productos, identifica cuáles están por debajo del precio justo y están arrastrando la rentabilidad del conjunto.' },
+                ].map((item) => (
+                  <div key={item.titulo} className="border border-violet-100 bg-violet-50 rounded-xl p-5">
+                    <p className="font-black text-gray-900 mb-1 text-sm">→ {item.titulo}</p>
+                    <p className="text-sm text-gray-600 leading-snug">{item.desc}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </section>
+            </section>
 
-        {/* 6. El prompt */}
-        <section>
-          <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">
-            El prompt — cópialo y úsalo
-          </h2>
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Copia este prompt, pégalo en ChatGPT o Claude, y responde a las preguntas que te haga.
-            En menos de 15 minutos tendrás tu precio mínimo rentable, tu margen real y los
-            argumentos para subirlo si hace falta.
-          </p>
-          <div className="bg-gray-900 rounded-2xl p-6 relative">
-            <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Prompt — Agente Precios</p>
-            <pre className="text-sm text-gray-100 leading-relaxed whitespace-pre-wrap font-mono">
-{`Actúa como un experto en fijación de precios para negocios físicos y pymes españolas. Tu objetivo es calcular el precio mínimo rentable de un producto o servicio y ayudar al dueño a entender su margen real.
+            <section>
+              <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">Para qué tipos de negocio es más útil</h2>
+              <div className="space-y-3">
+                {[
+                  'Autónomos y servicios profesionales que cobran por hora o por proyecto sin saber si el precio cubre sus costes reales',
+                  'Tiendas que compiten en precio con grandes superficies o comercio online y necesitan encontrar su precio sostenible',
+                  'Negocios de hostelería donde el precio lleva años sin revisarse y los costes han subido',
+                  'Centros de estética, fisioterapia o salud que no saben si sus tarifas cubren el coste real de cada servicio',
+                  'Cualquier negocio que ha detectado que su margen es bajo pero no sabe si el problema está en los precios o en los costes',
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <span className="mt-1 shrink-0 text-violet-500 font-black">→</span>
+                    <span className="text-gray-700 text-sm leading-relaxed">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
 
-Primero hazme estas preguntas:
-1. Qué producto o servicio quiere calcular
-2. Coste directo de materiales o mercancía por unidad
-3. Tiempo que lleva producirlo o prestarlo (en horas o minutos)
-4. A qué precio valora su tiempo (€/hora) o su coste de personal directo
-5. Cuánto cuesta aproximadamente el espacio, luz, herramientas asignables a esa unidad
-6. Precio al que lo vende actualmente (o al que quiere venderlo)
-7. Cuántas unidades vende al mes
+            <section>
+              <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">Cómo usarlo</h2>
+              <div className="space-y-4">
+                {[
+                  { n: '01', titulo: 'Ten claros tus costes principales', desc: 'Cuánto pagas de alquiler, sueldos, suministros, materiales o coste de producto. Y cuántas horas trabajas o cuántas unidades vendes al mes. Con eso es suficiente para empezar.' },
+                  { n: '02', titulo: 'Cuéntale qué vendes y a qué cobras ahora', desc: 'Describe tus productos o servicios principales, el precio actual y si tienes la sensación de que es demasiado bajo, demasiado alto o simplemente no lo sabes. El agente parte de ahí.' },
+                  { n: '03', titulo: 'Pide el cálculo o la estrategia', desc: 'Puedes pedirle el precio mínimo rentable, un análisis de qué pasaría si subes precios, cómo argumentar la subida ante tus clientes o cómo estructurar una tarifa nueva. Cada análisis tiene su propio enfoque.' },
+                ].map((item) => (
+                  <div key={item.n} className="flex gap-5">
+                    <span className="shrink-0 text-3xl font-black text-violet-200 leading-none">{item.n}</span>
+                    <div>
+                      <p className="font-black text-gray-900 mb-1">{item.titulo}</p>
+                      <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
 
-Con esa información calcúlame:
-— Coste total por unidad (materiales + mano de obra directa + overhead asignado)
-— Margen bruto actual (€ y %)
-— Precio mínimo para un margen bruto del 40% (referencia saludable para pyme)
-— Precio mínimo para un margen bruto del 60% (referencia para negocios de servicio)
-— Qué pasaría si baja el precio un 10% (impacto en margen y en ventas necesarias)
-— Qué pasaría si sube el precio un 15% (impacto en margen y cuántos clientes podría perder sin empeorar)
-
-Termina con una recomendación de precio clara y un argumento concreto que el dueño puede usar con clientes que regatean.
-
-Sé directo, con números, sin rodeos.`}
-            </pre>
-          </div>
-          <p className="text-xs text-gray-400 mt-3">
-            Funciona con ChatGPT 4o, Claude 3.5 Sonnet y versiones superiores.
-          </p>
-        </section>
-
-        {/* CTA final — dos opciones */}
-        <section>
-          <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-8">
-            ¿Por dónde empezar?
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-            {/* Opción A: cópialo tú */}
-            <div className="border-2 border-gray-200 rounded-2xl p-7">
-              <p className="text-xs font-black uppercase tracking-widest text-gray-400 mb-3">Opción A</p>
-              <h3 className="text-lg font-black text-gray-900 mb-3">
-                Configúralo tú mismo
-              </h3>
-              <p className="text-sm text-gray-600 leading-relaxed mb-5">
-                Copia el prompt de arriba y pégalo en ChatGPT, Claude o la IA que uses
-                habitualmente. Responde a las preguntas que te haga y en 15 minutos
-                tienes tu precio mínimo calculado. Sin cuenta, sin registro, sin nada.
-              </p>
-              <p className="text-sm font-bold text-gray-500">
-                ↑ El prompt está justo arriba. Es tuyo.
-              </p>
-            </div>
-
-            {/* Opción B: hub ChatGPT */}
-            <div className="border-2 border-violet-400 bg-violet-50 rounded-2xl p-7">
-              <p className="text-xs font-black uppercase tracking-widest text-violet-500 mb-3">Opción B</p>
-              <h3 className="text-lg font-black text-gray-900 mb-3">
-                Usa nuestra versión ya configurada
-              </h3>
-              <p className="text-sm text-gray-600 leading-relaxed mb-5">
-                Tenemos más de 10 agentes rentabilistas listos en ChatGPT. Cada uno está
-                afinado para un problema concreto. Sin copiar prompts, sin configurar nada.
-                Entras y usas.
-              </p>
-              <Link
-                href="/agentes/"
-                className="inline-block bg-violet-600 hover:bg-violet-700 text-white font-semibold px-5 py-2.5 rounded-lg transition-colors text-sm"
-              >
-                Ver todos los agentes →
-              </Link>
-            </div>
+            <section>
+              <h2 className="text-sm font-black uppercase tracking-widest text-gray-400 border-b border-gray-200 pb-2 mb-6">Recursos relacionados</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <Link href="/blog/cuanto-cobrar-por-mi-producto/" className="group block border border-gray-200 hover:border-violet-400 rounded-xl p-5 transition-all hover:shadow-sm">
+                  <p className="text-xs font-black uppercase tracking-widest text-violet-600 mb-2">Artículo</p>
+                  <p className="font-black text-gray-900 group-hover:text-violet-700 mb-1">Cuánto cobrar por tu producto o servicio</p>
+                  <p className="text-sm text-gray-500">El método para fijar precios sin malvender ni espantar clientes.</p>
+                  <p className="text-xs font-bold text-violet-600 mt-3 group-hover:underline">Leer →</p>
+                </Link>
+                <Link href="/blog/como-aumentar-el-margen-bruto/" className="group block border border-gray-200 hover:border-violet-400 rounded-xl p-5 transition-all hover:shadow-sm">
+                  <p className="text-xs font-black uppercase tracking-widest text-violet-600 mb-2">Artículo</p>
+                  <p className="font-black text-gray-900 group-hover:text-violet-700 mb-1">Cómo aumentar el margen bruto</p>
+                  <p className="text-sm text-gray-500">Precio y estructura de costes: las dos palancas para mejorar el margen.</p>
+                  <p className="text-xs font-bold text-violet-600 mt-3 group-hover:underline">Leer →</p>
+                </Link>
+                <Link href="/blog/calculo-margen-contribucion/" className="group block border border-gray-200 hover:border-gray-400 rounded-xl p-5 transition-all hover:shadow-sm">
+                  <p className="text-xs font-black uppercase tracking-widest text-gray-500 mb-2">Artículo</p>
+                  <p className="font-black text-gray-900 group-hover:text-gray-700 mb-1">Cálculo del margen de contribución</p>
+                  <p className="text-sm text-gray-500">Qué es, cómo se calcula y por qué es más útil que el margen bruto para tomar decisiones.</p>
+                  <p className="text-xs font-bold text-gray-500 mt-3 group-hover:underline">Leer →</p>
+                </Link>
+                <Link href="/agentes/escandallos-hosteleria/" className="group block border border-gray-200 hover:border-gray-400 rounded-xl p-5 transition-all hover:shadow-sm">
+                  <p className="text-xs font-black uppercase tracking-widest text-gray-500 mb-2">Agente relacionado</p>
+                  <p className="font-black text-gray-900 group-hover:text-gray-700 mb-1">Agente Escandallos (hostelería)</p>
+                  <p className="text-sm text-gray-500">Si tienes un bar o restaurante, este agente calcula el precio correcto plato a plato.</p>
+                  <p className="text-xs font-bold text-gray-500 mt-3 group-hover:underline">Ver agente →</p>
+                </Link>
+              </div>
+            </section>
 
           </div>
-        </section>
 
-          </div>{/* fin columna principal */}
-
-          {/* Sidebar */}
           <aside className="hidden lg:block">
             <div className="sticky top-24 space-y-8">
-              <div className="bg-gray-50 border border-dashed border-gray-300 rounded-2xl flex items-center justify-center h-64">
-                <p className="text-xs text-gray-400 text-center px-4">Espacio publicitario</p>
-              </div>
-              <div className="bg-violet-50 border border-violet-100 rounded-2xl p-5">
-                <h3 className="text-sm font-black uppercase tracking-wide text-violet-700 mb-4">Otros agentes</h3>
-                <ul className="space-y-2">
-                  {[
-                    { slug: 'diagnostico-rentabilidad', nombre: 'Agente Diagnóstico' },
-                    { slug: 'control-costes', nombre: 'Agente Costes' },
-                    { slug: 'guion-ventas', nombre: 'Agente Ventas' },
-                  ].map((a) => (
-                    <li key={a.slug}>
-                      <Link href={`/agentes/${a.slug}/`} className="text-sm font-semibold text-gray-700 hover:text-violet-700 transition-colors block px-2 py-1 rounded hover:bg-violet-100">
-                        {a.nombre} →
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+              <div className="bg-violet-50 border border-violet-200 rounded-2xl p-5">
+                <p className="text-xs font-black uppercase tracking-widest text-violet-600 mb-3">Calcula tu precio ahora</p>
+                <p className="text-sm font-black text-gray-900 mb-2">Calculadora de punto de equilibrio</p>
+                <p className="text-xs text-gray-500 mb-4 leading-relaxed">Calcula cuánto tienes que vender para cubrir todos tus costes antes de fijar el precio.</p>
+                <Link href="/herramientas/diagnostico-negocio/"
+                  className="block text-center bg-violet-600 hover:bg-violet-700 text-white font-bold text-sm px-4 py-2.5 rounded-lg transition-colors">
+                  Ir a la calculadora →
+                </Link>
               </div>
               <Sidebar />
             </div>
           </aside>
-
         </div>
       </div>
     </div>
