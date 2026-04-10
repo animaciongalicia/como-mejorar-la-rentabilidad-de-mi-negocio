@@ -54,10 +54,10 @@ export default function AgenteVentasPage() {
               <h2 className="text-2xl font-black text-gray-900 border-b-4 border-violet-500 pb-2 inline-block mb-6">El problema que resuelve</h2>
               <div className="prose prose-gray max-w-none">
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  La mayoría de negocios físicos vende bien cuando el cliente ya quiere comprar. El problema es cuando duda, cuando compara, cuando dice "es caro" o cuando simplemente no vuelve.
+                  La mayoría de negocios físicos vende bien cuando el cliente ya quiere comprar. El problema es cuando duda, cuando compara, cuando dice &ldquo;es caro&rdquo; o cuando simplemente no vuelve.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  Sin un argumentario claro, la respuesta habitual al "es que en otro sitio lo vi más barato" es bajar el precio o dejar ir al cliente. Los dos caminos destruyen margen. El primero directamente, el segundo porque deja de entrar dinero que podría haber entrado.
+                  Sin un argumentario claro, la respuesta habitual al &ldquo;es que en otro sitio lo vi más barato&rdquo; es bajar el precio o dejar ir al cliente. Los dos caminos destruyen margen. El primero directamente, el segundo porque deja de entrar dinero que podría haber entrado.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
                   Este agente construye el argumentario que necesitas para tu negocio concreto: cómo presentar lo que vendes, cómo responder las objeciones más frecuentes y cómo cerrar la venta sin necesidad de hacer descuentos que no puedes permitirte.
