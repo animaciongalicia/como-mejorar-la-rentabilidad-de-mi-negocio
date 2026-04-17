@@ -98,7 +98,7 @@ const AGENTES = [
     descripcion: 'Detecta cuellos de botella en tus operaciones y propone soluciones concretas para trabajar menos horas con más resultado.',
     usos: ['Mapear procesos actuales', 'Identificar tareas a eliminar o automatizar', 'Crear checklist operativos'],
     pilar: 'Procesos',
-    estado: 'proximo' as const,
+    estado: 'disponible' as const,
     chatgptUrl: '',
   },
   {
@@ -118,7 +118,7 @@ const AGENTES = [
     descripcion: 'Diseña estrategias concretas para retener clientes, aumentar la frecuencia de compra y subir el ticket medio.',
     usos: ['Plan de fidelización paso a paso', 'Ideas para aumentar ticket medio', 'Sistemas de repetición de compra'],
     pilar: 'Ventas',
-    estado: 'proximo' as const,
+    estado: 'disponible' as const,
     chatgptUrl: '',
   },
   {
