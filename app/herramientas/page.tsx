@@ -95,9 +95,9 @@ const herramientas = [
     slug: 'test-diagnostico',
     titulo: 'Test de diagnóstico de rentabilidad',
     subtitulo: 'Detecta los puntos de fuga de tu negocio',
-    descripcion: '10 preguntas para identificar los principales problemas de rentabilidad de tu negocio. Con recomendaciones al final.',
-    estado: 'próximamente',
-    href: null,
+    descripcion: '10 preguntas para identificar los principales problemas de rentabilidad de tu negocio. Con recomendaciones concretas al final.',
+    estado: 'disponible',
+    href: '/herramientas/test-diagnostico/',
   },
 ]
 
