@@ -44,7 +44,7 @@ const MINICURSOS = [
     lecciones: 1,
     pilar: 'Precios',
     nivel: 'Básico',
-    estado: 'próximamente',
+    estado: 'disponible',
   },
   {
     slug: 'presupuesto-mensual-basico',
@@ -71,7 +71,7 @@ const MINICURSOS = [
     lecciones: 1,
     pilar: 'Precios',
     nivel: 'Básico',
-    estado: 'próximamente',
+    estado: 'disponible',
   },
 ]
 

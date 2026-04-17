@@ -55,6 +55,18 @@ const MINICURSOS_META: Record<string, { titulo: string; descripcion: string; pil
     pilar: 'Producto/Servicio',
     nivel: 'Básico',
   },
+  'calcula-tu-margen-bruto': {
+    titulo: 'Calcula tu margen bruto real',
+    descripcion: 'Descubre qué porcentaje de cada venta es realmente tuyo. Sin margen real no hay negocio: esto es lo primero que debes medir y el punto de partida de cualquier mejora de rentabilidad.',
+    pilar: 'Precios',
+    nivel: 'Básico',
+  },
+  'fija-precio-a-un-servicio-nuevo': {
+    titulo: 'Fija el precio de un servicio nuevo',
+    descripcion: 'Cómo poner precio a algo que no has vendido antes: sin inventarte el número, sin copiar a la competencia y sin cobrar de menos por miedo al rechazo.',
+    pilar: 'Precios',
+    nivel: 'Básico',
+  },
 }
 
 const NIVEL_COLORS: Record<string, string> = {
